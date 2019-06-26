@@ -24,7 +24,108 @@ Cache-Control: no-cache
 "Email":"345@qq.com"
 }
 
+<<<<<<< Updated upstream
 <> 2019-06-26T083255.500.json
+=======
+<> 2019-06-26T072258.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"1234567890",
+"Email":"1423567@qq.com"
+}
+
+<> 2019-06-26T072230.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"1234567890",
+"Email":"1423567@qq.com"
+}
+
+<> 2019-06-26T071536.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"1234567890",
+"Email":"1423567@qq.com"
+}
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"1234567890",
+"Email":"1423567@qq.com"
+}
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"1234567890",
+"Email":"1423567@qq.com"
+}
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"1234567890",
+"Email":"1423567@qq.com"
+}
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"1234567890",
+"Email":"1423567@qq.com"
+}
+
+<> 2019-06-24T092537.500.json
+>>>>>>> Stashed changes
 
 ###
 
@@ -629,6 +730,7 @@ Cache-Control: no-cache
 
 ###
 
+<<<<<<< Updated upstream
 POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
@@ -706,3 +808,5 @@ Cache-Control: no-cache
 
 ###
 
+=======
+>>>>>>> Stashed changes

@@ -1,8 +1,12 @@
+
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Net.Http;
 using System.Web.Http.Results;
+using System.Security.Cryptography;
 using EBook.Models;
+using MD5 = OracleInternal.Secure.Network.MD5;
 
 namespace EBook.Controllers
 {
@@ -15,16 +19,28 @@ namespace EBook.Controllers
         public async Task<IHttpActionResult> UpdateUser(Customer data)
         {
 
-             
+            Customer  customer = new Customer();
+
+
+
+            customer.Email = data.Email;
+            customer.Password = data.Password;
+            customer.FirstName = data.FirstName;
+
+            customer.PhoneNum = data.PhoneNum;
+
+
             
-          
-            db.Customers.Add(data);
+            db.Customers.Add(customer);
             
             
             await db.SaveChangesAsync();
             
           
-            
+
+
+            HttpContext.Current.Session["id"] = data.Email;
+          
             
             return Ok();
         } 

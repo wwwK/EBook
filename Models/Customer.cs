@@ -29,16 +29,16 @@ namespace EBook.Models
         [JsonIgnore] 
         public string Password { get; set; }
 
-/*
+
         [JsonIgnore]
         [MaxLength(20)]
         public string PasswordHash
         {
-            get { return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Password, "MD5").ToLower().Substring(8, 16);; }
+            get { return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Password, "MD5").ToLower().Substring(8, 16); }
             set { PasswordHash = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Password, "MD5").ToLower().Substring(8, 16);}
 
         }
-        */     
+       
         
         public int DefaultAddressIndex { get; set; }
         
@@ -79,6 +79,7 @@ namespace EBook.Models
         public int Point { get; set; }
 
         
+        [JsonIgnore]
         
         // public ICollection<CustomerAddress> CustomerAddresses { get; set; }
         
@@ -87,8 +88,7 @@ namespace EBook.Models
         // public ICollection<Collect> Collection { get; set; }
         public Customer()
         {
-            PhoneNum = "1233211234567";
-            Email = "631101@qq.com";
+            
         }
 
 

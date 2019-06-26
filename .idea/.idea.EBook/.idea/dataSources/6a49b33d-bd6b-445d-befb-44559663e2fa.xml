@@ -36,9 +36,9 @@
     </schema>
     <schema id="12" parent="1" name="EBOOK">
       <ObjectId>103</ObjectId>
-      <CreatedTimestamp>2019-06-13.21:24:59</CreatedTimestamp>
-      <ModifiedTimestamp>2019-06-26.20:20:59</ModifiedTimestamp>
-      <IntrospectionTimestamp>2019-06-26.20:36:17</IntrospectionTimestamp>
+      <CreatedTimestamp>2019-06-12.02:42:28</CreatedTimestamp>
+      <ModifiedTimestamp>2019-06-26.17:05:14</ModifiedTimestamp>
+      <IntrospectionTimestamp>2019-06-26.19:14:43</IntrospectionTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
