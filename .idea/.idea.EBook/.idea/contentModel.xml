@@ -85,6 +85,7 @@
         <e p="jquery.validate.unobtrusive.min.js" t="Include" />
         <e p="modernizr-2.8.3.js" t="Include" />
       </e>
+      <e p="Service" t="Include" />
       <e p="Web.config" t="Include" />
       <e p="Web.Debug.config" t="Include" />
       <e p="Web.Release.config" t="Include" />
