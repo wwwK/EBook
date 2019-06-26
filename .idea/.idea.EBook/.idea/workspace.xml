@@ -1,0 +1,1697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="439a87ef-966e-4cdf-8d1d-c19d895f4e82" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App_Start/BundleConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App_Start/FilterConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App_Start/RouteConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App_Start/WebApiConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Site.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bootstrap-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bootstrap-theme.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bootstrap-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bootstrap-theme.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/CustomerController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EBook.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EBook.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Global.asax" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Global.asax.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/Configuration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Migrations/Init.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/AnswerFor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Book.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Collect.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Coupon.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Customer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/CustomerAddress.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Merchandise.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/OracleDbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Own.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/QA.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Seller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/ShoppingCart.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Transact.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/VipMember.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.intellisense.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.slim.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.slim.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.slim.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/jquery.validate-vsdoc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/jquery.validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/jquery.validate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/jquery.validate.unobtrusive.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/jquery.validate.unobtrusive.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/modernizr-2.8.3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Home/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/_ViewStart.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web.Debug.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web.Release.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages.config" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@118.89.54.249" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@118.89.54.249" type="feb32156:DbDataSourceImpl" />
+        <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@118.89.54.249" type="feb32156:DbDataSourceImpl" />
+        <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="TEST: table" type="942f455b:OraImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="CustomerAddresses: table" type="942f455b:OraImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="Customers: table" type="942f455b:OraImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/Own.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+              <folding>
+                <marker date="1560686861817" expanded="true" signature="6:167" ph="..." />
+                <marker date="1560686861817" expanded="true" signature="191:580" ph="{...}" />
+                <marker date="1560686861817" expanded="true" signature="214:578" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/QA.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+              <folding>
+                <marker date="1560686861821" expanded="true" signature="6:167" ph="..." />
+                <marker date="1560686861821" expanded="true" signature="191:811" ph="{...}" />
+                <marker date="1560686861821" expanded="true" signature="213:809" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/Seller.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+              <folding>
+                <marker date="1560518466510" expanded="true" signature="6:167" ph="..." />
+                <marker date="1560518466510" expanded="true" signature="191:759" ph="{...}" />
+                <marker date="1560518466510" expanded="true" signature="217:757" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/ShoppingCart.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+              <folding>
+                <marker date="1560686861823" expanded="true" signature="6:167" ph="..." />
+                <marker date="1560686861823" expanded="true" signature="192:536" ph="{...}" />
+                <marker date="1560686861823" expanded="true" signature="224:534" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/Transact.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+              <folding>
+                <marker date="1560394659144" expanded="true" signature="6:110" ph="..." />
+                <marker date="1560394659144" expanded="true" signature="134:1074" ph="{...}" />
+                <marker date="1560394659144" expanded="true" signature="162:1072" ph="{...}" />
+                <marker date="1560394659144" expanded="true" signature="527:1057" ph="/* [ForeignKey(&quot;CustomerId&quot;)] ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/Customer.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="960">
+              <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+              <folding>
+                <marker date="1560494568980" expanded="true" signature="6:168" ph="..." />
+                <marker date="1560494568980" expanded="true" signature="192:2005" ph="{...}" />
+                <marker date="1560494568980" expanded="true" signature="230:2003" ph="{...}" />
+                <marker date="1560494568980" expanded="true" signature="613:1029" ph="/* [JsonIgnore] ... */" />
+                <marker date="1560494568980" expanded="true" signature="1485:1613" ph="{...}" />
+                <marker date="1560494568980" expanded="true" signature="1511:1603" ph="{...}" />
+                <marker date="1560494568980" expanded="true" signature="1898:1995" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/VipMember.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+              <folding>
+                <marker date="1560479465669" expanded="true" signature="6:167" ph="..." />
+                <marker date="1560479465669" expanded="true" signature="191:618" ph="{...}" />
+                <marker date="1560479465669" expanded="true" signature="220:616" ph="{...}" />
+                <marker date="1560479465669" expanded="true" signature="233:609" ph="/* [ForeignKey(&quot;CustomerId&quot;)] ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App_Start/WebApiConfig.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+              <folding>
+                <marker date="1559872660157" expanded="true" signature="6:50" ph="..." />
+                <marker date="1559872660157" expanded="true" signature="69:610" ph="{...}" />
+                <marker date="1559872660157" expanded="true" signature="101:608" ph="{...}" />
+                <marker date="1559872660157" expanded="true" signature="169:602" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/Coupon.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+              <folding>
+                <marker date="1560406024956" expanded="true" signature="6:58" ph="..." />
+                <marker date="1560406024956" expanded="true" signature="82:488" ph="{...}" />
+                <marker date="1560406024956" expanded="true" signature="108:486" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/App.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/ShoppingCart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/OracleDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Merchandise.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Book.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Customer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/VipMember.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Seller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Coupon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/CustomerAddress.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Collect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Own.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/AnswerFor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Transact.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/QA.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/CustomerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App_Start/WebApiConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App_Start/BundleConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App_Start/FilterConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Migrations/Configuration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Migrations/Init.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/packages.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B7B192E5-A05F-4F14-A14A-A0D5B14AEEEB/af/271a8d05/LazyInternalConnection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Global.asax.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/App_Start/WebApiConfig.cs" />
+        <option value="$PROJECT_DIR$/Views/Home/Index.cshtml" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="d2049d61-3515-4bc9-b961-a606c83818f6/schema/EBOOK/table/__MigrationHistory/index/PK___MigrationHistory" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" />
+        <option value="$PROJECT_DIR$/Migrations/Basic.cs" />
+        <option value="$PROJECT_DIR$/Web.config" />
+        <option value="$PROJECT_DIR$/App.config" />
+        <option value="$PROJECT_DIR$/Global.asax.cs" />
+        <option value="$PROJECT_DIR$/Models/Merchandise.cs" />
+        <option value="$PROJECT_DIR$/Migrations/Init.cs" />
+        <option value="$PROJECT_DIR$/Models/Coupon.cs" />
+        <option value="$PROJECT_DIR$/Models/Book.cs" />
+        <option value="$PROJECT_DIR$/Models/Transact.cs" />
+        <option value="$PROJECT_DIR$/Models/VipMember.cs" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" />
+        <option value="$PROJECT_DIR$/Controllers/CustomerController.cs" />
+        <option value="$PROJECT_DIR$/Models/Customer.cs" />
+        <option value="$PROJECT_DIR$/Models/Seller.cs" />
+        <option value="$PROJECT_DIR$/Models/OracleDbContext.cs" />
+        <option value="$PROJECT_DIR$/Models/CustomerAddress.cs" />
+        <option value="$PROJECT_DIR$/Models/AnswerFor.cs" />
+        <option value="$PROJECT_DIR$/Models/Collect.cs" />
+        <option value="$PROJECT_DIR$/Models/Own.cs" />
+        <option value="$PROJECT_DIR$/Models/QA.cs" />
+        <option value="$PROJECT_DIR$/Models/ShoppingCart.cs" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="FileSystemExplorer" />
+      <pane id="AssemblyExplorer" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Web.config" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-all-files" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ChangesTree.GroupingKeys" value="directory" />
+    <property name="DatabaseDriversLRU" value="oracle" />
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="ShaderLab" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer/" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;FirstName&quot;:&quot;zaq&quot;,&#10;&quot;Password&quot;:&quot;12345&quot;,&#10;&quot;PhoneNum&quot;:&quot;1234567890&quot;,&#10;&quot;Email&quot;:&quot;1423567@qq.com&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer/1423567@qq.com" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{ &quot;FirstName&quot;:&quot;zaq&quot;, &quot;Password&quot;:&quot;12345&quot;, &quot;PhoneNum&quot;:&quot;1234567890&quot;, &quot;Email&quot;:&quot;1423567&quot; }" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer/1" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{ &quot;FirstName&quot;:&quot;zaq&quot;, &quot;Password&quot;:&quot;12345&quot;, &quot;PhoneNum&quot;:&quot;1234567890&quot;, &quot;Email&quot;:&quot;1423567&quot; }" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer/" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;FirstName&quot;:&quot;zaq&quot;,&#10;&quot;Password&quot;:&quot;12345&quot;,&#10;&quot;PhoneNum&quot;:&quot;1234567890&quot;,&#10;&quot;Email&quot;:&quot;1423567&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer/" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;FirstName&quot;:&quot;zaq&quot;,&#10;&#10;&quot;Password&quot;:&quot;12345&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer/" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;CustomerId&quot;:2,&#10;&#10;&quot;Password&quot;:&quot;12345&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer/1" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;CustomerId&quot;:2,&#10;&quot;FirstName&quot;:&quot;zaq&quot;,&#10;&quot;Password&quot;:&quot;12345&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer/1" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;CustomerId&quot;:2,&#10;&quot;FirstName&quot;:&quot;zaq&quot;,&#10;&quot;password&quot;:&quot;12345&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer/1" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer/1" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;CustomerId&quot;:2,&#10;&quot;FirstName&quot;:&quot;zaq&quot;,&#10;&quot;password&quot;:&quot;12345&quot;&#10;}›" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer/1" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;CustomerId&quot;:2,&#10;&quot;FirstName&quot;:&quot;zaq&quot;,&#10;&quot;Password&quot;:&quot;12345&quot;&#10;}›" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;CustomerId&quot;:2,&#10;&quot;FirstName&quot;:&quot;zaq&quot;,&#10;&quot;Password&quot;:&quot;12345&quot;&#10;}›" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;CustomerId&quot;:2,&#10;&quot;FirstName&quot;:&quot;zaq&quot;,&#10;&quot;Password&quot;:&quot;12345&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;CustomerId&quot;:&quot;2&quot;,&#10;&quot;FirstName&quot;:&quot;熊&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:&quot;2&quot;,&#10;&quot;FirstName&quot;:&quot;熊&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:5000/api/User/test" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:&quot;3&quot;,&#10;&quot;FirstName&quot;:&quot;熊&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:&quot;1&quot;,&#10;&quot;Name&quot;:&quot;熊&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:&quot;1&quot;,&#10;&quot;FirstName&quot;:&quot;熊&quot;,&#10;&quot;LastName&quot;:&quot;一峰&quot;,&#10;&quot;NickName&quot;:&quot;sparkxyf&quot;,&#10;&quot;Password&quot;:&quot;jdshkfi&quot;,&#10;&quot;AddressIndex&quot;:1,&#10;&quot;IdCardNum&quot;:&quot;dasfgasdfgh&quot;&#10;&quot;Phone&quot;:&quot;21345678&quot;,&#10;&quot;Email&quot;:jkadsfh,&#10;&quot;DateOfBirth&quot;:1&#10;&quot;Point&quot;:10&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:&quot;1&quot;,&#10;&quot;FirstName&quot;:&quot;熊&quot;,&#10;&quot;LastName&quot;:&quot;一峰&quot;,&#10;&quot;NickName&quot;:&quot;sparkxyf&quot;,&#10;&quot;Password&quot;:&quot;jdshkfi&quot;,&#10;&quot;AddressIndex&quot;:1,&#10;&quot;IdCardNum&quot;:&quot;dasfgasdfgh&quot;&#10;&quot;Phone&quot;:&quot;21345678&quot;,&#10;&quot;Email&quot;:jkadsfh,&#10;&quot;DateOfBirth&quot;:1&#10;&quot;Point&quot;:10&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:1,&#10;&quot;FirstName&quot;:&quot;熊&quot;,&#10;&quot;LastName&quot;:&quot;一峰&quot;,&#10;&quot;NickName&quot;:&quot;sparkxyf&quot;,&#10;&quot;Password&quot;:&quot;jdshkfi&quot;,&#10;&quot;AddressIndex&quot;:1,&#10;&quot;IdCardNum&quot;:&quot;dasfgasdfgh&quot;&#10;&quot;Phone&quot;:21345678,&#10;&quot;Email&quot;:jkadsfh,&#10;&quot;DateOfBirth&quot;:1&#10;&quot;Point&quot;:10&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:1,&#10;&quot;FirstName&quot;:&quot;熊&quot;,&#10;&quot;LastName&quot;:&quot;一峰&quot;,&#10;&quot;NickName&quot;:&quot;sparkxyf&quot;,&#10;&quot;Password&quot;:&quot;jdshkfi&quot;,&#10;&quot;AddressIndex&quot;:1,&#10;&quot;IdCardNum&quot;:&quot;dasfgasdfgh&quot;&#10;&quot;Phone&quot;:21345678,&#10;&quot;Email&quot;:jkadsfh,&#10;&quot;DateOfBirth&quot;:null&#10;&quot;Point&quot;:10&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:1,&#10;&quot;FirstName&quot;:&quot;ksdjahfk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:1,&#10;&quot;Name&quot;:&quot;ksdjahfk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:324 ,&#10;&quot;Name&quot;:&quot;ksdjahfk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;: 324 ,&#10;&quot;Name&quot;:&quot;ksdjahfk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;: &quot;324&quot; ,&#10;&quot;Name&quot;:&quot;ksdjahfk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;: 1111 ,&#10;&quot;Name&quot;:&quot;666&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:1111,&#10;&quot;Name&quot;:&quot;666&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:&quot;1111&quot;&#10;&quot;Name&quot;:&quot;666&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;::&quot;1111&quot;&#10;&quot;Name&quot;:&quot;666&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:1111&#10;&quot;Name&quot;:&quot;666&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Id&quot;:'1111'&#10;&#10;&quot;Name&quot;:&quot;666&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="HTTP Request.rest-api_2#1">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5/xsp4.exe" />
+      <option name="PROGRAM_PARAMETERS" value="--address=127.0.0.1 --port=5000" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <envs>
+        <env name="MONO_MANAGED_WATCHER" value="y" />
+      </envs>
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/EBook.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Web" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.7.2" />
+      <browser url="http://127.0.0.1:5000/" start="true" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rest-api#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest-api_1#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest-api_2#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.rest-api_2#1" />
+        <item itemvalue="HTTP Request.rest-api#1" />
+        <item itemvalue="HTTP Request.rest-api_1#1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="439a87ef-966e-4cdf-8d1d-c19d895f4e82" name="Default Changelist" comment="" />
+      <created>1559872477809</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559872477809</updated>
+      <workItem from="1559872478957" duration="2878000" />
+      <workItem from="1559879858478" duration="2709000" />
+      <workItem from="1559895372985" duration="884000" />
+      <workItem from="1559901387834" duration="7879000" />
+      <workItem from="1559965202985" duration="102000" />
+      <workItem from="1559965461418" duration="1029000" />
+      <workItem from="1560000094440" duration="7801000" />
+      <workItem from="1560105455869" duration="3943000" />
+      <workItem from="1560236670872" duration="2774000" />
+      <workItem from="1560246909459" duration="102000" />
+      <workItem from="1560247033680" duration="4640000" />
+      <workItem from="1560263765559" duration="13220000" />
+      <workItem from="1560345080206" duration="12822000" />
+      <workItem from="1560427026463" duration="1121000" />
+      <workItem from="1560432594428" duration="3264000" />
+      <workItem from="1560479185240" duration="4210000" />
+      <workItem from="1561183625727" duration="281000" />
+      <workItem from="1561382643618" duration="166000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="69825000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49518073" visible="true" weight="0.17453505" />
+      <window_info id="Structure" order="1" sideWeight="0.5048193" side_tool="true" weight="0.16165951" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.44134477" weight="0.3987952" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.78612304" weight="0.3987952" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49785408" weight="0.32891566" />
+      <window_info anchor="bottom" id="NuGet" order="7" sideWeight="0.4899857" weight="0.32891566" />
+      <window_info anchor="bottom" id="Performance Profiler" order="8" sideWeight="0.4985694" weight="0.32891566" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49928468" weight="0.32891566" />
+      <window_info anchor="bottom" id="Database Changes" order="11" sideWeight="0.49570817" weight="0.32771084" />
+      <window_info anchor="bottom" id="Unit Tests" order="12" sideWeight="0.4985694" weight="0.32784638" />
+      <window_info anchor="bottom" x="371" y="313" width="697" height="273" id="REST Client" order="13" sideWeight="0.4985694" type="WINDOWED" weight="0.32891566" />
+      <window_info anchor="bottom" id="Terminal" order="14" sideWeight="0.49499285" weight="0.32891566" />
+      <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.5586552" side_tool="true" weight="0.3987952" />
+      <window_info anchor="bottom" id="Build" order="16" sideWeight="0.4434907" weight="0.32650602" />
+      <window_info anchor="bottom" id="Entity Framework" order="17" sideWeight="0.21173105" side_tool="true" weight="0.3987952" />
+      <window_info anchor="bottom" id="Database Console" order="18" sideWeight="0.49785408" weight="0.32784638" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" weight="0.3297568" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.2160229" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="5" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49641576" visible="true" weight="0.22819768" />
+      <window_info id="Structure" order="1" sideWeight="0.5035842" side_tool="true" weight="0.22317597" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47854078" visible="true" weight="0.32771084" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.80472106" weight="0.3987952" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="NuGet" order="7" sideWeight="0.49284694" weight="0.32891566" />
+      <window_info anchor="bottom" id="Performance Profiler" order="8" sideWeight="0.49928468" weight="0.32891566" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49928468" weight="0.32891566" />
+      <window_info anchor="bottom" id="Database Changes" order="11" sideWeight="0.49642345" weight="0.32771084" />
+      <window_info anchor="bottom" id="Unit Tests" order="12" sideWeight="0.4985694" weight="0.32784638" />
+      <window_info anchor="bottom" x="371" y="313" width="697" height="273" id="REST Client" order="13" sideWeight="0.4985694" type="WINDOWED" weight="0.32891566" />
+      <window_info anchor="bottom" id="Terminal" order="14" sideWeight="0.4955357" weight="0.32891566" />
+      <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.5064378" side_tool="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Build" order="16" sideWeight="0.47696584" weight="0.32673267" />
+      <window_info anchor="bottom" id="Entity Framework" order="17" sideWeight="0.5214592" side_tool="true" weight="0.32771084" />
+      <window_info anchor="bottom" id="Database Console" order="18" sideWeight="0.49785408" weight="0.32784638" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="right" id="Database" order="4" weight="0.2274678" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="5" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/CustomerController.cs</url>
+          <line>23</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/CustomerController.cs" initialLine="21">
+            <startOffsets>
+              <option value="530" />
+            </startOffsets>
+            <endOffsets>
+              <option value="558" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/CustomerController.cs</url>
+          <line>28</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/CustomerController.cs" initialLine="26">
+            <startOffsets>
+              <option value="621" />
+            </startOffsets>
+            <endOffsets>
+              <option value="633" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/CustomerController.cs</url>
+          <line>20</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/CustomerController.cs" initialLine="18">
+            <startOffsets>
+              <option value="468" />
+            </startOffsets>
+            <endOffsets>
+              <option value="491" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="dbSrc:///ff6c524b/d2049d61-3515-4bc9-b961-a606c83818f6/schema/EBOOK/table/Customers/trigger/TR_Customers.sql" />
+    <entry file="das://d2049d61-3515-4bc9-b961-a606c83818f6/schema/EBOOK/table/Customers/index/PK_Customers" />
+    <entry file="das://d2049d61-3515-4bc9-b961-a606c83818f6/schema/EBOOK/table/Customers" />
+    <entry file="das://d2049d61-3515-4bc9-b961-a606c83818f6/schema/EBOOK/table/__MigrationHistory/index/PK___MigrationHistory" />
+    <entry file="file://$PROJECT_DIR$/Properties/AssemblyInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1559872489295" expanded="true" signature="6:101" ph="..." />
+            <marker date="1559872489295" expanded="true" signature="103:289" ph="/* General Information about an assembly is controlled through the following ... */" />
+            <marker date="1559872489295" expanded="true" signature="586:794" ph="/* Setting ComVisible to false makes the types in this assembly not visible ... */" />
+            <marker date="1559872489295" expanded="true" signature="969:1254" ph="/* Version information for an assembly consists of the following four values: ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d2049d61-3515-4bc9-b961-a606c83818f6/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" />
+    <entry file="file://$PROJECT_DIR$/Migrations/Basic.cs" />
+    <entry file="file://$USER_HOME$/Library/Logs/Rider2019.1/SolutionBuilder/JetBrainsLog.ReSharperBuild_2019_06_11_08_09_31_9861.log" />
+    <entry file="file://$PROJECT_DIR$/favicon.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B7B192E5-A05F-4F14-A14A-A0D5B14AEEEB/af/271a8d05/LazyInternalConnection.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1620">
+          <caret line="118" column="82" selection-start-line="118" selection-start-column="82" selection-end-line="118" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/Coupons" />
+    <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/Coupons/index/PK_Coupons" />
+    <entry file="dbSrc:///ff6c524b/6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/Coupons/trigger/TR_Coupons.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6a49b33d-bd6b-445d-befb-44559663e2fa/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="28" column="97" selection-start-line="28" selection-start-column="97" selection-end-line="28" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="113" column="45" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Migrations/Configuration.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding>
+            <marker date="1560238431804" expanded="true" signature="7:96" ph="..." />
+            <marker date="1560238431804" expanded="true" signature="124:337" ph="{...}" />
+            <marker date="1560238431804" expanded="true" signature="224:334" ph="{...}" />
+            <marker date="1560238431804" expanded="true" signature="261:328" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages.config">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Global.asax.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding>
+            <marker date="1560367058477" expanded="true" signature="6:212" ph="..." />
+            <marker date="1560367058477" expanded="true" signature="229:822" ph="{...}" />
+            <marker date="1560367058477" expanded="true" signature="292:820" ph="{...}" />
+            <marker date="1560367058477" expanded="true" signature="341:814" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App_Start/BundleConfig.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <marker date="1559872489290" expanded="false" signature="6:48" ph="..." />
+            <marker date="1559872489290" expanded="true" signature="65:1146" ph="{...}" />
+            <marker date="1559872489290" expanded="true" signature="97:1144" ph="{...}" />
+            <marker date="1559872489290" expanded="true" signature="270:1138" ph="{...}" />
+            <marker date="1559872489290" expanded="true" signature="537:744" ph="/* Use the development version of Modernizr to develop with and learn from. Then, when you're ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App_Start/FilterConfig.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+          <folding>
+            <marker date="1559872489292" expanded="true" signature="6:39" ph="..." />
+            <marker date="1559872489292" expanded="true" signature="56:256" ph="{...}" />
+            <marker date="1559872489292" expanded="true" signature="88:254" ph="{...}" />
+            <marker date="1559872489292" expanded="true" signature="175:248" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.shader" />
+    <entry file="file://$PROJECT_DIR$/Migrations/Init.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+          <folding>
+            <marker date="1560391832436" expanded="true" signature="6:89" ph="..." />
+            <marker date="1560391832436" expanded="true" signature="117:2038" ph="{...}" />
+            <marker date="1560391832436" expanded="true" signature="154:2036" ph="{...}" />
+            <marker date="1560391832436" expanded="true" signature="194:1876" ph="{...}" />
+            <marker date="1560391832436" expanded="true" signature="215:1865" ph="/* CreateTable( ... */" />
+            <marker date="1560391832436" expanded="true" signature="1914:2030" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/CustomerAddresses/index/PK_CustomerAddresses">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/CustomerAddresses/index/IX_CustomerAddresses_594352071">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbSrc:///ff6c524b/6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/Customers/trigger/TR_Customers.sql" />
+    <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/Customers/index/IX_Customers_Email">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/Customers/index/PK_Customers">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api.http">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/CustomerController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="39" column="55" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="55" />
+          <folding>
+            <marker date="1560480102340" expanded="true" signature="6:121" ph="..." />
+            <marker date="1560480102340" expanded="true" signature="204:1091" ph="{...}" />
+            <marker date="1560480102340" expanded="true" signature="406:643" ph="{...}" />
+            <marker date="1560480102340" expanded="true" signature="820:1083" ph="{...}" />
+            <marker date="1560480102340" expanded="true" signature="934:1026" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/sequence/SQ_CustomerAddresses">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/OracleDbContext.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+          <folding>
+            <marker date="1560518466514" expanded="true" signature="6:141" ph="..." />
+            <marker date="1560518466514" expanded="true" signature="166:1371" ph="{...}" />
+            <marker date="1560518466514" expanded="true" signature="212:1369" ph="{...}" />
+            <marker date="1560518466514" expanded="true" signature="282:302" ph="{...}" />
+            <marker date="1560518466514" expanded="true" signature="527:1186" ph="/* public DbSet&lt;Transact&gt; Transacts { get; set; } ... */" />
+            <marker date="1560518466514" expanded="true" signature="1264:1363" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/Customers/index/IX_Customers_PhoneNum">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/Customers">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="272cbccb-caaf-4966-9374-0769a4dd5161">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/CustomerAddresses">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="272cbccb-caaf-4966-9374-0769a4dd5161">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/AnswerFor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+          <folding>
+            <marker date="1560686772664" expanded="true" signature="6:167" ph="..." />
+            <marker date="1560686772664" expanded="true" signature="191:512" ph="{...}" />
+            <marker date="1560686772664" expanded="true" signature="220:510" ph="{...}" />
+            <marker date="1560686772664" expanded="true" signature="281:503" ph="/* [Key] ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Book.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+          <folding>
+            <marker date="1560442300219" expanded="true" signature="6:167" ph="..." />
+            <marker date="1560442300219" expanded="true" signature="191:609" ph="{...}" />
+            <marker date="1560442300219" expanded="true" signature="215:607" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Collect.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+          <folding>
+            <marker date="1560686853457" expanded="true" signature="6:167" ph="..." />
+            <marker date="1560686853457" expanded="true" signature="191:597" ph="{...}" />
+            <marker date="1560686853457" expanded="true" signature="218:595" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/CustomerAddress.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="39" selection-start-line="39" selection-end-line="41" selection-end-column="50" />
+          <folding>
+            <marker date="1560686506200" expanded="true" signature="6:133" ph="..." />
+            <marker date="1560686506200" expanded="true" signature="157:974" ph="{...}" />
+            <marker date="1560686506200" expanded="true" signature="192:972" ph="{...}" />
+            <marker date="1560686506200" expanded="true" signature="885:963" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Merchandise.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="28" />
+          <folding>
+            <marker date="1560391611080" expanded="true" signature="6:133" ph="..." />
+            <marker date="1560391611080" expanded="true" signature="157:483" ph="{...}" />
+            <marker date="1560391611080" expanded="true" signature="188:481" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Own.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding>
+            <marker date="1560686861817" expanded="true" signature="6:167" ph="..." />
+            <marker date="1560686861817" expanded="true" signature="214:578" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/QA.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding>
+            <marker date="1560686861821" expanded="true" signature="6:167" ph="..." />
+            <marker date="1560686861821" expanded="true" signature="213:809" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Seller.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+          <folding>
+            <marker date="1560518466510" expanded="true" signature="6:167" ph="..." />
+            <marker date="1560518466510" expanded="true" signature="217:757" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/ShoppingCart.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding>
+            <marker date="1560686861823" expanded="true" signature="6:167" ph="..." />
+            <marker date="1560686861823" expanded="true" signature="224:534" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Transact.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding>
+            <marker date="1560394659144" expanded="true" signature="6:110" ph="..." />
+            <marker date="1560394659144" expanded="true" signature="162:1072" ph="{...}" />
+            <marker date="1560394659144" expanded="true" signature="527:1057" ph="/* [ForeignKey(&quot;CustomerId&quot;)] ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Customer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+          <folding>
+            <marker date="1560494568980" expanded="true" signature="6:168" ph="..." />
+            <marker date="1560494568980" expanded="true" signature="230:2003" ph="{...}" />
+            <marker date="1560494568980" expanded="true" signature="613:1029" ph="/* [JsonIgnore] ... */" />
+            <marker date="1560494568980" expanded="true" signature="1485:1613" ph="{...}" />
+            <marker date="1560494568980" expanded="true" signature="1511:1603" ph="{...}" />
+            <marker date="1560494568980" expanded="true" signature="1898:1995" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/VipMember.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+          <folding>
+            <marker date="1560479465669" expanded="true" signature="6:167" ph="..." />
+            <marker date="1560479465669" expanded="true" signature="191:618" ph="{...}" />
+            <marker date="1560479465669" expanded="true" signature="220:616" ph="{...}" />
+            <marker date="1560479465669" expanded="true" signature="233:609" ph="/* [ForeignKey(&quot;CustomerId&quot;)] ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Coupon.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding>
+            <marker date="1560406024956" expanded="true" signature="6:58" ph="..." />
+            <marker date="1560406024956" expanded="true" signature="108:486" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App_Start/WebApiConfig.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+          <folding>
+            <marker date="1559872660157" expanded="true" signature="6:50" ph="..." />
+            <marker date="1559872660157" expanded="true" signature="69:610" ph="{...}" />
+            <marker date="1559872660157" expanded="true" signature="101:608" ph="{...}" />
+            <marker date="1559872660157" expanded="true" signature="169:602" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Remote.Linq.EntityFramework</name>
+    </assembly>
+    <members>
+        <member name="M:Remote.Linq.EntityFramework.EntityFrameworkExpressionExecutor.GetQueryableSetProvider(System.Data.Entity.DbContext)">
+            <summary>
+            Returns the generic <see cref="T:System.Data.Entity.DbSet`1"/> for the type specified.
+            </summary>
+            <returns>Returns an instance of type <see cref="T:System.Data.Entity.DbSet`1"/>.</returns>
+        </member>
+        <member name="M:Remote.Linq.EntityFramework.ExpressionExtensions.EntityFrameworkExecutor(Remote.Linq.Expressions.Expression,System.Data.Entity.DbContext,Aqua.TypeSystem.ITypeResolver,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Creates an <see cref="T:Remote.Linq.Expressions.ExpressionExecutionContext" /> for the given <see cref="T:Remote.Linq.Expressions.Expression"/>.
+            </summary>
+            <param name="expression">The <see cref="T:Remote.Linq.Expressions.Expression"/> to be executed.</param>
+            <param name="dbContext">Instance of <see cref="T:System.Data.Entity.DbContext"/> to get the <see cref="T:System.Data.Entity.DbSet`1"/>.</param>
+            <param name="typeResolver">Optional instance of <see cref="T:Aqua.TypeSystem.ITypeResolver"/> to be used to translate <see cref="T:Aqua.TypeSystem.TypeInfo"/> into <see cref="T:System.Type"/> objects.</param>
+            <param name="mapper">Optional instance of <see cref="T:Aqua.Dynamic.IDynamicObjectMapper"/>.</param>
+            <param name="setTypeInformation">Function to define whether to add type information.</param>
+            <returns>A new instance <see cref="T:Remote.Linq.Expressions.ExpressionExecutionContext" />.</returns>
+        </member>
+        <member name="M:Remote.Linq.EntityFramework.ExpressionExtensions.EntityFrameworkExecutor(Remote.Linq.Expressions.Expression,System.Func{System.Type,System.Linq.IQueryable},Aqua.TypeSystem.ITypeResolver,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Creates an <see cref="T:Remote.Linq.Expressions.ExpressionExecutionContext" /> for the given <see cref="T:Remote.Linq.Expressions.Expression"/>.
+            </summary>
+            <param name="expression">The <see cref="T:Remote.Linq.Expressions.Expression"/> to be executed.</param>
+            <param name="queryableProvider">Delegate to provide <see cref="T:System.Linq.IQueryable"/> instances for given <see cref="T:System.Type"/>s.</param>
+            <param name="typeResolver">Optional instance of <see cref="T:Aqua.TypeSystem.ITypeResolver"/> to be used to translate <see cref="T:Aqua.TypeSystem.TypeInfo"/> into <see cref="T:System.Type"/> objects.</param>
+            <param name="mapper">Optional instance of <see cref="T:Aqua.Dynamic.IDynamicObjectMapper"/>.</param>
+            <param name="setTypeInformation">Function to define whether to add type information.</param>
+            <returns>A new instance <see cref="T:Remote.Linq.Expressions.ExpressionExecutionContext" />.</returns>
+        </member>
+        <member name="M:Remote.Linq.EntityFramework.ExpressionExtensions.ExecuteWithEntityFramework(Remote.Linq.Expressions.Expression,System.Data.Entity.DbContext,Aqua.TypeSystem.ITypeResolver,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Composes and executes the query based on the <see cref="T:Remote.Linq.Expressions.Expression"/> and mappes the result into dynamic objects.
+            </summary>
+            <param name="expression">The <see cref="T:Remote.Linq.Expressions.Expression"/> to be executed.</param>
+            <param name="dbContext">Instance of <see cref="T:System.Data.Entity.DbContext"/> to get the <see cref="T:System.Data.Entity.DbSet`1"/>.</param>
+            <param name="typeResolver">Optional instance of <see cref="T:Aqua.TypeSystem.ITypeResolver"/> to be used to translate <see cref="T:Aqua.TypeSystem.TypeInfo"/> into <see cref="T:System.Type"/> objects.</param>
+            <param name="mapper">Optional instance of <see cref="T:Aqua.Dynamic.IDynamicObjectMapper"/>.</param>
+            <param name="setTypeInformation">Function to define whether to add type information.</param>
+            <returns>The mapped result of the query execution.</returns>
+        </member>
+        <member name="M:Remote.Linq.EntityFramework.ExpressionExtensions.ExecuteWithEntityFramework(Remote.Linq.Expressions.Expression,System.Func{System.Type,System.Linq.IQueryable},Aqua.TypeSystem.ITypeResolver,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Composes and executes the query based on the <see cref="T:Remote.Linq.Expressions.Expression"/> and mappes the result into dynamic objects.
+            </summary>
+            <param name="expression">The <see cref="T:Remote.Linq.Expressions.Expression"/> to be executed.</param>
+            <param name="queryableProvider">Delegate to provide <see cref="T:System.Linq.IQueryable"/> instances for given <see cref="T:System.Type"/>s.</param>
+            <param name="typeResolver">Optional instance of <see cref="T:Aqua.TypeSystem.ITypeResolver"/> to be used to translate <see cref="T:Aqua.TypeSystem.TypeInfo"/> into <see cref="T:System.Type"/> objects.</param>
+            <param name="mapper">Optional instance of <see cref="T:Aqua.Dynamic.IDynamicObjectMapper"/>.</param>
+            <param name="setTypeInformation">Function to define whether to add type information.</param>
+            <returns>The mapped result of the query execution.</returns>
+        </member>
+        <member name="M:Remote.Linq.EntityFramework.ExpressionExtensions.PrepareForExecutionWithEntityFramework(Remote.Linq.Expressions.Expression,System.Data.Entity.DbContext,Aqua.TypeSystem.ITypeResolver)">
+            <summary>
+            Prepares the query <see cref="T:Remote.Linq.Expressions.Expression"/> to be able to be executed. <para/>
+            Use this method if you wan to execute the <see cref="T:System.Linq.Expressions.Expression"/> and map the raw result yourself.
+            </summary>
+            <param name="expression">The <see cref="T:Remote.Linq.Expressions.Expression"/> to be executed.</param>
+            <param name="dbContext">Instance of <see cref="T:System.Data.Entity.DbContext"/> to get the <see cref="T:System.Data.Entity.DbSet`1"/>.</param>
+            <param name="typeResolver">Optional instance of <see cref="T:Aqua.TypeSystem.ITypeResolver"/> to be used to translate <see cref="T:Aqua.TypeSystem.TypeInfo"/> into <see cref="T:System.Type"/> objects.</param>
+            <returns>A <see cref="T:System.Linq.Expressions.Expression"/> ready for execution.</returns>
+        </member>
+        <member name="M:Remote.Linq.EntityFramework.ExpressionExtensions.PrepareForExecutionWithEntityFramework(Remote.Linq.Expressions.Expression,System.Func{System.Type,System.Linq.IQueryable},Aqua.TypeSystem.ITypeResolver)">
+            <summary>
+            Prepares the query <see cref="T:Remote.Linq.Expressions.Expression"/> to be able to be executed. <para/>
+            Use this method if you wan to execute the <see cref="T:System.Linq.Expressions.Expression"/> and map the raw result yourself. <para/>
+            Please note that Inlude operation has no effect if using non-generic method <see cref="T:System.Linq.IQueryable" /> <see cref="T:System.Data.Entity.DbContext" />.Get(<see cref="T:System.Type" />) as queryableProvider.
+            Better use generic version instead.
+            </summary>
+            <param name="expression">The <see cref="T:Remote.Linq.Expressions.Expression"/> to be executed.</param>
+            <param name="queryableProvider">Delegate to provide <see cref="T:System.Linq.IQueryable"/> instances based on <see cref="T:System.Type"/>s.</param>
+            <param name="typeResolver">Optional instance of <see cref="T:Aqua.TypeSystem.ITypeResolver"/> to be used to translate <see cref="T:Aqua.TypeSystem.TypeInfo"/> into <see cref="T:System.Type"/> objects.</param>
+            <returns>A <see cref="T:System.Linq.Expressions.Expression"/> ready for execution.</returns>
+        </member>
+        <member name="M:Remote.Linq.EntityFramework.RemoteExpressionReWriter.ReplaceIncludeMethodCall(Remote.Linq.Expressions.Expression)">
+            <summary>
+            Replaces resource descriptors by queryable and replaces include method call with entity framework's include methods.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.EntityFramework.SystemExpressionReWriter.ReplaceParameterizedConstructorCallsForVariableQueryArguments(System.Linq.Expressions.Expression)">
+            <summary>
+            Replaces parameterized constructor calls for <see cref="T:Remote.Linq.DynamicQuery.VariableQueryArgument`1"/> with type initializer.
+            </summary>
+        </member>
+    </members>
+</doc>
