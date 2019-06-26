@@ -1,75 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="439a87ef-966e-4cdf-8d1d-c19d895f4e82" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App_Start/BundleConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App_Start/FilterConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App_Start/RouteConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App_Start/WebApiConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Site.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bootstrap-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bootstrap-theme.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bootstrap-theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bootstrap-theme.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/CustomerController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EBook.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EBook.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Global.asax" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Global.asax.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/Configuration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/Init.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/AnswerFor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Book.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Collect.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Coupon.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Customer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/CustomerAddress.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Merchandise.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/OracleDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Own.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/QA.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Seller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/ShoppingCart.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Transact.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/VipMember.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Properties/AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.intellisense.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.slim.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.slim.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jquery-3.3.1.slim.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jquery.validate-vsdoc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jquery.validate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jquery.validate.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jquery.validate.unobtrusive.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jquery.validate.unobtrusive.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/modernizr-2.8.3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/Home/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/Web.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/_ViewStart.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web.Debug.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web.Release.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages.config" afterDir="false" />
-    </list>
+    <list default="true" id="439a87ef-966e-4cdf-8d1d-c19d895f4e82" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,20 +50,6 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="CustomerAddresses: table" type="942f455b:OraImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="Customers: table" type="942f455b:OraImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -245,8 +163,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App_Start/WebApiConfig.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+            <state relative-caret-position="270">
+              <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
               <folding>
                 <marker date="1559872660157" expanded="true" signature="6:50" ph="..." />
                 <marker date="1559872660157" expanded="true" signature="69:610" ph="{...}" />
@@ -260,8 +178,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+            <state relative-caret-position="82">
+              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -360,7 +278,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="FileSystemExplorer" />
       <pane id="AssemblyExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
@@ -376,13 +293,12 @@
             </path>
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Web.config" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Database Consoles" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
             </path>
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
@@ -394,6 +310,7 @@
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
+      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1161,11 +1078,12 @@
       <workItem from="1560479185240" duration="4210000" />
       <workItem from="1561183625727" duration="281000" />
       <workItem from="1561382643618" duration="166000" />
+      <workItem from="1561537441975" duration="385000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69825000" />
+    <option name="totallyTimeSpent" value="70210000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1178,14 +1096,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49518073" visible="true" weight="0.17453505" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49518073" visible="true" weight="0.17668097" />
       <window_info id="Structure" order="1" sideWeight="0.5048193" side_tool="true" weight="0.16165951" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.44134477" weight="0.3987952" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.44134477" visible="true" weight="0.3987952" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.78612304" weight="0.3987952" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1584,6 +1501,7 @@
           <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
           <folding>
             <marker date="1560686861817" expanded="true" signature="6:167" ph="..." />
+            <marker date="1560686861817" expanded="true" signature="191:580" ph="{...}" />
             <marker date="1560686861817" expanded="true" signature="214:578" ph="{...}" />
           </folding>
         </state>
@@ -1655,9 +1573,21 @@
           <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
           <folding>
             <marker date="1560479465669" expanded="true" signature="6:167" ph="..." />
-            <marker date="1560479465669" expanded="true" signature="191:618" ph="{...}" />
             <marker date="1560479465669" expanded="true" signature="220:616" ph="{...}" />
             <marker date="1560479465669" expanded="true" signature="233:609" ph="/* [ForeignKey(&quot;CustomerId&quot;)] ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App_Start/WebApiConfig.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+          <folding>
+            <marker date="1559872660157" expanded="true" signature="6:50" ph="..." />
+            <marker date="1559872660157" expanded="true" signature="69:610" ph="{...}" />
+            <marker date="1559872660157" expanded="true" signature="101:608" ph="{...}" />
+            <marker date="1559872660157" expanded="true" signature="169:602" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1673,23 +1603,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App_Start/WebApiConfig.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
-          <folding>
-            <marker date="1559872660157" expanded="true" signature="6:50" ph="..." />
-            <marker date="1559872660157" expanded="true" signature="69:610" ph="{...}" />
-            <marker date="1559872660157" expanded="true" signature="101:608" ph="{...}" />
-            <marker date="1559872660157" expanded="true" signature="169:602" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        <state relative-caret-position="82">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
         </state>
       </provider>
     </entry>
