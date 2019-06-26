@@ -80,9 +80,11 @@ namespace EBook.Models
 
         
         
-        public ICollection<CustomerAddress> CustomerAddresses { get; set; }
+        // public ICollection<CustomerAddress> CustomerAddresses { get; set; }
         
+        // public ICollection<ShoppingCart> ShoppingCartRecords { get; set; }
 
+        // public ICollection<Collect> Collection { get; set; }
         public Customer()
         {
             PhoneNum = "1233211234567";

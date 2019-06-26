@@ -8,16 +8,17 @@ namespace EBook.Models
 {
     public class Collect
     {
+        [Key]
+        [Column(Order=1)]
         public int CustomerId{ get; set; }
         [ForeignKey("CustomerId")]
-        public virtual Customer User { set; get; }
+        public Customer Customer { set; get; }
         
-        
-        
-        
+        [Key]
+        [Column(Order=2)]
         public int MerchandiseId { get; set; }
         [ForeignKey("MerchandiseId")]
-        public virtual Merchandise Merchandise { get; set; }
+        public Merchandise Merchandise { get; set; }
 
 
         public DateTime CollectTime { get; set; }

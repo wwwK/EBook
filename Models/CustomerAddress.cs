@@ -39,7 +39,7 @@ namespace EBook.Models
 
         public int CustomerId{ get; set; }
         [ForeignKey("CustomerId")]
-        public virtual Customer User { set; get; }
+        public Customer User { set; get; }
 
 
         public bool IsDefault { get; set; }

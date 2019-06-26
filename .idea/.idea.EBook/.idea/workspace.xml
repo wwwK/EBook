@@ -1,7 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="439a87ef-966e-4cdf-8d1d-c19d895f4e82" name="Default Changelist" comment="" />
+    <list default="true" id="439a87ef-966e-4cdf-8d1d-c19d895f4e82" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Models/Answer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources/6a49b33d-bd6b-445d-befb-44559663e2fa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources/6a49b33d-bd6b-445d-befb-44559663e2fa.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources/6a49b33d-bd6b-445d-befb-44559663e2fa/storage_v2/_src_/schema/EBOOK.rojrAw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources/6a49b33d-bd6b-445d-befb-44559663e2fa/storage_v2/_src_/schema/EBOOK.rojrAw.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources/6a49b33d-bd6b-445d-befb-44559663e2fa/storage_v2/_src_/schema/EBOOK.rojrAw.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources/6a49b33d-bd6b-445d-befb-44559663e2fa/storage_v2/_src_/schema/EBOOK.rojrAw.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources/d2049d61-3515-4bc9-b961-a606c83818f6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources/d2049d61-3515-4bc9-b961-a606c83818f6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources/d2049d61-3515-4bc9-b961-a606c83818f6/storage_v2/_src_/schema/EBOOK.rojrAw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources/d2049d61-3515-4bc9-b961-a606c83818f6/storage_v2/_src_/schema/EBOOK.rojrAw.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EBook/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T014956.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T015030.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T015153.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T015531.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T015607.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T015628.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T020358.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T020921.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T111034.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T111056.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T111128.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T111152.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T112003.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T112258.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-13T112443.200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T013507.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T014315.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T014423.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T014436.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T014907.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T014944.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T015030.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T015040.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T022300.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T022344.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T022356.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T022500.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T022511.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T022608.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T022619.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T022642.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T022653.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T103125.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2019-06-14T103402.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EBook.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/EBook.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Global.asax.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Global.asax.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/AnswerFor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Collect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Collect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Coupon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Coupon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Customer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/CustomerAddress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CustomerAddress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Merchandise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Merchandise.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/OracleDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/OracleDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Own.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Own.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/QA.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Question.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ShoppingCart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ShoppingCart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Transact.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Transact.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/VipMember.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/VipMember.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/EBook.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/EBook.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/EBook.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/EBook.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/EBook.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/EBook.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/EBook.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/EBook.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/EBook.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/EBook.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/EBook.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/EBook.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/EBook.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/EBook.pdb" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,204 +99,236 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@118.89.54.249" type="feb32156:DbDataSourceImpl" />
         <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="TEST: table" type="942f455b:OraImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="EBOOK: schema" type="3abd1b6a:OraImplModel$Schema" />
       </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Own.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-              <folding>
-                <marker date="1560686861817" expanded="true" signature="6:167" ph="..." />
-                <marker date="1560686861817" expanded="true" signature="191:580" ph="{...}" />
-                <marker date="1560686861817" expanded="true" signature="214:578" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/QA.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-              <folding>
-                <marker date="1560686861821" expanded="true" signature="6:167" ph="..." />
-                <marker date="1560686861821" expanded="true" signature="191:811" ph="{...}" />
-                <marker date="1560686861821" expanded="true" signature="213:809" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Seller.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
-              <folding>
-                <marker date="1560518466510" expanded="true" signature="6:167" ph="..." />
-                <marker date="1560518466510" expanded="true" signature="191:759" ph="{...}" />
-                <marker date="1560518466510" expanded="true" signature="217:757" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/ShoppingCart.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-              <folding>
-                <marker date="1560686861823" expanded="true" signature="6:167" ph="..." />
-                <marker date="1560686861823" expanded="true" signature="192:536" ph="{...}" />
-                <marker date="1560686861823" expanded="true" signature="224:534" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Transact.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-              <folding>
-                <marker date="1560394659144" expanded="true" signature="6:110" ph="..." />
-                <marker date="1560394659144" expanded="true" signature="134:1074" ph="{...}" />
-                <marker date="1560394659144" expanded="true" signature="162:1072" ph="{...}" />
-                <marker date="1560394659144" expanded="true" signature="527:1057" ph="/* [ForeignKey(&quot;CustomerId&quot;)] ... */" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Customer.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
-              <folding>
-                <marker date="1560494568980" expanded="true" signature="6:168" ph="..." />
-                <marker date="1560494568980" expanded="true" signature="192:2005" ph="{...}" />
-                <marker date="1560494568980" expanded="true" signature="230:2003" ph="{...}" />
-                <marker date="1560494568980" expanded="true" signature="613:1029" ph="/* [JsonIgnore] ... */" />
-                <marker date="1560494568980" expanded="true" signature="1485:1613" ph="{...}" />
-                <marker date="1560494568980" expanded="true" signature="1511:1603" ph="{...}" />
-                <marker date="1560494568980" expanded="true" signature="1898:1995" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/VipMember.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-              <folding>
-                <marker date="1560479465669" expanded="true" signature="6:167" ph="..." />
-                <marker date="1560479465669" expanded="true" signature="191:618" ph="{...}" />
-                <marker date="1560479465669" expanded="true" signature="220:616" ph="{...}" />
-                <marker date="1560479465669" expanded="true" signature="233:609" ph="/* [ForeignKey(&quot;CustomerId&quot;)] ... */" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App_Start/WebApiConfig.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
-              <folding>
-                <marker date="1559872660157" expanded="true" signature="6:50" ph="..." />
-                <marker date="1559872660157" expanded="true" signature="69:610" ph="{...}" />
-                <marker date="1559872660157" expanded="true" signature="101:608" ph="{...}" />
-                <marker date="1559872660157" expanded="true" signature="169:602" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Coupon.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-              <folding>
-                <marker date="1560406024956" expanded="true" signature="6:58" ph="..." />
-                <marker date="1560406024956" expanded="true" signature="82:488" ph="{...}" />
-                <marker date="1560406024956" expanded="true" signature="108:486" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.502004">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Models/Own.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="116">
+                  <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+                  <folding>
+                    <marker date="1561551483396" expanded="true" signature="6:167" ph="..." />
+                    <marker date="1561551483396" expanded="true" signature="191:627" ph="{...}" />
+                    <marker date="1561551483396" expanded="true" signature="214:625" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Models/Question.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="325">
+                  <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+                  <folding>
+                    <marker date="1561551483391" expanded="false" signature="6:167" ph="..." />
+                    <marker date="1561551483391" expanded="true" signature="191:792" ph="{...}" />
+                    <marker date="1561551483391" expanded="true" signature="219:790" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Models/Seller.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="100">
+                  <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+                  <folding>
+                    <marker date="1561540527750" expanded="false" signature="6:167" ph="..." />
+                    <marker date="1561540527750" expanded="true" signature="191:759" ph="{...}" />
+                    <marker date="1561540527750" expanded="true" signature="217:757" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Models/CustomerAddress.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="474">
+                  <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+                  <folding>
+                    <marker date="1561551483359" expanded="false" signature="6:133" ph="..." />
+                    <marker date="1561551483359" expanded="true" signature="157:966" ph="{...}" />
+                    <marker date="1561551483359" expanded="true" signature="192:964" ph="{...}" />
+                    <marker date="1561551483359" expanded="true" signature="877:955" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Models/Customer.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="47">
+                  <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+                  <folding>
+                    <marker date="1561549657248" expanded="true" signature="6:168" ph="..." />
+                    <marker date="1561549657248" expanded="true" signature="192:2150" ph="{...}" />
+                    <marker date="1561549657248" expanded="true" signature="230:2148" ph="{...}" />
+                    <marker date="1561549657248" expanded="true" signature="613:1029" ph="/* [JsonIgnore] ... */" />
+                    <marker date="1561549657248" expanded="true" signature="1485:1613" ph="{...}" />
+                    <marker date="1561549657248" expanded="true" signature="1511:1603" ph="{...}" />
+                    <marker date="1561549657248" expanded="true" signature="1795:2017" ph="/* public ICollection&lt;CustomerAddress&gt; CustomerAddresses { get; set; } ... */" />
+                    <marker date="1561549657248" expanded="true" signature="2043:2140" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Models/Merchandise.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="50">
+                  <caret line="2" column="43" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="43" />
+                  <folding>
+                    <marker date="1561552424640" expanded="true" signature="6:133" ph="..." />
+                    <marker date="1561552424640" expanded="true" signature="157:664" ph="{...}" />
+                    <marker date="1561552424640" expanded="true" signature="188:662" ph="{...}" />
+                    <marker date="1561552424640" expanded="true" signature="257:445" ph="/* [Key] ... */" />
+                    <marker date="1561552424640" expanded="true" signature="448:655" ph="/* public string Isbn { set; get; } ... */" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Models/Collect.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="243">
+                  <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+                  <folding>
+                    <marker date="1561551483394" expanded="false" signature="6:167" ph="..." />
+                    <marker date="1561551483394" expanded="true" signature="191:638" ph="{...}" />
+                    <marker date="1561551483394" expanded="true" signature="218:636" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Models/Book.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="476">
+                  <caret line="22" selection-start-line="22" selection-end-line="22" />
+                  <folding>
+                    <marker date="1561540527749" expanded="true" signature="6:167" ph="..." />
+                    <marker date="1561540527749" expanded="true" signature="191:609" ph="{...}" />
+                    <marker date="1561540527749" expanded="true" signature="215:607" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Models/Answer.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="325">
+                  <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+                  <folding>
+                    <marker date="1561551483387" expanded="false" signature="6:167" ph="..." />
+                    <marker date="1561551483387" expanded="true" signature="191:722" ph="{...}" />
+                    <marker date="1561551483387" expanded="true" signature="217:720" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Models/OracleDbContext.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="270">
+                  <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+                  <folding>
+                    <marker date="1561552064965" expanded="false" signature="6:141" ph="..." />
+                    <marker date="1561552064965" expanded="true" signature="166:1397" ph="{...}" />
+                    <marker date="1561552064965" expanded="true" signature="212:1395" ph="{...}" />
+                    <marker date="1561552064965" expanded="true" signature="282:302" ph="{...}" />
+                    <marker date="1561552064965" expanded="true" signature="769:940" ph="/* public DbSet&lt;Coupon&gt;Coupons { get; set; } ... */" />
+                    <marker date="1561552064965" expanded="true" signature="971:1210" ph="/* public DbSet&lt;Collect&gt;Collects{ get; set; } ... */" />
+                    <marker date="1561552064965" expanded="true" signature="1290:1389" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Models/Customer.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="102">
+                  <caret line="26" selection-start-line="26" selection-end-line="26" />
+                  <folding>
+                    <marker date="1561549657248" expanded="true" signature="6:168" ph="..." />
+                    <marker date="1561549657248" expanded="true" signature="192:2150" ph="{...}" />
+                    <marker date="1561549657248" expanded="true" signature="230:2148" ph="{...}" />
+                    <marker date="1561549657248" expanded="true" signature="613:1029" ph="/* [JsonIgnore] ... */" />
+                    <marker date="1561549657248" expanded="true" signature="1485:1613" ph="{...}" />
+                    <marker date="1561549657248" expanded="true" signature="1511:1603" ph="{...}" />
+                    <marker date="1561549657248" expanded="true" signature="1795:2017" ph="/* public ICollection&lt;CustomerAddress&gt; CustomerAddresses { get; set; } ... */" />
+                    <marker date="1561549657248" expanded="true" signature="2043:2140" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/App.config" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Web.config" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/ShoppingCart.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/OracleDbContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Merchandise.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Book.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Customer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/VipMember.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Seller.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Coupon.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/CustomerAddress.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Collect.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Own.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/AnswerFor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Transact.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/QA.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Controllers/CustomerController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/App_Start/WebApiConfig.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/App_Start/BundleConfig.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/App_Start/FilterConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Migrations/Configuration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Migrations/Init.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App_Start/BundleConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App_Start/FilterConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App_Start/WebApiConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/CustomerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Question.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Answer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Transact.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Collect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Own.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Coupon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/CustomerAddress.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.idea/.idea.EBook/.idea/dataSources/6a49b33d-bd6b-445d-befb-44559663e2fa/storage_v2/_src_/schema/EBOOK.rojrAw.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/VipMember.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Seller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Book.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Customer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/OracleDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Merchandise.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/ShoppingCart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Global.asax" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Global.asax.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/packages.config" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B7B192E5-A05F-4F14-A14A-A0D5B14AEEEB/af/271a8d05/LazyInternalConnection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Global.asax.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -244,25 +341,27 @@
         <option value="$PROJECT_DIR$/Migrations/Basic.cs" />
         <option value="$PROJECT_DIR$/Web.config" />
         <option value="$PROJECT_DIR$/App.config" />
-        <option value="$PROJECT_DIR$/Global.asax.cs" />
-        <option value="$PROJECT_DIR$/Models/Merchandise.cs" />
         <option value="$PROJECT_DIR$/Migrations/Init.cs" />
-        <option value="$PROJECT_DIR$/Models/Coupon.cs" />
         <option value="$PROJECT_DIR$/Models/Book.cs" />
+        <option value="$PROJECT_DIR$/Controllers/CustomerController.cs" />
+        <option value="$PROJECT_DIR$/Models/Seller.cs" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http" />
+        <option value="$PROJECT_DIR$/Global.asax.cs" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" />
+        <option value="$PROJECT_DIR$/Models/AnswerFor.cs" />
+        <option value="$PROJECT_DIR$/Models/QA.cs" />
+        <option value="$PROJECT_DIR$/Models/Customer.cs" />
         <option value="$PROJECT_DIR$/Models/Transact.cs" />
         <option value="$PROJECT_DIR$/Models/VipMember.cs" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" />
-        <option value="$PROJECT_DIR$/Controllers/CustomerController.cs" />
-        <option value="$PROJECT_DIR$/Models/Customer.cs" />
-        <option value="$PROJECT_DIR$/Models/Seller.cs" />
-        <option value="$PROJECT_DIR$/Models/OracleDbContext.cs" />
-        <option value="$PROJECT_DIR$/Models/CustomerAddress.cs" />
-        <option value="$PROJECT_DIR$/Models/AnswerFor.cs" />
-        <option value="$PROJECT_DIR$/Models/Collect.cs" />
-        <option value="$PROJECT_DIR$/Models/Own.cs" />
-        <option value="$PROJECT_DIR$/Models/QA.cs" />
         <option value="$PROJECT_DIR$/Models/ShoppingCart.cs" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http" />
+        <option value="$PROJECT_DIR$/Models/Question.cs" />
+        <option value="$PROJECT_DIR$/Models/Own.cs" />
+        <option value="$PROJECT_DIR$/Models/CustomerAddress.cs" />
+        <option value="$PROJECT_DIR$/Models/Coupon.cs" />
+        <option value="$PROJECT_DIR$/Models/Collect.cs" />
+        <option value="$PROJECT_DIR$/Models/Answer.cs" />
+        <option value="$PROJECT_DIR$/Models/OracleDbContext.cs" />
+        <option value="$PROJECT_DIR$/Models/Merchandise.cs" />
       </list>
     </option>
   </component>
@@ -278,7 +377,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AssemblyExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -293,12 +391,37 @@
             </path>
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Properties" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Controllers" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Models" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Scripts" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="EBook" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Global.asax" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Database Consoles" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
             </path>
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
@@ -310,6 +433,7 @@
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
+      <pane id="AssemblyExplorer" />
       <pane id="FileSystemExplorer" />
     </panes>
   </component>
@@ -329,10 +453,51 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Password&quot;:&quot;5&quot;,&#10;&quot;FirstName&quot;:&quot;abc&quot;,&#10;&quot;PhoneNum&quot;:&quot;345678&quot;,&#10;&quot;Email&quot;:&quot;345@qq.com&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/api/Customer" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;Password&quot;:&quot;5&quot;,&#10;&quot;FirstName&quot;:&quot;abc&quot;,&#10;&quot;PhoneNum&quot;:&quot;345678&quot;,&#10;&quot;Email&quot;:&quot;345&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="POST" />
           <option name="urlBase" value="http://localhost:5000/api/Customer/" />
@@ -1006,7 +1171,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.rest-api_2#1">
+  <component name="RunManager" selected="HTTP Request.rest-api#1">
     <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5/xsp4.exe" />
       <option name="PROGRAM_PARAMETERS" value="--address=127.0.0.1 --port=5000" />
@@ -1024,7 +1189,7 @@
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="Web" />
       <option name="PROJECT_TFM" value=".NETFramework,Version=v4.7.2" />
-      <browser url="http://127.0.0.1:5000/" start="true" />
+      <browser url="http://127.0.0.1:5000/" />
       <method v="2">
         <option name="Build" enabled="true" />
       </method>
@@ -1038,10 +1203,16 @@
     <configuration name="rest-api_2#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http">
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue=".NET Project.Default" />
+      <item itemvalue="HTTP Request.rest-api#1" />
+      <item itemvalue="HTTP Request.rest-api_1#1" />
+      <item itemvalue="HTTP Request.rest-api_2#1" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.rest-api_2#1" />
         <item itemvalue="HTTP Request.rest-api#1" />
+        <item itemvalue="HTTP Request.rest-api_2#1" />
         <item itemvalue="HTTP Request.rest-api_1#1" />
       </list>
     </recent_temporary>
@@ -1079,11 +1250,12 @@
       <workItem from="1561183625727" duration="281000" />
       <workItem from="1561382643618" duration="166000" />
       <workItem from="1561537441975" duration="385000" />
+      <workItem from="1561540552530" duration="7752000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70210000" />
+    <option name="totallyTimeSpent" value="77962000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1095,14 +1267,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49518073" visible="true" weight="0.17668097" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49518073" visible="true" weight="0.16056167" />
       <window_info id="Structure" order="1" sideWeight="0.5048193" side_tool="true" weight="0.16165951" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.44134477" visible="true" weight="0.3987952" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.44078144" weight="0.36734694" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.78612304" weight="0.3987952" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1110,20 +1282,20 @@
       <window_info anchor="bottom" id="NuGet" order="7" sideWeight="0.4899857" weight="0.32891566" />
       <window_info anchor="bottom" id="Performance Profiler" order="8" sideWeight="0.4985694" weight="0.32891566" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49928468" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="10" sideWeight="0.498779" visible="true" weight="0.56122446" />
       <window_info anchor="bottom" id="Database Changes" order="11" sideWeight="0.49570817" weight="0.32771084" />
       <window_info anchor="bottom" id="Unit Tests" order="12" sideWeight="0.4985694" weight="0.32784638" />
       <window_info anchor="bottom" x="371" y="313" width="697" height="273" id="REST Client" order="13" sideWeight="0.4985694" type="WINDOWED" weight="0.32891566" />
       <window_info anchor="bottom" id="Terminal" order="14" sideWeight="0.49499285" weight="0.32891566" />
-      <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.5586552" side_tool="true" weight="0.3987952" />
-      <window_info anchor="bottom" id="Build" order="16" sideWeight="0.4434907" weight="0.32650602" />
+      <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.501221" side_tool="true" visible="true" weight="0.56122446" />
+      <window_info anchor="bottom" id="Build" order="16" sideWeight="0.4434907" weight="0.44183674" />
       <window_info anchor="bottom" id="Entity Framework" order="17" sideWeight="0.21173105" side_tool="true" weight="0.3987952" />
       <window_info anchor="bottom" id="Database Console" order="18" sideWeight="0.49785408" weight="0.32784638" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Errors In Solution" order="3" weight="0.3297568" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.2160229" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.23015873" />
       <window_info anchor="right" id="Unit Tests Coverage" order="5" />
     </layout>
     <layout-to-restore>
@@ -1162,6 +1334,10 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add foreign key constrains." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add foreign key constrains." />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -1212,7 +1388,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbSrc:///ff6c524b/d2049d61-3515-4bc9-b961-a606c83818f6/schema/EBOOK/table/Customers/trigger/TR_Customers.sql" />
     <entry file="das://d2049d61-3515-4bc9-b961-a606c83818f6/schema/EBOOK/table/Customers/index/PK_Customers" />
     <entry file="das://d2049d61-3515-4bc9-b961-a606c83818f6/schema/EBOOK/table/Customers" />
     <entry file="das://d2049d61-3515-4bc9-b961-a606c83818f6/schema/EBOOK/table/__MigrationHistory/index/PK___MigrationHistory" />
@@ -1228,39 +1403,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d2049d61-3515-4bc9-b961-a606c83818f6/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d2049d61-3515-4bc9-b961-a606c83818f6/console.sql" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" />
     <entry file="file://$PROJECT_DIR$/Migrations/Basic.cs" />
     <entry file="file://$USER_HOME$/Library/Logs/Rider2019.1/SolutionBuilder/JetBrainsLog.ReSharperBuild_2019_06_11_08_09_31_9861.log" />
     <entry file="file://$PROJECT_DIR$/favicon.ico">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B7B192E5-A05F-4F14-A14A-A0D5B14AEEEB/af/271a8d05/LazyInternalConnection.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="118" column="82" selection-start-line="118" selection-start-column="82" selection-end-line="118" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B7B192E5-A05F-4F14-A14A-A0D5B14AEEEB/af/271a8d05/LazyInternalConnection.cs" />
     <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/Coupons" />
     <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/Coupons/index/PK_Coupons" />
     <entry file="dbSrc:///ff6c524b/6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/table/Coupons/trigger/TR_Coupons.sql" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6a49b33d-bd6b-445d-befb-44559663e2fa/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6a49b33d-bd6b-445d-befb-44559663e2fa/console.sql" />
     <entry file="file://$PROJECT_DIR$/App.config">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="28" column="97" selection-start-line="28" selection-start-column="97" selection-end-line="28" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web.config">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="113" column="45" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -1279,19 +1437,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/packages.config">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Global.asax.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-          <folding>
-            <marker date="1560367058477" expanded="true" signature="6:212" ph="..." />
-            <marker date="1560367058477" expanded="true" signature="229:822" ph="{...}" />
-            <marker date="1560367058477" expanded="true" signature="292:820" ph="{...}" />
-            <marker date="1560367058477" expanded="true" signature="341:814" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App_Start/BundleConfig.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -1365,46 +1510,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api.http">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/CustomerController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="39" column="55" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="55" />
-          <folding>
-            <marker date="1560480102340" expanded="true" signature="6:121" ph="..." />
-            <marker date="1560480102340" expanded="true" signature="204:1091" ph="{...}" />
-            <marker date="1560480102340" expanded="true" signature="406:643" ph="{...}" />
-            <marker date="1560480102340" expanded="true" signature="820:1083" ph="{...}" />
-            <marker date="1560480102340" expanded="true" signature="934:1026" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://6a49b33d-bd6b-445d-befb-44559663e2fa/schema/EBOOK/sequence/SQ_CustomerAddresses">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/OracleDbContext.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-          <folding>
-            <marker date="1560518466514" expanded="true" signature="6:141" ph="..." />
-            <marker date="1560518466514" expanded="true" signature="166:1371" ph="{...}" />
-            <marker date="1560518466514" expanded="true" signature="212:1369" ph="{...}" />
-            <marker date="1560518466514" expanded="true" signature="282:302" ph="{...}" />
-            <marker date="1560518466514" expanded="true" signature="527:1186" ph="/* public DbSet&lt;Transact&gt; Transacts { get; set; } ... */" />
-            <marker date="1560518466514" expanded="true" signature="1264:1363" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1433,182 +1542,260 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/AnswerFor.cs">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http" />
+    <entry file="file://$PROJECT_DIR$/App_Start/WebApiConfig.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        <state relative-caret-position="450">
+          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
           <folding>
-            <marker date="1560686772664" expanded="true" signature="6:167" ph="..." />
-            <marker date="1560686772664" expanded="true" signature="191:512" ph="{...}" />
-            <marker date="1560686772664" expanded="true" signature="220:510" ph="{...}" />
-            <marker date="1560686772664" expanded="true" signature="281:503" ph="/* [Key] ... */" />
+            <marker date="1561540527743" expanded="false" signature="6:50" ph="..." />
+            <marker date="1561540527743" expanded="true" signature="69:610" ph="{...}" />
+            <marker date="1561540527743" expanded="true" signature="101:608" ph="{...}" />
+            <marker date="1561540527743" expanded="true" signature="169:602" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Book.cs">
+    <entry file="file://$PROJECT_DIR$/Web.config">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        <state relative-caret-position="68">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Global.asax">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Global.asax.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding>
-            <marker date="1560442300219" expanded="true" signature="6:167" ph="..." />
-            <marker date="1560442300219" expanded="true" signature="191:609" ph="{...}" />
-            <marker date="1560442300219" expanded="true" signature="215:607" ph="{...}" />
+            <marker date="1561543188368" expanded="true" signature="6:232" ph="..." />
+            <marker date="1561543188368" expanded="true" signature="249:848" ph="{...}" />
+            <marker date="1561543188368" expanded="true" signature="312:846" ph="{...}" />
+            <marker date="1561543188368" expanded="true" signature="361:840" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Collect.cs">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api.http">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-          <folding>
-            <marker date="1560686853457" expanded="true" signature="6:167" ph="..." />
-            <marker date="1560686853457" expanded="true" signature="191:597" ph="{...}" />
-            <marker date="1560686853457" expanded="true" signature="218:595" ph="{...}" />
-          </folding>
+        <state>
+          <caret line="1" selection-start-line="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/CustomerAddress.cs">
+    <entry file="file://$PROJECT_DIR$/Controllers/CustomerController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="39" selection-start-line="39" selection-end-line="41" selection-end-column="50" />
+        <state relative-caret-position="-175">
+          <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
           <folding>
-            <marker date="1560686506200" expanded="true" signature="6:133" ph="..." />
-            <marker date="1560686506200" expanded="true" signature="157:974" ph="{...}" />
-            <marker date="1560686506200" expanded="true" signature="192:972" ph="{...}" />
-            <marker date="1560686506200" expanded="true" signature="885:963" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Merchandise.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="28" />
-          <folding>
-            <marker date="1560391611080" expanded="true" signature="6:133" ph="..." />
-            <marker date="1560391611080" expanded="true" signature="157:483" ph="{...}" />
-            <marker date="1560391611080" expanded="true" signature="188:481" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Own.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-          <folding>
-            <marker date="1560686861817" expanded="true" signature="6:167" ph="..." />
-            <marker date="1560686861817" expanded="true" signature="191:580" ph="{...}" />
-            <marker date="1560686861817" expanded="true" signature="214:578" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/QA.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding>
-            <marker date="1560686861821" expanded="true" signature="6:167" ph="..." />
-            <marker date="1560686861821" expanded="true" signature="213:809" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Seller.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
-          <folding>
-            <marker date="1560518466510" expanded="true" signature="6:167" ph="..." />
-            <marker date="1560518466510" expanded="true" signature="217:757" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/ShoppingCart.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding>
-            <marker date="1560686861823" expanded="true" signature="6:167" ph="..." />
-            <marker date="1560686861823" expanded="true" signature="224:534" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Transact.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding>
-            <marker date="1560394659144" expanded="true" signature="6:110" ph="..." />
-            <marker date="1560394659144" expanded="true" signature="162:1072" ph="{...}" />
-            <marker date="1560394659144" expanded="true" signature="527:1057" ph="/* [ForeignKey(&quot;CustomerId&quot;)] ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Customer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
-          <folding>
-            <marker date="1560494568980" expanded="true" signature="6:168" ph="..." />
-            <marker date="1560494568980" expanded="true" signature="230:2003" ph="{...}" />
-            <marker date="1560494568980" expanded="true" signature="613:1029" ph="/* [JsonIgnore] ... */" />
-            <marker date="1560494568980" expanded="true" signature="1485:1613" ph="{...}" />
-            <marker date="1560494568980" expanded="true" signature="1511:1603" ph="{...}" />
-            <marker date="1560494568980" expanded="true" signature="1898:1995" ph="{...}" />
+            <marker date="1561540527748" expanded="false" signature="6:121" ph="..." />
+            <marker date="1561540527748" expanded="true" signature="150:1093" ph="{...}" />
+            <marker date="1561540527748" expanded="true" signature="204:1091" ph="{...}" />
+            <marker date="1561540527748" expanded="true" signature="406:643" ph="{...}" />
+            <marker date="1561540527748" expanded="true" signature="820:1083" ph="{...}" />
+            <marker date="1561540527748" expanded="true" signature="934:1026" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/VipMember.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        <state relative-caret-position="230">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
           <folding>
-            <marker date="1560479465669" expanded="true" signature="6:167" ph="..." />
-            <marker date="1560479465669" expanded="true" signature="220:616" ph="{...}" />
-            <marker date="1560479465669" expanded="true" signature="233:609" ph="/* [ForeignKey(&quot;CustomerId&quot;)] ... */" />
+            <marker date="1561551464540" expanded="false" signature="6:167" ph="..." />
+            <marker date="1561551464540" expanded="true" signature="191:694" ph="{...}" />
+            <marker date="1561551464540" expanded="true" signature="220:692" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App_Start/WebApiConfig.cs">
+    <entry file="file://$PROJECT_DIR$/Models/Transact.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+        <state relative-caret-position="275">
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
           <folding>
-            <marker date="1559872660157" expanded="true" signature="6:50" ph="..." />
-            <marker date="1559872660157" expanded="true" signature="69:610" ph="{...}" />
-            <marker date="1559872660157" expanded="true" signature="101:608" ph="{...}" />
-            <marker date="1559872660157" expanded="true" signature="169:602" ph="{...}" />
+            <marker date="1561551469120" expanded="false" signature="6:110" ph="..." />
+            <marker date="1561551469120" expanded="true" signature="134:1428" ph="{...}" />
+            <marker date="1561551469120" expanded="true" signature="162:1426" ph="{...}" />
+            <marker date="1561551469120" expanded="true" signature="881:1411" ph="/* [ForeignKey(&quot;CustomerId&quot;)] ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/ShoppingCart.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding>
+            <marker date="1561551474350" expanded="false" signature="6:167" ph="..." />
+            <marker date="1561551474350" expanded="true" signature="192:651" ph="{...}" />
+            <marker date="1561551474350" expanded="true" signature="224:649" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/Coupon.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        <state relative-caret-position="300">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
           <folding>
-            <marker date="1560406024956" expanded="true" signature="6:58" ph="..." />
-            <marker date="1560406024956" expanded="true" signature="108:486" ph="{...}" />
+            <marker date="1561551483389" expanded="false" signature="6:110" ph="..." />
+            <marker date="1561551483389" expanded="true" signature="134:607" ph="{...}" />
+            <marker date="1561551483389" expanded="true" signature="160:605" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http">
+    <entry file="file://$PROJECT_DIR$/Models/Answer.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        <state relative-caret-position="325">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding>
+            <marker date="1561551483387" expanded="false" signature="6:167" ph="..." />
+            <marker date="1561551483387" expanded="true" signature="191:722" ph="{...}" />
+            <marker date="1561551483387" expanded="true" signature="217:720" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Seller.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <marker date="1561540527750" expanded="false" signature="6:167" ph="..." />
+            <marker date="1561540527750" expanded="true" signature="191:759" ph="{...}" />
+            <marker date="1561540527750" expanded="true" signature="217:757" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Question.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding>
+            <marker date="1561551483391" expanded="false" signature="6:167" ph="..." />
+            <marker date="1561551483391" expanded="true" signature="191:792" ph="{...}" />
+            <marker date="1561551483391" expanded="true" signature="219:790" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/CustomerAddress.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+          <folding>
+            <marker date="1561551483359" expanded="false" signature="6:133" ph="..." />
+            <marker date="1561551483359" expanded="true" signature="157:966" ph="{...}" />
+            <marker date="1561551483359" expanded="true" signature="192:964" ph="{...}" />
+            <marker date="1561551483359" expanded="true" signature="877:955" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Book.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <marker date="1561540527749" expanded="true" signature="6:167" ph="..." />
+            <marker date="1561540527749" expanded="true" signature="191:609" ph="{...}" />
+            <marker date="1561540527749" expanded="true" signature="215:607" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Collect.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding>
+            <marker date="1561551483394" expanded="false" signature="6:167" ph="..." />
+            <marker date="1561551483394" expanded="true" signature="191:638" ph="{...}" />
+            <marker date="1561551483394" expanded="true" signature="218:636" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Own.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <marker date="1561551483396" expanded="true" signature="6:167" ph="..." />
+            <marker date="1561551483396" expanded="true" signature="191:627" ph="{...}" />
+            <marker date="1561551483396" expanded="true" signature="214:625" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/OracleDbContext.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+          <folding>
+            <marker date="1561552064965" expanded="false" signature="6:141" ph="..." />
+            <marker date="1561552064965" expanded="true" signature="166:1397" ph="{...}" />
+            <marker date="1561552064965" expanded="true" signature="212:1395" ph="{...}" />
+            <marker date="1561552064965" expanded="true" signature="282:302" ph="{...}" />
+            <marker date="1561552064965" expanded="true" signature="769:940" ph="/* public DbSet&lt;Coupon&gt;Coupons { get; set; } ... */" />
+            <marker date="1561552064965" expanded="true" signature="971:1210" ph="/* public DbSet&lt;Collect&gt;Collects{ get; set; } ... */" />
+            <marker date="1561552064965" expanded="true" signature="1290:1389" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Merchandise.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="43" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="43" />
+          <folding>
+            <marker date="1561552424640" expanded="true" signature="6:133" ph="..." />
+            <marker date="1561552424640" expanded="true" signature="157:664" ph="{...}" />
+            <marker date="1561552424640" expanded="true" signature="188:662" ph="{...}" />
+            <marker date="1561552424640" expanded="true" signature="257:445" ph="/* [Key] ... */" />
+            <marker date="1561552424640" expanded="true" signature="448:655" ph="/* public string Isbn { set; get; } ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Customer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <marker date="1561549657248" expanded="true" signature="6:168" ph="..." />
+            <marker date="1561549657248" expanded="true" signature="192:2150" ph="{...}" />
+            <marker date="1561549657248" expanded="true" signature="230:2148" ph="{...}" />
+            <marker date="1561549657248" expanded="true" signature="613:1029" ph="/* [JsonIgnore] ... */" />
+            <marker date="1561549657248" expanded="true" signature="1485:1613" ph="{...}" />
+            <marker date="1561549657248" expanded="true" signature="1511:1603" ph="{...}" />
+            <marker date="1561549657248" expanded="true" signature="1795:2017" ph="/* public ICollection&lt;CustomerAddress&gt; CustomerAddresses { get; set; } ... */" />
+            <marker date="1561549657248" expanded="true" signature="2043:2140" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

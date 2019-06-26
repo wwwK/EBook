@@ -8,21 +8,22 @@ namespace EBook.Models
 {
     public class VipMember
     {
-      /*
-        [ForeignKey("CustomerId")]
-        public Customer Customer { get; set; }
+        [Key]
+        [Column(Order=1)]
         public int CustomerId { get; set; }
-
+        [ForeignKey("CustomerId")]
+        public Customer Customer { set; get; }
         
-        [ForeignKey("SellerId")]
-        public Seller Seller { get; set; }
+        [Key]
+        [Column(Order=2)]
         public int SellerId { get; set; }
-
-        public int DiscountRatio { get; set; }
-
-        public DateTime ValidThrough { get; set; }
+        [ForeignKey("SellerId")]
+        public Seller Seller { set; get; }
         
-        */
+        public double DiscountRatio { set; get; }
+        
+        public DateTime ValidThrough { set; get; }
+      
 
     }
 }

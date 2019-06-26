@@ -10,14 +10,17 @@ namespace EBook.Models
     public class ShoppingCart
     {
        
-        
+        [Key]
+        [Column(Order=1)]
         public int CustomerId { get; set; }
         [ForeignKey("CustomerId")] 
-        public virtual Customer Customer { set; get; }
+        public Customer Customer { set; get; }
 
-
-        [ForeignKey("MerchandiseId")]
+        [Key]
+        [Column(Order=2)]
         public int MerchandiseId { get; set; }
+        [ForeignKey("MerchandiseId")]
+        public Merchandise Merchandise { get; set; }
 
         public int Amount { get; set; }
         

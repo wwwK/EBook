@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="$USER_HOME$/Library/Caches/Rider2019.1/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.1/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_EBook.298485188.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.1/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_EBook.53970446.00" t="ExcludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
@@ -47,7 +47,7 @@
         <e p="Init.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
-        <e p="AnswerFor.cs" t="Include" />
+        <e p="Answer.cs" t="Include" />
         <e p="Book.cs" t="Include" />
         <e p="Collect.cs" t="Include" />
         <e p="Coupon.cs" t="Include" />
@@ -56,7 +56,7 @@
         <e p="Merchandise.cs" t="Include" />
         <e p="OracleDbContext.cs" t="Include" />
         <e p="Own.cs" t="Include" />
-        <e p="QA.cs" t="Include" />
+        <e p="Question.cs" t="Include" />
         <e p="Seller.cs" t="Include" />
         <e p="ShoppingCart.cs" t="Include" />
         <e p="Transact.cs" t="Include" />

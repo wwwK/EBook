@@ -188,7 +188,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Init.cs" />
-    <Compile Include="Models\AnswerFor.cs" />
+    <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Collect.cs" />
     <Compile Include="Models\Coupon.cs" />
@@ -197,7 +197,7 @@
     <Compile Include="Models\Merchandise.cs" />
     <Compile Include="Models\OracleDbContext.cs" />
     <Compile Include="Models\Own.cs" />
-    <Compile Include="Models\QA.cs" />
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\Transact.cs" />

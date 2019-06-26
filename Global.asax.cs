@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Http;
+using EBook.Models;
 
 namespace EBook
 {
@@ -19,7 +20,7 @@ namespace EBook
             //调用web API
             GlobalConfiguration.Configure(WebApiConfig.Register);
             
-         //   Database.SetInitializer(new DropCreateDatabaseAlways<DbContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<OracleDbContext>());
             
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

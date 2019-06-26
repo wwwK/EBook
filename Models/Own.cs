@@ -8,17 +8,17 @@ namespace EBook.Models
 {
     public class Own
     {
-       
+        [Key]
+        [Column(Order=1)]
         public int CustomerId{ get; set; }
         [ForeignKey("CustomerId")]
-        public virtual Customer User { set; get; }
-
+        public Customer User { set; get; }
         
-
-        
+        [Key]
+        [Column(Order = 2)]
         public int CouponId { get; set; }
         [ForeignKey("CouponId")]
-        public virtual Coupon Coupon { get; set; }
+        public Coupon Coupon { get; set; }
 
         [MaxLength(20)]
         public string Status { get; set; }

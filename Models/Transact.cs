@@ -8,21 +8,30 @@ namespace EBook.Models
     {
         
         [Key]
-        public int CouponId { set; get; }
+        [Column(Order=1)]
+        public int CustomerId { set; get; }
+        [ForeignKey("CustomerId")]
+        public Customer Customer { get; set; }
 
+        [Key]
+        [Column(Order=2)]
+        public int MerchandiseId { set; get; }
+        [ForeignKey("MerchandiseId")]
+        public Merchandise Merchandise { get; set; }
+        
+        [Key]
+        [Column(Order=3)]
+        public DateTime CreateTime { get; set; }
+        
+        public int ActualPrice { set; get; }
+        
+        public string Status { set; get; }
+        
+        public int Amount { set; get; }
 
-        public int ReleaseBySellerId { set; get; }
-
-        public int DiscountAmount { set; get; }
-
-        public DateTime ValidThrough { set; get; }
+        public int LogisticTrackNum { set; get; }
         
-        
-        public int PriceLimit { set; get; }
-        
-        
-        
-        public string CouponStatus { set; get; }
+        public string Comment { set; get; }
 
 /*
 
