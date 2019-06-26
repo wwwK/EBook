@@ -20,13 +20,9 @@ namespace EBook
             //调用web API
             GlobalConfiguration.Configure(WebApiConfig.Register);
             
-<<<<<<< Updated upstream
-            //Database.SetInitializer(new DropCreateDatabaseAlways<OracleDbContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<OracleDbContext>());
             
-=======
-         //   Database.SetInitializer(new DropCreateDatabaseAlways<DbContext>());
-         
->>>>>>> Stashed changes
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

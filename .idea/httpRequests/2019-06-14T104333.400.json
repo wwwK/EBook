@@ -1,4 +1,0 @@
-{
-  "Message": "The request is invalid.",
-  "MessageDetail": "The parameters dictionary contains a null entry for parameter 'customerId' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Http.IHttpActionResult] GetUser(Int32)' in 'EBook.Controllers.CustomerController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter."
-}

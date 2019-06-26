@@ -26,7 +26,7 @@ namespace EBook.Models
         
         public DbSet<Merchandise> Merchandises { get; set; }
         
-        // public DbSet<Transact> Transacts { get; set; }
+         public DbSet<Transact> Transacts { get; set; }
         
         
 
@@ -34,21 +34,21 @@ namespace EBook.Models
         
         
         
-//        public DbSet<Coupon>Coupons { get; set; }
+        public DbSet<Coupon>Coupons { get; set; }
 
-//        public DbSet<Answer> Answers { get; set; }
+        public DbSet<Answer> Answers { get; set; }
         
-//        public DbSet<Question> Questions { get; set; }
+        public DbSet<Question> Questions { get; set; }
            
         
         
-//        public DbSet<Collect>Collects{ get; set; }
+        public DbSet<Collect>Collects{ get; set; }
         
-//        public DbSet<Own>Owns{ get; set; }
+        public DbSet<Own>Owns{ get; set; }
         
-//        public  DbSet<ShoppingCart>ShoppingCarts{ get; set; }
+        public  DbSet<ShoppingCart>ShoppingCarts{ get; set; }
 
-//        public DbSet<VipMember> VipMembers { get; set; }
+        public DbSet<VipMember> VipMembers { get; set; }
 
 
 

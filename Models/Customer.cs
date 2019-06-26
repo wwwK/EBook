@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System.Data;
 using Newtonsoft.Json;
 
 namespace EBook.Models
@@ -26,18 +26,22 @@ namespace EBook.Models
 
 
         [NotMapped]
-        [JsonIgnore] 
-        public string Password { get; set; }
-
-
         [JsonIgnore]
-        [MaxLength(20)]
-        public string PasswordHash
+        public string Password
         {
-            get { return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Password, "MD5").ToLower().Substring(8, 16); }
-            set { PasswordHash = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Password, "MD5").ToLower().Substring(8, 16);}
-
+            get;
+            set;
         }
+
+
+//        [JsonIgnore]
+//        [MaxLength(20)]
+//        public string PasswordHash
+//        {
+//            get { return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Password, "MD5").ToLower().Substring(8, 16); }
+//            set { PasswordHash = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Password, "MD5").ToLower().Substring(8, 16);}
+//
+//        }
        
         
         public int DefaultAddressIndex { get; set; }
@@ -48,7 +52,7 @@ namespace EBook.Models
 
    
 
-        [Index]
+        [Index(IsUnique = true)]
         [Required]
         [MaxLength(20)]
         [EmailAddress]
@@ -79,7 +83,7 @@ namespace EBook.Models
         public int Point { get; set; }
 
         
-        [JsonIgnore]
+        
         
         // public ICollection<CustomerAddress> CustomerAddresses { get; set; }
         

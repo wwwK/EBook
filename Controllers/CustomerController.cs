@@ -19,18 +19,22 @@ namespace EBook.Controllers
         public async Task<IHttpActionResult> UpdateUser(Customer data)
         {
 
-            Customer  customer = new Customer();
 
 
-
-            customer.Email = data.Email;
-            customer.Password = data.Password;
-            customer.FirstName = data.FirstName;
-
-            customer.PhoneNum = data.PhoneNum;
-
-
+            Customer customer = new Customer()
+            {
+                FirstName = data.FirstName,
+                LastName = data.LastName,
+                NickName = data.NickName,
+                DefaultAddressIndex = data.DefaultAddressIndex,
+                IdCardNum = data.IdCardNum,
+                Email = data.Email,
+                PhoneNum = data.PhoneNum,
+                DateOfBirth = data.DateOfBirth,
+                Point = data.Point
+            };
             
+
             db.Customers.Add(customer);
             
             
@@ -39,7 +43,7 @@ namespace EBook.Controllers
           
 
 
-            HttpContext.Current.Session["id"] = data.Email;
+//            HttpContext.Current.Session["id"] = data.Email;
           
             
             return Ok();
