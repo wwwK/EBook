@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
 using EBook.Models;
+using BCrypt.Net;
 
 namespace GeniusBar.Controllers
 {
@@ -20,8 +21,15 @@ namespace GeniusBar.Controllers
             public string Password;
         }
         
-
         
+        public class LoginData
+        {
+            public string Email;
+            public string Password;
+        }
+
+
+     
 
     }
 }

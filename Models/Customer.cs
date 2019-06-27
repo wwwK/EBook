@@ -25,24 +25,24 @@ namespace EBook.Models
         public string NickName { get; set; }
 
 
-        [NotMapped]
-        [JsonIgnore]
-        public string Password
-        {
-            get;
-            set;
-        }
+       
+        // [NotMapped]
+        [MaxLength(1000)]
+        public string Password { get; set; }
 
 
 //        [JsonIgnore]
-//        [MaxLength(20)]
+//        [MaxLength(50)]
 //        public string PasswordHash
 //        {
-//            get { return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Password, "MD5").ToLower().Substring(8, 16); }
-//            set { PasswordHash = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Password, "MD5").ToLower().Substring(8, 16);}
+//            get { return BCrypt.Net.BCrypt.HashPassword(Password);}
+//            set { PasswordHash = BCrypt.Net.BCrypt.HashPassword(Password);}
 //
 //        }
        
+
+
+
         
         public int DefaultAddressIndex { get; set; }
         
@@ -52,7 +52,8 @@ namespace EBook.Models
 
    
 
-        [Index(IsUnique = true)]
+        [Index]
+//        [Index(IsUnique = true)]
         [Required]
         [MaxLength(20)]
         [EmailAddress]

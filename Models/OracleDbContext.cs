@@ -28,13 +28,7 @@ namespace EBook.Models
         
          public DbSet<Transact> Transacts { get; set; }
         
-        
-
-        
-        
-        
-        
-        public DbSet<Coupon>Coupons { get; set; }
+         public DbSet<Coupon>Coupons { get; set; }
 
         public DbSet<Answer> Answers { get; set; }
         

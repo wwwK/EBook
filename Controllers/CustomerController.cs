@@ -2,17 +2,23 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using System.Net.Http;
-using System.Web.Http.Results;
-using System.Security.Cryptography;
 using EBook.Models;
-using MD5 = OracleInternal.Secure.Network.MD5;
+using System;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using BCrypt.Net;
+
+
 
 namespace EBook.Controllers
 {
     public class CustomerController : ApiController
     {
         private OracleDbContext db = new OracleDbContext();
+        
+        
             
         [HttpPost]
         [Route("api/Customer/")]
@@ -20,8 +26,10 @@ namespace EBook.Controllers
         {
 
 
+            
+           
 
-            Customer customer = new Customer()
+                Customer customer = new Customer()
             {
                 FirstName = data.FirstName,
                 LastName = data.LastName,
@@ -31,9 +39,21 @@ namespace EBook.Controllers
                 Email = data.Email,
                 PhoneNum = data.PhoneNum,
                 DateOfBirth = data.DateOfBirth,
-                Point = data.Point
+                Point = data.Point,
+                Password = BCrypt.Net.BCrypt.HashPassword(data.Password)
             };
+
+
+
             
+
+
+
+
+
+
+            
+
 
             db.Customers.Add(customer);
             
@@ -44,8 +64,9 @@ namespace EBook.Controllers
 
 
 //            HttpContext.Current.Session["id"] = data.Email;
-          
             
+            
+        
             return Ok();
         } 
             

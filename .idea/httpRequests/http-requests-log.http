@@ -1,75 +1,12 @@
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T083354.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<<<<<<< Updated upstream
-<> 2019-06-26T083255.500.json
-=======
-<> 2019-06-26T072258.500.json
-
-###
-
 POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
 "FirstName":"zaq",
-"Password":"12345",
-"PhoneNum":"1234567890",
-"Email":"1423567@qq.com"
-}
-
-<> 2019-06-26T072230.500.json
-
-###
-
-POST http://localhost:5000/api/Customer/
-Accept: */*
-Cache-Control: no-cache
-
-{
-"FirstName":"zaq",
-"Password":"12345",
-"PhoneNum":"1234567890",
-"Email":"1423567@qq.com"
-}
-
-<> 2019-06-26T071536.500.json
-
-###
-
-POST http://localhost:5000/api/Customer/
-Accept: */*
-Cache-Control: no-cache
-
-{
-"FirstName":"zaq",
-"Password":"12345",
-"PhoneNum":"1234567890",
-"Email":"1423567@qq.com"
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
 ###
@@ -80,9 +17,9 @@ Cache-Control: no-cache
 
 {
 "FirstName":"zaq",
-"Password":"12345",
-"PhoneNum":"1234567890",
-"Email":"1423567@qq.com"
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
 ###
@@ -93,9 +30,129 @@ Cache-Control: no-cache
 
 {
 "FirstName":"zaq",
-"Password":"12345",
-"PhoneNum":"1234567890",
-"Email":"1423567@qq.com"
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+<> 2019-06-26T112525.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+<> 2019-06-26T112441.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+<> 2019-06-26T112046.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+<> 2019-06-26T111255.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+<> 2019-06-26T111244.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+<> 2019-06-26T111224.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+<> 2019-06-26T111146.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+<> 2019-06-26T110923.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
 ###
@@ -106,9 +163,24 @@ Cache-Control: no-cache
 
 {
 "FirstName":"zaq",
-"Password":"12345",
-"PhoneNum":"1234567890",
-"Email":"1423567@qq.com"
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+<> 2019-06-26T110413.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
 ###
@@ -119,586 +191,186 @@ Cache-Control: no-cache
 
 {
 "FirstName":"zaq",
-"Password":"12345",
-"PhoneNum":"1234567890",
-"Email":"1423567@qq.com"
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
-<> 2019-06-24T092537.500.json
->>>>>>> Stashed changes
+<> 2019-06-26T105405.500.json
 
 ###
 
-POST http://localhost:5000/api/Customer
+POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T083142.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T083053.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T083027.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T083006.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T082823.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
+"FirstName":"zaq",
+"Password":"123454324",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
 ###
 
-POST http://localhost:5000/api/Customer
+POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
+"FirstName":"zaq",
+"Password":"12345432234",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
-<> 2019-06-26T082032.500.json
+<> 2019-06-26T105016.500.json
 
 ###
 
-POST http://localhost:5000/api/Customer
+POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
+"FirstName":"zaq",
+"Password":"12345432234",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
-<> 2019-06-26T082020.500.json
+<> 2019-06-26T104852.500.json
 
 ###
 
-POST http://localhost:5000/api/Customer
+POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T081814.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T080515.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T075631.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T075503.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T075419.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T075416.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T075332.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
+"FirstName":"zaq",
+"Password":"12345432234",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
 ###
 
-POST http://localhost:5000/api/Customer
+POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
+"FirstName":"zaq",
+"Password":"12345432234",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
-<> 2019-06-26T075105.500.json
+<> 2019-06-26T103427.500.json
 
 ###
 
-POST http://localhost:5000/api/Customer
+POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T074748.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T074217.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T074138.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T074116.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T074036.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T074011.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T073906.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T073726.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T073638.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T073358.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T073343.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
-}
-
-<> 2019-06-26T071927.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
+"FirstName":"zaq",
+"Password":"12345432234",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
 ###
 
-POST http://localhost:5000/api/Customer
+POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
+"FirstName":"zaq",
+"Password":"12345432234",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
+
+<> 2019-06-26T103103.500.json
 
 ###
 
-POST http://localhost:5000/api/Customer
+POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345@qq.com"
+"FirstName":"zaq",
+"Password":"12345432234",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
+
+<> 2019-06-26T103010.500.json
 
 ###
 
-POST http://localhost:5000/api/Customer
+POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345"
+"FirstName":"zaq",
+"Password":"12345432234",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
-<> 2019-06-26T060009.500.json
+<> 2019-06-26T102628.500.json
 
 ###
 
-POST http://localhost:5000/api/Customer
+POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345"
+"FirstName":"zaq",
+"Password":"12345432234",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
-<> 2019-06-26T055836.500.json
+<> 2019-06-26T102613.500.json
 
 ###
 
-POST http://localhost:5000/api/Customer
+POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345"
+"FirstName":"zaq",
+"Password":"12345432234",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
-<> 2019-06-26T055809.500.json
+<> 2019-06-26T102554.500.json
 
 ###
 
-POST http://localhost:5000/api/Customer
+POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
 
 {
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345"
+"FirstName":"zaq",
+"Password":"12345432234",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
-<> 2019-06-26T055448.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345"
-}
-
-<> 2019-06-26T055418.500.json
-
-###
-
-POST http://localhost:5000/api/Customer
-Accept: */*
-Cache-Control: no-cache
-
-{
-"Password":"5",
-"FirstName":"abc",
-"PhoneNum":"345678",
-"Email":"345"
-}
-
-<> 2019-06-26T051641.500.json
+<> 2019-06-26T102129.500.json
 
 ###
 
@@ -709,8 +381,38 @@ Cache-Control: no-cache
 {
 "FirstName":"zaq",
 "Password":"12345",
-"PhoneNum":"1234567890",
-"Email":"1423567@qq.com"
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+<> 2019-06-26T102021.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+<> 2019-06-26T101839.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
 
 ###
@@ -722,15 +424,12 @@ Cache-Control: no-cache
 {
 "FirstName":"zaq",
 "Password":"12345",
-"PhoneNum":"1234567890",
-"Email":"1423567@qq.com"
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
 }
-
-<> 2019-06-24T092537.500.json
 
 ###
 
-<<<<<<< Updated upstream
 POST http://localhost:5000/api/Customer/
 Accept: */*
 Cache-Control: no-cache
@@ -738,8 +437,270 @@ Cache-Control: no-cache
 {
 "FirstName":"zaq",
 "Password":"12345",
-"PhoneNum":"1234567890",
-"Email":"1423567@qq.com"
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"14232357@qq.com"
+}
+
+<> 2019-06-26T101246.500.html
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T101107.500.html
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T101037.500.html
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T100949.500.html
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T100939.500.html
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T100928.500.html
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T100837.500.html
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T095259.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T095250.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T093856.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T093810.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T093653.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T093413.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+<> 2019-06-26T092730.500.json
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
+}
+
+###
+
+POST http://localhost:5000/api/Customer/
+Accept: */*
+Cache-Control: no-cache
+
+{
+"FirstName":"zaq",
+"Password":"12345",
+"PhoneNum":"123457890",
+"Email":"142357@qq.com"
 }
 
 ###
@@ -755,58 +716,3 @@ Cache-Control: no-cache
 "Email":"1423567@qq.com"
 }
 
-###
-
-GET http://localhost:5000/api/Customer/1423567@qq.com
-Accept: */*
-Cache-Control: no-cache
-
-{ "FirstName":"zaq", "Password":"12345", "PhoneNum":"1234567890", "Email":"1423567" }
-
-<> 2019-06-14T092138.400.json
-
-###
-
-GET http://localhost:5000/api/Customer/1423567@qq.com
-Accept: */*
-Cache-Control: no-cache
-
-{ "FirstName":"zaq", "Password":"12345", "PhoneNum":"1234567890", "Email":"1423567" }
-
-###
-
-GET http://localhost:5000/api/Customer/1423567@qq.com
-Accept: */*
-Cache-Control: no-cache
-
-{ "FirstName":"zaq", "Password":"12345", "PhoneNum":"1234567890", "Email":"1423567" }
-
-<> 2019-06-14T104333.400.json
-
-###
-
-GET http://localhost:5000/api/Customer/1
-Accept: */*
-Cache-Control: no-cache
-
-{ "FirstName":"zaq", "Password":"12345", "PhoneNum":"1234567890", "Email":"1423567" }
-
-<> 2019-06-14T104144.200.json
-
-###
-
-POST http://localhost:5000/api/Customer/
-Accept: */*
-Cache-Control: no-cache
-
-{
-"FirstName":"zaq",
-"Password":"12345",
-"PhoneNum":"1234567890",
-"Email":"1423567@qq.com"
-}
-
-###
-
-=======
->>>>>>> Stashed changes
