@@ -200,3 +200,5 @@
 /Users/yh/repos/RiderProjects/EBook/obj/Debug/EBook.csproj.CopyComplete
 /Users/yh/repos/RiderProjects/EBook/obj/Debug/EBook.dll
 /Users/yh/repos/RiderProjects/EBook/obj/Debug/EBook.pdb
+/Users/spark/RiderProjects/EBook/bin/BCrypt.Net.dll
+/Users/spark/RiderProjects/EBook/bin/BCrypt.Net.xml

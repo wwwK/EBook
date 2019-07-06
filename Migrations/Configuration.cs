@@ -10,7 +10,7 @@ namespace EBook.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
     } 
 }

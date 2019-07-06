@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Http;
+using System.Web.SessionState;
 using EBook.Models;
 
 namespace EBook
@@ -20,7 +21,7 @@ namespace EBook
             //调用web API
             GlobalConfiguration.Configure(WebApiConfig.Register);
             
-            Database.SetInitializer(new DropCreateDatabaseAlways<OracleDbContext>());
+           // Database.SetInitializer(new DropCreateDatabaseAlways<OracleDbContext>());
             
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -28,7 +29,15 @@ namespace EBook
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
         }
-        
+
+
+        public override void Init()
+        {
+            this.PostAuthenticateRequest += (sender, e) =>
+                HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
+            base.Init();
+        }
+
         protected void Session_Start(object sender, EventArgs e)
         {
            

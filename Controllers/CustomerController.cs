@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using BCrypt.Net;
+using System.Web.SessionState;
 
 
 
@@ -45,28 +46,27 @@ namespace EBook.Controllers
 
 
 
-            
 
 
 
 
 
 
-            
 
 
-            db.Customers.Add(customer);
-            
-            
-            await db.SaveChangesAsync();
-            
-          
 
-
-//            HttpContext.Current.Session["id"] = data.Email;
+                db.Customers.Add(customer);
             
             
-        
+            
+                await db.SaveChangesAsync();
+
+
+            if (HttpContext.Current.Session != null) 
+                HttpContext.Current.Session["id"] = data.Email;
+
+//            string session = HttpContext.Current.Session["id"].ToString();
+
             return Ok();
         } 
             
