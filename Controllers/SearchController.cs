@@ -34,7 +34,7 @@ using System.Threading.Tasks;
  
              
              BookSearch a = new BookSearch();
-             //BookInfo[] css = a.BookSearchWithName(data.searchinfo);
+             BookInfo[] css = a.BookSearchWithTitle(data.searchinfo);
              return Ok(a.BookSearchWithTitle(data.searchinfo));
          }
          
@@ -42,8 +42,6 @@ using System.Threading.Tasks;
          [Route("api/Search/{SearchString}")]
          public async Task<IHttpActionResult> mohuchhhh(searchDate data)
          {
- 
-             
              BookSearch a = new BookSearch();
              BookInfo[] css = a.BookSearchWithTitle(data.searchinfo);
              return Ok(css);

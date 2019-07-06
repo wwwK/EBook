@@ -28,6 +28,8 @@ namespace EBook
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            
+            
         }
 
 
@@ -40,7 +42,7 @@ namespace EBook
 
         protected void Session_Start(object sender, EventArgs e)
         {
-           
+            Console.WriteLine("Session_Start");
         }
  
         protected void Session_End(object sender, EventArgs e)
