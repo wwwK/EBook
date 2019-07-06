@@ -235,6 +235,8 @@
     <Compile Include="Models\VipMember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\BookSearch.cs" />
+    <Compile Include="Service\EmailSend.cs" />
+    <Compile Include="Service\Session.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

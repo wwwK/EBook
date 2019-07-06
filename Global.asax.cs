@@ -12,6 +12,7 @@ using EBook.Models;
 
 namespace EBook
 {
+    
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()

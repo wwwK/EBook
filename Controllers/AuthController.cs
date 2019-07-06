@@ -1,10 +1,14 @@
 using System;
-
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Results;
+using System.Web.Mvc.Html;
 using EBook.Models;
 using BCrypt.Net;
+using EBook.Service;
 
 namespace EBook.Controllers
 {
@@ -22,24 +26,41 @@ namespace EBook.Controllers
         
         public class LoginData
         {
+            [EmailAddress]
             public string Email;
             public string Password;
         }
 
         [HttpPost]
-        [Route("api/register")]
-        public  string register(LoginData data)
+        [Route("api/sendMail")]
+        public async Task<IHttpActionResult> SendMail(LoginData data)
         {
-            
-            HttpCookie cookie = new HttpCookie("user_cookie")
+            if (!ModelState.IsValid)
             {
-                Value = data.Email,
-//                Expires = DateTime.Now.AddHours(1)
-            };
-            HttpContext.Current.Response.Cookies.Add(cookie);
-            HttpContext.Current.Session["id"] = "data.Email";
+                throw new HttpException(400, "Email invalid.");
+            }
             
-           HttpContext.Current.Session["data.password"] = data.Email;
+            var result =  await from customer in db.Customers
+                where customer.Email == data.Email
+                select customer;
+
+            if (result.Any())
+            {
+                // 邮箱已存在
+                throw new HttpException(400, "Email registered.");
+            }
+            EBook.Service.EmailSend.SendVerifyCode(data.Email);
+            return Ok();
+
+//            HttpCookie cookie = new HttpCookie("user_cookie")
+//            {
+//                Value = data.Email,
+//                Expires = DateTime.Now.AddHours(1)
+//            };
+//            HttpContext.Current.Response.Cookies.Add(cookie);
+//            HttpContext.Current.Session["id"] = "data.Email";
+//            
+//            HttpContext.Current.Session["data.password"] = data.Email;
 
 //            if (HttpContext.Current.Session == null)
 //            {
@@ -58,17 +79,37 @@ namespace EBook.Controllers
 //            {
 //                Console.WriteLine("success");
 //            }
-
-
-
-            HttpContext.Current.Session["id"] = data.Email;
-            string code = HttpContext.Current.Session["id"].ToString();
-            return data.Email;
         }
-        
-        
 
-     
+        [HttpPost]
+        [Route("api/login")]
+        public async Task<IHttpActionResult> login(LoginData data)
+        {
+            var result = await from customer in db.Customers
+                where customer.Email == data.Email
+                select customer;
+
+            if (!result.Any())
+            {
+                
+                throw new HttpException(400, "邮箱不存在");
+            }
+            var hashed = BCrypt.Net.BCrypt.HashPassword(data.Password);
+            if (result.First().Password != hashed)
+            {
+                throw new HttpException(400, "密码错");
+            }
+            
+            HttpCookie cookie = new HttpCookie("sessionId")
+            {
+                Value = Service.Session.SetSessionId(result.First().CustomerId).ToString(),
+                Expires = DateTime.Now.AddHours(1)
+            };
+            
+            HttpContext.Current.Response.Cookies.Add(cookie);
+
+            return Ok();
+        }
 
     }
 }
