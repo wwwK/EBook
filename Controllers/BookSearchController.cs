@@ -14,7 +14,7 @@ using System.Threading.Tasks;
  namespace EBook.Controllers
  {
      
-     public class SearchController : ApiController
+     public class BookSearchController : ApiController
      {
 
 
@@ -28,7 +28,7 @@ using System.Threading.Tasks;
          
  
          [HttpPost]
-         [Route("api/Search/")]
+         [Route("api/BookSearch/")]
          public async Task<IHttpActionResult> Mo(searchDate data)
          {
  
@@ -39,7 +39,7 @@ using System.Threading.Tasks;
          }
          
          [HttpGet]
-         [Route("api/Search/{SearchString}")]
+         [Route("api/BookSearch/{SearchString}")]
          public async Task<IHttpActionResult> mohuchhhh(searchDate data)
          {
  
