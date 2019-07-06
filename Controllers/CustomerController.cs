@@ -20,7 +20,7 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/Customer/")]
-        public async Task<IHttpActionResult> UpdateUser(Customer data)
+        public async Task<IHttpActionResult> InsertUser(Customer data)
         {
             Customer customer = new Customer()
             {
@@ -73,11 +73,16 @@ namespace EBook.Controllers
         }
 
 
-        [HttpGet]
-        [Route("api/Customer/{CustomerId}")]
-        public async Task<IHttpActionResult> GetUser(int customerId)
+        public class GetRequest
         {
-            var customer = await db.Customers.FindAsync(customerId);
+            public int CustomerId;
+        }
+
+        [HttpGet]
+        [Route("api/Customer/1")]
+        public async Task<IHttpActionResult> GetCustomer(GetRequest data)
+        {
+            var customer = await db.Customers.FindAsync(data.CustomerId);
             if (customer == null)
             {
                 throw new HttpException(404, "User not found");

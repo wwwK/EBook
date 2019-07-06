@@ -1,134 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+﻿using System.Threading.Tasks;
+using System.Web;
+using System.Web.Http;
+using EBook.Models;
+using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Description;
-using EBook.Models;
+using System.Net.Http.Headers;
+using BCrypt.Net;
+using System.Web.SessionState;
+
 
 namespace EBook.Controllers
 {
-    public class TransactsController : ApiController
+    public class TransactCartController : ApiController
     {
         private OracleDbContext db = new OracleDbContext();
 
-        // GET: api/Transacts
-        public IQueryable<Transact> GetTransacts()
+
+        [HttpPost]
+        [Route("api/Transact/")]
+        public async Task<IHttpActionResult> InsertTransact(Transact data)
         {
-            return db.Transacts;
-        }
-
-        // GET: api/Transacts/5
-        [ResponseType(typeof(Transact))]
-        public async Task<IHttpActionResult> GetTransact(int id)
-        {
-            Transact transact = await db.Transacts.FindAsync(id);
-            if (transact == null)
+            Transact transact = new Transact
             {
-                return NotFound();
-            }
-
-            return Ok(transact);
-        }
-
-        // PUT: api/Transacts/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutTransact(int id, Transact transact)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != transact.CustomerId)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(transact).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TransactExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/Transacts
-        [ResponseType(typeof(Transact))]
-        public async Task<IHttpActionResult> PostTransact(Transact transact)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+                CustomerId = data.CustomerId,
+                MerchandiseId = data.MerchandiseId,
+                CreateTime = data.CreateTime,
+                ActualPrice = data.ActualPrice,
+                Status = data.Status,
+                Amount = data.Amount,
+                LogisticTrackNum = data.LogisticTrackNum,
+                Comment = data.Comment,
+            };
 
             db.Transacts.Add(transact);
+            
 
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (TransactExists(transact.CustomerId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await db.SaveChangesAsync();
+            
 
-            return CreatedAtRoute("DefaultApi", new { id = transact.CustomerId }, transact);
+            return Ok();
         }
 
-        // DELETE: api/Transacts/5
-        [ResponseType(typeof(Transact))]
-        public async Task<IHttpActionResult> DeleteTransact(int id)
+        public class GetRequest
         {
-            Transact transact = await db.Transacts.FindAsync(id);
+            public int CustomerId;
+            public int MerchandiseId;
+            public DateTime CreateTime;
+        }
+
+        [HttpGet]
+        [Route("api/Transact/1")]
+        public async Task<IHttpActionResult> GetTransact(GetRequest data)
+        {
+            var transact = await db.Transacts.FindAsync(data.CustomerId,data.MerchandiseId,data.CreateTime);
             if (transact == null)
             {
-                return NotFound();
+                throw new HttpException(404, "User not found");
             }
-
-            db.Transacts.Remove(transact);
-            await db.SaveChangesAsync();
 
             return Ok(transact);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool TransactExists(int id)
-        {
-            return db.Transacts.Count(e => e.CustomerId == id) > 0;
         }
     }
 }

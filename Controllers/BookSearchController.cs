@@ -29,7 +29,7 @@ using System.Threading.Tasks;
  
          [HttpPost]
          [Route("api/BookSearch/")]
-         public async Task<IHttpActionResult> Mo(searchDate data)
+         public async Task<IHttpActionResult> Search(searchDate data)
          {
  
              
@@ -38,14 +38,14 @@ using System.Threading.Tasks;
              return Ok(a.BookSearchWithTitle(data.searchinfo));
          }
          
-         [HttpGet]
+         /*[HttpGet]
          [Route("api/BookSearch/{SearchString}")]
          public async Task<IHttpActionResult> mohuchhhh(searchDate data)
          {
              BookSearch a = new BookSearch();
              BookInfo[] css = a.BookSearchWithTitle(data.searchinfo);
              return Ok(css);
-         }
+         }*/
  
          
      }

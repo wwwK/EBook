@@ -1,119 +1,67 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+﻿using System.Threading.Tasks;
+using System.Web;
+using System.Web.Http;
+using EBook.Models;
+using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Description;
-using EBook.Models;
+using System.Net.Http.Headers;
+using BCrypt.Net;
+using System.Web.SessionState;
+
 
 namespace EBook.Controllers
 {
-    public class CustomerAddressesController : ApiController
+    public class CustomerAddressController : ApiController
     {
         private OracleDbContext db = new OracleDbContext();
 
-        // GET: api/CustomerAddresses
-        public IQueryable<CustomerAddress> GetCustomerAddresses()
+
+        [HttpPost]
+        [Route("api/CustomerAddress/")]
+        public async Task<IHttpActionResult> InsertCustomerAddress(CustomerAddress data)
         {
-            return db.CustomerAddresses;
-        }
-
-        // GET: api/CustomerAddresses/5
-        [ResponseType(typeof(CustomerAddress))]
-        public async Task<IHttpActionResult> GetCustomerAddress(int id)
-        {
-            CustomerAddress customerAddress = await db.CustomerAddresses.FindAsync(id);
-            if (customerAddress == null)
+            CustomerAddress address = new CustomerAddress
             {
-                return NotFound();
-            }
+                AddressIndex = data.AddressIndex,
+                ReceiverName = data.ReceiverName,
+                ReceivePhone = data.ReceivePhone,
+                Province = data.Province,
+                City = data.City,
+                Block = data.Block,
+                DetailAddress = data.DetailAddress,
+                ZipCode = data.ZipCode,
+                CustomerId = data.CustomerId,
+                IsDefault = data.IsDefault,
+            };
 
-            return Ok(customerAddress);
-        }
 
-        // PUT: api/CustomerAddresses/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutCustomerAddress(int id, CustomerAddress customerAddress)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            db.CustomerAddresses.Add(address);
+            
 
-            if (id != customerAddress.AddressIndex)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(customerAddress).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CustomerAddressExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/CustomerAddresses
-        [ResponseType(typeof(CustomerAddress))]
-        public async Task<IHttpActionResult> PostCustomerAddress(CustomerAddress customerAddress)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.CustomerAddresses.Add(customerAddress);
             await db.SaveChangesAsync();
+            
 
-            return CreatedAtRoute("DefaultApi", new { id = customerAddress.AddressIndex }, customerAddress);
+            return Ok();
         }
 
-        // DELETE: api/CustomerAddresses/5
-        [ResponseType(typeof(CustomerAddress))]
-        public async Task<IHttpActionResult> DeleteCustomerAddress(int id)
+        public class GetRequest
         {
-            CustomerAddress customerAddress = await db.CustomerAddresses.FindAsync(id);
-            if (customerAddress == null)
+            public int AddressIndex;
+        }
+
+        [HttpGet]
+        [Route("api/CustomerAddress/1")]
+        public async Task<IHttpActionResult> GetCustomerAddress(GetRequest data)
+        {
+            var address = await db.CustomerAddresses.FindAsync(data.AddressIndex);
+            if (address == null)
             {
-                return NotFound();
+                throw new HttpException(404, "User not found");
             }
 
-            db.CustomerAddresses.Remove(customerAddress);
-            await db.SaveChangesAsync();
-
-            return Ok(customerAddress);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool CustomerAddressExists(int id)
-        {
-            return db.CustomerAddresses.Count(e => e.AddressIndex == id) > 0;
+            return Ok(address);
         }
     }
 }

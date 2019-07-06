@@ -13,24 +13,27 @@ using System.Web.SessionState;
 
 namespace EBook.Controllers
 {
-    public class OwnController : ApiController
+    public class BookController : ApiController
     {
         private OracleDbContext db = new OracleDbContext();
 
 
         [HttpPost]
-        [Route("api/Own/")]
-        public async Task<IHttpActionResult> InsertOwn(Own data)
+        [Route("api/Book/")]
+        public async Task<IHttpActionResult> InsertBooks(Book data)
         {
-            Own own = new Own
+            Book book = new Book
             {
-                CustomerId = data.CustomerId,
-                CouponId = data.CouponId,
-                Status = data.Status,
-
+                ISBN = data.ISBN,
+                Title = data.Title,
+                Author = data.Author,
+                Publisher = data.Publisher,
+                PublishYear = data.PublishYear,
+                PageNum = data.PageNum,
             };
 
-            db.Owns.Add(own);
+
+            db.Books.Add(book);
             
 
             await db.SaveChangesAsync();
@@ -41,21 +44,20 @@ namespace EBook.Controllers
 
         public class GetRequest
         {
-            public int CustomerId;
-            public int CouponId;
+            public string ISBN;
         }
 
         [HttpGet]
-        [Route("api/Own/1")]
-        public async Task<IHttpActionResult> GetOwn(GetRequest data)
+        [Route("api/Book/1")]
+        public async Task<IHttpActionResult> GetBook(GetRequest data)
         {
-            var own = await db.Owns.FindAsync(data.CustomerId,data.CouponId);
-            if (own == null)
+            var book = await db.Books.FindAsync(data.ISBN);
+            if (book == null)
             {
                 throw new HttpException(404, "User not found");
             }
 
-            return Ok(own);
+            return Ok(book);
         }
     }
 }

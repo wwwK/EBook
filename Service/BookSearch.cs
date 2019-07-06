@@ -37,7 +37,7 @@ namespace EBook.Service
             Seller[] sellersArray = db.Sellers.ToArray();
             IEnumerable<BookInfo> selectedBookInfos =
                 from book in booksArray
-                join merchandise in merchandisesArray on book.ISBN equals merchandise.Isbn into bookMerchandiseArray
+                join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray
                 from bookMerchandise in bookMerchandiseArray
                 join seller in sellersArray on bookMerchandise.SellerId equals seller.SellerId into bookInfoArray
                 from bookInfo in bookInfoArray
@@ -67,7 +67,7 @@ namespace EBook.Service
             Seller[] sellersArray = db.Sellers.ToArray();
             IEnumerable<BookInfo> selectedBookInfos =
                 from book in booksArray
-                join merchandise in merchandisesArray on book.ISBN equals merchandise.Isbn into bookMerchandiseArray
+                join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray
                 from bookMerchandise in bookMerchandiseArray
                 join seller in sellersArray on bookMerchandise.SellerId equals seller.SellerId into bookInfoArray
                 from bookInfo in bookInfoArray
@@ -97,7 +97,7 @@ namespace EBook.Service
             Seller[] sellersArray = db.Sellers.ToArray();
             IEnumerable<BookInfo> selectedBookInfos =
                 from book in booksArray
-                join merchandise in merchandisesArray on book.ISBN equals merchandise.Isbn into bookMerchandiseArray
+                join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray
                 from bookMerchandise in bookMerchandiseArray
                 join seller in sellersArray on bookMerchandise.SellerId equals seller.SellerId into bookInfoArray
                 from bookInfo in bookInfoArray
@@ -127,7 +127,7 @@ namespace EBook.Service
             Seller[] sellersArray = db.Sellers.ToArray();
             IEnumerable<BookInfo> selectedBookInfos =
                 from book in booksArray
-                join merchandise in merchandisesArray on book.ISBN equals merchandise.Isbn into bookMerchandiseArray
+                join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray
                 from bookMerchandise in bookMerchandiseArray
                 join seller in sellersArray on bookMerchandise.SellerId equals seller.SellerId into bookInfoArray
                 from bookInfo in bookInfoArray
@@ -157,7 +157,7 @@ namespace EBook.Service
             Seller[] sellersArray = db.Sellers.ToArray();
             IEnumerable<BookInfo> selectedBookInfos =
                 from book in booksArray
-                join merchandise in merchandisesArray on book.ISBN equals merchandise.Isbn into bookMerchandiseArray
+                join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray
                 from bookMerchandise in bookMerchandiseArray
                 join seller in sellersArray on bookMerchandise.SellerId equals seller.SellerId into bookInfoArray
                 from bookInfo in bookInfoArray
