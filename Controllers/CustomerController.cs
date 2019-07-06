@@ -63,11 +63,14 @@ namespace EBook.Controllers
 
 
             if (HttpContext.Current.Session != null) 
+                Console.WriteLine("before" + HttpContext.Current.Session["id"]);
                 HttpContext.Current.Session["id"] = data.Email;
+                Console.WriteLine("after" + HttpContext.Current.Session["id"]);
 
 //            string session = HttpContext.Current.Session["id"].ToString();
+            Console.WriteLine("return" + HttpContext.Current.Session["id"]);
 
-            return Ok();
+            return Ok(HttpContext.Current.Session["id"]);
         } 
             
             
