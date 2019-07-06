@@ -20,8 +20,13 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/ShoppingCart/")]
-        public async Task<IHttpActionResult> InsertShoppingCart(ShoppingCart data)
+        public IHttpActionResult InsertShoppingCart(ShoppingCart data)
         {
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             ShoppingCart shoppingCart = new ShoppingCart
             {
                 CustomerId = data.CustomerId,
@@ -31,9 +36,8 @@ namespace EBook.Controllers
             };
 
             db.ShoppingCarts.Add(shoppingCart);
-            
 
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             
 
             return Ok();
@@ -47,12 +51,12 @@ namespace EBook.Controllers
 
         [HttpGet]
         [Route("api/ShoppingCart/1")]
-        public async Task<IHttpActionResult> GetShoppingCart(GetRequest data)
+        public IHttpActionResult GetShoppingCart(GetRequest data)
         {
-            var shoppingCart = await db.ShoppingCarts.FindAsync(data.CustomerId,data.MerchandiseId);
+            var shoppingCart = db.ShoppingCarts.Find(data.CustomerId,data.MerchandiseId);
             if (shoppingCart == null)
             {
-                throw new HttpException(404, "User not found");
+                return NotFound();
             }
 
             return Ok(shoppingCart);

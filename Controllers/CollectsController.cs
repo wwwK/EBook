@@ -20,22 +20,23 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/Collect/")]
-        public async Task<IHttpActionResult> InsertCollect(Collect data)
+        public IHttpActionResult InsertCollect(Collect data)
         {
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             Collect collect = new Collect
             {
                 CustomerId = data.CustomerId,
                 MerchandiseId = data.MerchandiseId,
                 CollectTime = data.CollectTime
             };
-
-
+            
             db.Collects.Add(collect);
-            
 
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             
-
             return Ok();
         }
 
@@ -48,12 +49,16 @@ namespace EBook.Controllers
 
         [HttpGet]
         [Route("api/Collect/1")]
-        public async Task<IHttpActionResult> GetCollect(GetRequest data)
+        public IHttpActionResult GetCollect(GetRequest data)
         {
-            var collect = await db.Collects.FindAsync(data.CustomerId,data.MerchandiseId);
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var collect = db.Collects.Find(data.CustomerId,data.MerchandiseId);
             if (collect == null)
             {
-                throw new HttpException(404, "User not found");
+                return NotFound();
             }
 
             return Ok(collect);

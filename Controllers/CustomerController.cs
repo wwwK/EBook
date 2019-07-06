@@ -26,19 +26,24 @@ namespace EBook.Controllers
         
         [HttpPost]
         [Route("api/Customer/")]
-        public async Task<IHttpActionResult> UpdateUser(RegisterData data)
+        public IHttpActionResult UpdateUser(RegisterData data)
         {
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             var tmpResult = Service.EmailSend.CheckVerifyCode(data.CustomerData.Email, data.ValidateCode);
             if (tmpResult != 0)
             {
                 switch (tmpResult)
                 {
                     case -1:
-                        throw new HttpException(400, "请先发送验证码");
+                        return BadRequest("Validate code not sent.");
                     case -2:
-                        throw new HttpException(400, "验证码错误");
+                        return BadRequest("Wrong validate code.");
                     case -3:
-                        throw new HttpException(400, "验证码失效");
+                        return BadRequest("Validate code expired.");
                 }
             }
 
@@ -55,16 +60,12 @@ namespace EBook.Controllers
                 Point = data.CustomerData.Point,
                 Password = BCrypt.Net.BCrypt.HashPassword(data.CustomerData.Password)
             };
-
-
-//                
-
-
+            
             var inserted = db.Customers.Add(customer);
             
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             
-            HttpCookie cookie = new HttpCookie("sessionId")
+            var cookie = new HttpCookie("sessionId")
                 {
                     Value = Service.Session.SetSessionId(inserted.CustomerId).ToString(),
                     Expires = DateTime.Now.AddHours(1)
@@ -88,12 +89,16 @@ namespace EBook.Controllers
 
         [HttpGet]
         [Route("api/Customer/{CustomerId}")]
-        public async Task<IHttpActionResult> GetUser(int customerId)
+        public IHttpActionResult GetUser(int customerId)
         {
-            var customer = await db.Customers.FindAsync(customerId);
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var customer = db.Customers.Find(customerId);
             if (customer == null)
             {
-                throw new HttpException(404, "User not found");
+                return NotFound();
             }
 
             return Ok(customer);

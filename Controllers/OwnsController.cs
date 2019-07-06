@@ -20,8 +20,13 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/Own/")]
-        public async Task<IHttpActionResult> InsertOwn(Own data)
+        public IHttpActionResult InsertOwn(Own data)
         {
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             Own own = new Own
             {
                 CustomerId = data.CustomerId,
@@ -33,7 +38,7 @@ namespace EBook.Controllers
             db.Owns.Add(own);
             
 
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             
 
             return Ok();
@@ -47,12 +52,12 @@ namespace EBook.Controllers
 
         [HttpGet]
         [Route("api/Own/1")]
-        public async Task<IHttpActionResult> GetOwn(GetRequest data)
+        public IHttpActionResult GetOwn(GetRequest data)
         {
-            var own = await db.Owns.FindAsync(data.CustomerId,data.CouponId);
+            var own = db.Owns.Find(data.CustomerId,data.CouponId);
             if (own == null)
             {
-                throw new HttpException(404, "User not found");
+                return NotFound();
             }
 
             return Ok(own);

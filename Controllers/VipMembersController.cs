@@ -20,8 +20,13 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/VipMember/")]
-        public async Task<IHttpActionResult> InsertVipMember(VipMember data)
+        public IHttpActionResult InsertVipMember(VipMember data)
         {
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             VipMember vipMember = new VipMember
             {
                 CustomerId = data.CustomerId,
@@ -35,7 +40,7 @@ namespace EBook.Controllers
             db.VipMembers.Add(vipMember);
             
 
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             
 
             return Ok();
@@ -49,12 +54,17 @@ namespace EBook.Controllers
 
         [HttpGet]
         [Route("api/VipMember/1")]
-        public async Task<IHttpActionResult> GetVipMember(GetRequest data)
+        public IHttpActionResult GetVipMember(GetRequest data)
         {
-            var vipMember = await db.VipMembers.FindAsync(data.CustomerId,data.SellerId);
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            var vipMember = db.VipMembers.Find(data.CustomerId,data.SellerId);
             if (vipMember == null)
             {
-                throw new HttpException(404, "User not found");
+                return NotFound();
             }
 
             return Ok(vipMember);

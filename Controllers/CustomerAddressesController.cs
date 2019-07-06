@@ -20,8 +20,13 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/CustomerAddress/")]
-        public async Task<IHttpActionResult> InsertCustomerAddress(CustomerAddress data)
+        public IHttpActionResult InsertCustomerAddress(CustomerAddress data)
         {
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             CustomerAddress address = new CustomerAddress
             {
                 AddressIndex = data.AddressIndex,
@@ -35,14 +40,11 @@ namespace EBook.Controllers
                 CustomerId = data.CustomerId,
                 IsDefault = data.IsDefault,
             };
-
-
+            
             db.CustomerAddresses.Add(address);
             
-
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             
-
             return Ok();
         }
 
@@ -53,12 +55,17 @@ namespace EBook.Controllers
 
         [HttpGet]
         [Route("api/CustomerAddress/1")]
-        public async Task<IHttpActionResult> GetCustomerAddress(GetRequest data)
+        public IHttpActionResult GetCustomerAddress(GetRequest data)
         {
-            var address = await db.CustomerAddresses.FindAsync(data.AddressIndex);
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            var address = db.CustomerAddresses.Find(data.AddressIndex);
             if (address == null)
             {
-                throw new HttpException(404, "User not found");
+                return NotFound();
             }
 
             return Ok(address);

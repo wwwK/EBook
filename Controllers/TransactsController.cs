@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using BCrypt.Net;
 using System.Web.SessionState;
 
@@ -20,8 +21,13 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/Transact/")]
-        public async Task<IHttpActionResult> InsertTransact(Transact data)
+        public IHttpActionResult InsertTransact(Transact data)
         {
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             Transact transact = new Transact
             {
                 CustomerId = data.CustomerId,
@@ -37,7 +43,7 @@ namespace EBook.Controllers
             db.Transacts.Add(transact);
             
 
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             
 
             return Ok();
@@ -52,12 +58,17 @@ namespace EBook.Controllers
 
         [HttpGet]
         [Route("api/Transact/1")]
-        public async Task<IHttpActionResult> GetTransact(GetRequest data)
+        public IHttpActionResult GetTransact(GetRequest data)
         {
-            var transact = await db.Transacts.FindAsync(data.CustomerId,data.MerchandiseId,data.CreateTime);
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            var transact = db.Transacts.Find(data.CustomerId,data.MerchandiseId,data.CreateTime);
             if (transact == null)
             {
-                throw new HttpException(404, "User not found");
+                return NotFound();
             }
 
             return Ok(transact);

@@ -20,8 +20,12 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/Answer/")]
-        public async Task<IHttpActionResult> InsertAnswer(Answer data)
+        public IHttpActionResult InsertAnswer(Answer data)
         {
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             Answer answer = new Answer
             {
                 AnswerId = data.AnswerId,
@@ -35,7 +39,7 @@ namespace EBook.Controllers
             db.Answers.Add(answer);
             
 
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             
 
             return Ok();
@@ -49,12 +53,16 @@ namespace EBook.Controllers
 
         [HttpGet]
         [Route("api/Answer/1")]
-        public async Task<IHttpActionResult> GetAnswer(GetRequest data)
+        public IHttpActionResult GetAnswer(GetRequest data)
         {
-            var answer = await db.Answers.FindAsync(data.AnswerId);
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var answer = db.Answers.Find(data.AnswerId);
             if (answer == null)
             {
-                throw new HttpException(404, "User not found");
+                return NotFound();
             }
 
             return Ok(answer);

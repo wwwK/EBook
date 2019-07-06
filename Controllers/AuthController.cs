@@ -33,21 +33,21 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/sendMail")]
-        public async Task<IHttpActionResult> SendMail(LoginData data)
+        public IHttpActionResult SendMail(LoginData data)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpException(400, "Email invalid.");
+                return BadRequest("Email Invalid.");
             }
             
-            var result =  await from customer in db.Customers
+            var result = from customer in db.Customers
                 where customer.Email == data.Email
                 select customer;
 
             if (result.Any())
             {
                 // 邮箱已存在
-                throw new HttpException(400, "Email registered.");
+                return BadRequest("Email exist");
             }
             EBook.Service.EmailSend.SendVerifyCode(data.Email);
             return Ok();
@@ -83,24 +83,29 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/login")]
-        public async Task<IHttpActionResult> login(LoginData data)
+        public IHttpActionResult Login(LoginData data)
         {
-            var result = await from customer in db.Customers
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            var result = from customer in db.Customers
                 where customer.Email == data.Email
                 select customer;
 
             if (!result.Any())
             {
-                
-                throw new HttpException(400, "邮箱不存在");
+
+                return NotFound();
             }
             var hashed = BCrypt.Net.BCrypt.HashPassword(data.Password);
             if (result.First().Password != hashed)
             {
-                throw new HttpException(400, "密码错");
+                return BadRequest("Password incorrect.");
             }
             
-            HttpCookie cookie = new HttpCookie("sessionId")
+            var cookie = new HttpCookie("sessionId")
             {
                 Value = Service.Session.SetSessionId(result.First().CustomerId).ToString(),
                 Expires = DateTime.Now.AddHours(1)

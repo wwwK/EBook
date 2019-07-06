@@ -25,9 +25,13 @@ namespace EBook.Controllers
 
         // GET: api/Customers1/5
         [ResponseType(typeof(Customer))]
-        public async Task<IHttpActionResult> GetCustomer(int id)
+        public IHttpActionResult GetCustomer(int id)
         {
-            Customer customer = await db.Customers.FindAsync(id);
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            Customer customer = db.Customers.Find(id);
             if (customer == null)
             {
                 return NotFound();
@@ -38,7 +42,7 @@ namespace EBook.Controllers
 
         // PUT: api/Customers1/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutCustomer(int id, Customer customer)
+        public IHttpActionResult PutCustomer(int id, Customer customer)
         {
             if (!ModelState.IsValid)
             {
@@ -54,7 +58,7 @@ namespace EBook.Controllers
 
             try
             {
-                await db.SaveChangesAsync();
+                db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -73,7 +77,7 @@ namespace EBook.Controllers
 
         // POST: api/Customers1
         [ResponseType(typeof(Customer))]
-        public async Task<IHttpActionResult> PostCustomer(Customer customer)
+        public IHttpActionResult PostCustomer(Customer customer)
         {
             if (!ModelState.IsValid)
             {
@@ -81,23 +85,23 @@ namespace EBook.Controllers
             }
 
             db.Customers.Add(customer);
-            await db.SaveChangesAsync();
+            db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = customer.CustomerId }, customer);
         }
 
         // DELETE: api/Customers1/5
         [ResponseType(typeof(Customer))]
-        public async Task<IHttpActionResult> DeleteCustomer(int id)
+        public IHttpActionResult DeleteCustomer(int id)
         {
-            Customer customer = await db.Customers.FindAsync(id);
+            Customer customer = db.Customers.Find(id);
             if (customer == null)
             {
                 return NotFound();
             }
 
             db.Customers.Remove(customer);
-            await db.SaveChangesAsync();
+            db.SaveChanges();
 
             return Ok(customer);
         }

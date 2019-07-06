@@ -20,8 +20,12 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/Coupon/")]
-        public async Task<IHttpActionResult> InsertCoupon(Coupon data)
+        public IHttpActionResult InsertCoupon(Coupon data)
         {
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             Coupon coupon = new Coupon
             {
                 CouponId = data.CouponId,
@@ -31,14 +35,11 @@ namespace EBook.Controllers
                 PriceLimit = data.PriceLimit,
                 CouponStatus =data.CouponStatus,
             };
-
-
+            
             db.Coupons.Add(coupon);
-
-
-            await db.SaveChangesAsync();
-
-
+            
+            db.SaveChanges();
+            
             return Ok();
         }
 
@@ -49,12 +50,16 @@ namespace EBook.Controllers
 
         [HttpGet]
         [Route("api/Coupon/1")]
-        public async Task<IHttpActionResult> GetCoupon(GetRequest data)
+        public IHttpActionResult GetCoupon(GetRequest data)
         {
-            var coupon = await db.Coupons.FindAsync(data.CouponId);
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var coupon = db.Coupons.Find(data.CouponId);
             if (coupon == null)
             {
-                throw new HttpException(404, "User not found");
+                return NotFound();
             }
 
             return Ok(coupon);

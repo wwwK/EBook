@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using BCrypt.Net;
 using System.Web.SessionState;
 
@@ -20,8 +21,13 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/Merchandise/")]
-        public async Task<IHttpActionResult> InsertMerchandise(Merchandise data)
+        public IHttpActionResult InsertMerchandise(Merchandise data)
         {
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             Merchandise merchandise = new Merchandise
             {
                 MerchandiseId = data.MerchandiseId,
@@ -34,9 +40,8 @@ namespace EBook.Controllers
             db.Merchandises.Add(merchandise);
             
 
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             
-
             return Ok();
         }
 
@@ -47,12 +52,12 @@ namespace EBook.Controllers
 
         [HttpGet]
         [Route("api/Merchandise/1")]
-        public async Task<IHttpActionResult> GetMerchandise(GetRequest data)
+        public IHttpActionResult GetMerchandise(GetRequest data)
         {
-            var merchandise = await db.Merchandises.FindAsync(data.MerchandiseId);
+            var merchandise = db.Merchandises.Find(data.MerchandiseId);
             if (merchandise == null)
             {
-                throw new HttpException(404, "User not found");
+                return NotFound();
             }
 
             return Ok(merchandise);

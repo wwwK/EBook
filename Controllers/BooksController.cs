@@ -20,9 +20,13 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/Book/")]
-        public async Task<IHttpActionResult> InsertBooks(Book data)
+        public IHttpActionResult InsertBooks(Book data)
         {
-            Book book = new Book
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var book = new Book
             {
                 ISBN = data.ISBN,
                 Title = data.Title,
@@ -32,13 +36,10 @@ namespace EBook.Controllers
                 PageNum = data.PageNum,
             };
 
-
             db.Books.Add(book);
             
-
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             
-
             return Ok();
         }
 
@@ -49,14 +50,17 @@ namespace EBook.Controllers
 
         [HttpGet]
         [Route("api/Book/1")]
-        public async Task<IHttpActionResult> GetBook(GetRequest data)
+        public IHttpActionResult GetBook(GetRequest data)
         {
-            var book = await db.Books.FindAsync(data.ISBN);
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var book = db.Books.Find(data.ISBN);
             if (book == null)
             {
-                throw new HttpException(404, "User not found");
+                return NotFound();
             }
-
             return Ok(book);
         }
     }

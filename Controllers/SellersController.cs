@@ -20,8 +20,13 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/Seller/")]
-        public async Task<IHttpActionResult> InsertSeller(Seller data)
+        public IHttpActionResult InsertSeller(Seller data)
         {
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             Seller seller = new Seller
             {
                 SellerId = data.SellerId,
@@ -37,7 +42,7 @@ namespace EBook.Controllers
             db.Sellers.Add(seller);
             
 
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             
 
             return Ok();
@@ -50,12 +55,12 @@ namespace EBook.Controllers
 
         [HttpGet]
         [Route("api/Seller/1")]
-        public async Task<IHttpActionResult> GetMerchandise(GetRequest data)
+        public IHttpActionResult GetMerchandise(GetRequest data)
         {
-            var seller = await db.Sellers.FindAsync(data.SellerId);
+            var seller = db.Sellers.Find(data.SellerId);
             if (seller == null)
             {
-                throw new HttpException(404, "User not found");
+                return NotFound();
             }
 
             return Ok(seller);

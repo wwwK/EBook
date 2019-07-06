@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 
 
-         public class searchDate
+         public class SearchDate
          {
              public string searchinfo;
          }
@@ -29,18 +29,22 @@ using System.Threading.Tasks;
  
          [HttpPost]
          [Route("api/BookSearch/")]
-         public async Task<IHttpActionResult> Search(searchDate data)
+         public IHttpActionResult Search(SearchDate data)
          {
+             if (ModelState.IsValid)
+             {
+                 return BadRequest(ModelState);
+             }
  
              
-             BookSearch a = new BookSearch();
+             var a = new BookSearch();
              BookInfo[] css = a.BookSearchWithTitle(data.searchinfo);
              return Ok(a.BookSearchWithTitle(data.searchinfo));
          }
          
          /*[HttpGet]
          [Route("api/BookSearch/{SearchString}")]
-         public async Task<IHttpActionResult> mohuchhhh(searchDate data)
+         public async Task<IHttpActionResult> mohuchhhh(SearchDate data)
          {
              BookSearch a = new BookSearch();
              BookInfo[] css = a.BookSearchWithTitle(data.searchinfo);

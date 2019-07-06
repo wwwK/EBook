@@ -19,7 +19,7 @@ namespace EBook.Controllers
 
 
 
-        public class searchDate
+        public class SearchDate
         {
             public string searchinfo;
         }
@@ -29,9 +29,12 @@ namespace EBook.Controllers
  
         [HttpPost]
         [Route("api/CouponSearch/")]
-        public async Task<IHttpActionResult> CouponSearch(searchDate data)
+        public IHttpActionResult CouponSearch(SearchDate data)
         {
- 
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
              
             CouponSearch a = new CouponSearch();
             return Ok(a.CouponSearchWithShopName(data.searchinfo));
@@ -39,7 +42,7 @@ namespace EBook.Controllers
          
         /*[HttpGet]
         [Route("api/CouponSearch/{SearchString}")]
-        public async Task<IHttpActionResult> mohuchhhh(searchDate data)
+        public async Task<IHttpActionResult> mohuchhhh(SearchDate data)
         {
  
              
