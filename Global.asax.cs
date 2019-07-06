@@ -22,8 +22,8 @@ namespace EBook
             //调用web API
             GlobalConfiguration.Configure(WebApiConfig.Register);
             
-           // Database.SetInitializer(new DropCreateDatabaseAlways<OracleDbContext>());
-            
+            Database.SetInitializer(new DropCreateDatabaseAlways<OracleDbContext>());
+            //表项更改后启用该句重新建表
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

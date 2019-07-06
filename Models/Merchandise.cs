@@ -16,8 +16,8 @@ namespace EBook.Models
         public Seller Seller { get; set; }
 
 
-        public string Isbn { set; get; }
-        [ForeignKey("Isbn")]
+        public string ISBN { set; get; }
+        [ForeignKey("ISBN")]
         public Book Book { set; get; }
 
         public string Description { set; get; }
