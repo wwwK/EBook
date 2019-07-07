@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Web.Http.Results;
 using BCrypt.Net;
 using System.Web.SessionState;
 using EBook.Service;
@@ -46,9 +47,7 @@ namespace EBook.Controllers
 
         public class GetRequest
         {
-            public int CustomerId;
             public int MerchandiseId;
-            public int Session;
         }
 
         [HttpPost]
@@ -62,11 +61,21 @@ namespace EBook.Controllers
  
              
             var a = new SeeShoppingCart();
-            int customerId = Session.GetUserIdFromSession(data.Session);
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Login");
+            }
+            
+            int customerId = Session.GetUserIdFromSession(int.Parse(session.Value));
+            if (customerId == 0)
+            {
+                return BadRequest("Not Login");
+            }
             return Ok(a.SeeShoppingCartWithCustomerId(customerId));
         }
 
-        [HttpGet]
+        /*[HttpGet]
         [Route("api/ShoppingCart/1")]
         public IHttpActionResult GetShoppingCart(GetRequest data)
         {
@@ -77,6 +86,6 @@ namespace EBook.Controllers
             }
 
             return Ok(shoppingCart);
-        }
+        }*/
     }
 }

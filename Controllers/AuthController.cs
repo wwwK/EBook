@@ -113,6 +113,8 @@ namespace EBook.Controllers
             
             HttpContext.Current.Response.Cookies.Add(cookie);
 
+            // var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+
             return Ok();
         }
 
