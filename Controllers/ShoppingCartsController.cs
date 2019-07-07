@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
+using EBook.Service;
 
 
 namespace EBook.Controllers
@@ -47,6 +48,22 @@ namespace EBook.Controllers
         {
             public int CustomerId;
             public int MerchandiseId;
+            public int Session;
+        }
+
+        [HttpPost]
+        [Route("api/SeeShoppingCart")]
+        public IHttpActionResult SeeShoppingCart(GetRequest data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+ 
+             
+            var a = new SeeShoppingCart();
+            int customerId = Session.GetUserIdFromSession(data.Session);
+            return Ok(a.SeeShoppingCartWithCustomerId(customerId));
         }
 
         [HttpGet]

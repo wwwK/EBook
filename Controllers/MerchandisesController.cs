@@ -48,7 +48,26 @@ namespace EBook.Controllers
         public class GetRequest
         {
             public int MerchandiseId;
+            public string Comment;
         }
+
+        //添加评论接口
+        [HttpPost]
+        [Route("api/Comment")]
+        public IHttpActionResult UpdateComment(GetRequest data)
+        {
+            var transact = db.Transacts.FirstOrDefault(m => m.MerchandiseId == data.MerchandiseId);
+
+            if (transact != null)
+            {
+                transact.Comment = data.Comment;
+                return BadRequest("No Such Transact");
+            }
+
+            db.SaveChanges();
+            return Ok();
+        }
+        
 
         [HttpGet]
         [Route("api/Merchandise/1")]

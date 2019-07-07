@@ -23,6 +23,17 @@ namespace EBook.Models
         public string Description { set; get; }
 
         public int Price { set; get; }
+        
+        
+        public bool IsValid { set; get; }
+        
+        [MaxLength(50)]
+        public string ImagePath { set; get; }
+
+        public Merchandise()
+        {
+            IsValid = true;
+        }
 
     }
 }

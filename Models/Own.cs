@@ -22,6 +22,13 @@ namespace EBook.Models
 
         [MaxLength(20)]
         public string Status { get; set; }
+        
+        public int OwnNum { get; set; }
+
+        public Own()
+        {
+            OwnNum = 0;
+        }
 
     }
 }
