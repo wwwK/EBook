@@ -28,7 +28,7 @@ namespace EBook.Controllers
         [Route("api/Customer/")]
         public IHttpActionResult UpdateUser(RegisterData data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
@@ -91,7 +91,7 @@ namespace EBook.Controllers
         [Route("api/Customer/{CustomerId}")]
         public IHttpActionResult GetUser(int customerId)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

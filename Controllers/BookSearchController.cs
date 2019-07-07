@@ -31,7 +31,7 @@ using System.Threading.Tasks;
          [Route("api/BookSearch/")]
          public IHttpActionResult Search(SearchDate data)
          {
-             if (ModelState.IsValid)
+             if (!ModelState.IsValid)
              {
                  return BadRequest(ModelState);
              }

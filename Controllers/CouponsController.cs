@@ -22,7 +22,7 @@ namespace EBook.Controllers
         [Route("api/Coupon/")]
         public IHttpActionResult InsertCoupon(Coupon data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
@@ -52,7 +52,7 @@ namespace EBook.Controllers
         [Route("api/Coupon/1")]
         public IHttpActionResult GetCoupon(GetRequest data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

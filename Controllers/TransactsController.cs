@@ -23,7 +23,7 @@ namespace EBook.Controllers
         [Route("api/Transact/")]
         public IHttpActionResult InsertTransact(Transact data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
@@ -60,7 +60,7 @@ namespace EBook.Controllers
         [Route("api/Transact/1")]
         public IHttpActionResult GetTransact(GetRequest data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

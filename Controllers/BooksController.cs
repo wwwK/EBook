@@ -22,7 +22,7 @@ namespace EBook.Controllers
         [Route("api/Book/")]
         public IHttpActionResult InsertBooks(Book data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
@@ -52,7 +52,7 @@ namespace EBook.Controllers
         [Route("api/Book/1")]
         public IHttpActionResult GetBook(GetRequest data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

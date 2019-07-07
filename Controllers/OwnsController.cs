@@ -22,7 +22,7 @@ namespace EBook.Controllers
         [Route("api/Own/")]
         public IHttpActionResult InsertOwn(Own data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

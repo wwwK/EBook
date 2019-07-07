@@ -85,7 +85,7 @@ namespace EBook.Controllers
         [Route("api/login")]
         public IHttpActionResult Login(LoginData data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

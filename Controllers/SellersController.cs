@@ -22,7 +22,7 @@ namespace EBook.Controllers
         [Route("api/Seller/")]
         public IHttpActionResult InsertSeller(Seller data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

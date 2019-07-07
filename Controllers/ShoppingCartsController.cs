@@ -22,7 +22,7 @@ namespace EBook.Controllers
         [Route("api/ShoppingCart/")]
         public IHttpActionResult InsertShoppingCart(ShoppingCart data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

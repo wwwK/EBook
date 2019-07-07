@@ -22,7 +22,7 @@ namespace EBook.Controllers
         [Route("api/CustomerAddress/")]
         public IHttpActionResult InsertCustomerAddress(CustomerAddress data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
@@ -57,7 +57,7 @@ namespace EBook.Controllers
         [Route("api/CustomerAddress/1")]
         public IHttpActionResult GetCustomerAddress(GetRequest data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

@@ -31,7 +31,7 @@ namespace EBook.Controllers
         [Route("api/CouponSearch/")]
         public IHttpActionResult CouponSearch(SearchDate data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

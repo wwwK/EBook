@@ -22,7 +22,7 @@ namespace EBook.Controllers
         [Route("api/VipMember/")]
         public IHttpActionResult InsertVipMember(VipMember data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
@@ -56,7 +56,7 @@ namespace EBook.Controllers
         [Route("api/VipMember/1")]
         public IHttpActionResult GetVipMember(GetRequest data)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
