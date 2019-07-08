@@ -68,6 +68,10 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="mscorlib" />
+    <Reference Include="NETCore.Encrypt, Version=2.0.7.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>packages\NETCore.Encrypt.2.0.7\lib\netstandard2.0\NETCore.Encrypt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
       <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -241,12 +245,14 @@
     <Compile Include="Controllers\CouponSearchController.cs" />
     <Compile Include="Controllers\CustomerAddressesController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerSmsController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MerchandisesController.cs" />
     <Compile Include="Controllers\OwnsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\SellersController.cs" />
+    <Compile Include="Controllers\SellerSmsController.cs" />
     <Compile Include="Controllers\ShoppingCartsController.cs" />
     <Compile Include="Controllers\TransactsController.cs" />
     <Compile Include="Controllers\VipMembersController.cs" />
@@ -275,8 +281,10 @@
     <Compile Include="Service\CouponSearch.cs" />
     <Compile Include="Service\EmailSend.cs" />
     <Compile Include="Service\FileUploadAuthorize.cs" />
+    <Compile Include="Service\SellerEmailSend.cs" />
     <Compile Include="Service\SellerSession.cs" />
     <Compile Include="Service\CustomerSession.cs" />
+    <Compile Include="Service\SellerSmsSend.cs" />
     <Compile Include="Service\ShopName.cs" />
     <Compile Include="Service\ShoppingCart.cs" />
     <Compile Include="Service\SmsSend.cs" />

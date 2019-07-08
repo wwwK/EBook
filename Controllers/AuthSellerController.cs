@@ -11,6 +11,8 @@ using System.Web.Mvc.Html;
 using EBook.Models;
 using BCrypt.Net;
 using EBook.Service;
+using NETCore.Encrypt;
+
 namespace EBook.Controllers
 {
     public class AuthSellerController:ApiController
@@ -22,8 +24,6 @@ namespace EBook.Controllers
             [EmailAddress] public readonly string Email;
 
             public readonly string Password;
-
-
             //注册=0，修改资料=1
             public readonly int EmailStatus;
 
@@ -35,42 +35,7 @@ namespace EBook.Controllers
             }
         }
         
-        
-        public class SmsData
-        {
-            public  string Phone;
 
-            public string Password;
-
-
-            //注册=0，修改资料=1
-            public int PhoneStatus;
-
-        
-        }
-        
-        [HttpPost]
-        [Route("api/SellerSms")]
-        public IHttpActionResult Sms(SmsData data)
-        {
-            
-            EBook.Service.SmsSend.SendVerifyCode(data.Phone);
-            
-            
-            var result = from seller in db.Sellers
-                where seller.SellerPhone == data.Phone
-                select seller;
-
-            // 电话已存在
-            if (result.Any() && data.PhoneStatus == 0)
-            {
-                return BadRequest("Phone exist");
-            }
-
-            EBook.Service.SmsSend.SendVerifyCode(data.Phone);
-            
-            return Ok();
-        }
         
         [HttpPost]
         [Route("api/SellerSendMail")]
@@ -91,8 +56,33 @@ namespace EBook.Controllers
                 return BadRequest("Email exist");
             }
 
-            EBook.Service.EmailSend.SendVerifyCode(data.Email);
+            EBook.Service.SellerEmailSend.SendVerifyCode(data.Email);
             return Ok();
+        }
+        
+        [HttpPost]
+        [Route("api/SellerMailChangePassword")]
+        public IHttpActionResult SellerMailChangePassword(LoginData data)
+        {
+            
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+      
+            var updatedSeller = db.Sellers.FirstOrDefault(b => b.SellerEmail == data.Email);
+            if (updatedSeller != null)
+            {
+                updatedSeller.Password = EncryptProvider.Md5(data.Password);
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+            else
+            {
+                return NotFound();
+            }
+            
         }
 
         [HttpPost]
@@ -113,7 +103,7 @@ namespace EBook.Controllers
 
                 return NotFound();
             }
-            var hashed = BCrypt.Net.BCrypt.HashPassword(data.Password);
+            var hashed = EncryptProvider.Md5(data.Password);
             if (result.First().Password != hashed)
             {
                 return BadRequest("Password incorrect.");
@@ -131,6 +121,8 @@ namespace EBook.Controllers
 
             return Ok();
         }
+        
+        
         
         
         [HttpPost]

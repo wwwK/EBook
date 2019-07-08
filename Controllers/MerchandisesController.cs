@@ -114,5 +114,33 @@ namespace EBook.Controllers
 
             return Ok(merchandise);
         }*/
+
+        public class SellerRequest
+        {
+            public string sellerShopName;
+        }
+        [HttpPost]
+        [Route("api/GetMerchandisesOfSeller")]
+        public IHttpActionResult GetMerchandisesOfSeller(SellerRequest data)
+        {
+            var result =
+                (from seller in db.Sellers
+                    where seller.ShopName == data.sellerShopName
+                    join merchandise in db.Merchandises on seller.SellerId equals merchandise.SellerId
+                 select merchandise).ToArray();
+
+            if (result.Length == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+
+        }
+        
+        
+        
+        
+        
     }
 }
