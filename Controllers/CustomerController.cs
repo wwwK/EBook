@@ -23,7 +23,7 @@ namespace EBook.Controllers
             public Customer CustomerData;
             public string ValidateCode;
         }
-        
+
         [HttpPost]
         [Route("api/Customer/")]
         public IHttpActionResult UpdateUser(RegisterData data)
@@ -32,7 +32,7 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
+
             var tmpResult = Service.EmailSend.CheckVerifyCode(data.CustomerData.Email, data.ValidateCode);
             if (tmpResult != 0)
             {
@@ -60,28 +60,19 @@ namespace EBook.Controllers
                 Point = data.CustomerData.Point,
                 Password = BCrypt.Net.BCrypt.HashPassword(data.CustomerData.Password)
             };
-            
+
             var inserted = db.Customers.Add(customer);
-            
+
             db.SaveChanges();
-            
+
             var cookie = new HttpCookie("sessionId")
-                {
-                    Value = Service.Session.SetSessionId(inserted.CustomerId).ToString(),
-                    Expires = DateTime.Now.AddHours(1)
-                };
-            
+            {
+                Value = Service.CustomerSession.SetSessionId(inserted.CustomerId).ToString(),
+                Expires = DateTime.Now.AddHours(1)
+            };
+
             HttpContext.Current.Response.Cookies.Add(cookie);
 
-//                HttpContext.Current.Session.Add("id",data.Email);
-//            Console.WriteLine("before" + HttpContext.Current.Session["id"]);
-
-
-//            HttpContext.Current.Session["id"] = data.Email;
-//            Console.WriteLine("after" + HttpContext.Current.Session["id"]);
-//
-//            string session = HttpContext.Current.Session["id"].ToString();
-//            Console.WriteLine("return" + HttpContext.Current.Session["id"]);
 
             return Ok();
         }
@@ -95,6 +86,7 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
+
             var customer = db.Customers.Find(customerId);
             if (customer == null)
             {

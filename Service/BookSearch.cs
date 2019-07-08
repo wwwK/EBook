@@ -47,6 +47,7 @@ namespace EBook.Service
                     ISBN = book.ISBN,
                     Title = book.Title,
                     Author = book.Author,
+                    //TODO
                     Publisher = book.Publisher,
                     PublishYear = book.PublishYear,
                     PageNum = book.PageNum,
@@ -155,7 +156,7 @@ namespace EBook.Service
             Book[] booksArray = db.Books.ToArray();
             Merchandise[] merchandisesArray = db.Merchandises.ToArray();
             Seller[] sellersArray = db.Sellers.ToArray();
-            IEnumerable<BookInfo> selectedBookInfos =
+            IEnumerable<BookInfo> selectedBookInfos = 
                 from book in booksArray
                 join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray
                 from bookMerchandise in bookMerchandiseArray

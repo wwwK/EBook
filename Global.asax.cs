@@ -22,7 +22,7 @@ namespace EBook
             //调用web API
             GlobalConfiguration.Configure(WebApiConfig.Register);
             
-            Database.SetInitializer(new DropCreateDatabaseAlways<OracleDbContext>());
+//            Database.SetInitializer(new DropCreateDatabaseAlways<OracleDbContext>());
             //表项更改后启用该句重新建表
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -32,24 +32,7 @@ namespace EBook
             
             
         }
-
-
-        public override void Init()
-        {
-            this.PostAuthenticateRequest += (sender, e) =>
-                HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
-            base.Init();
-        }
-
-        protected void Session_Start(object sender, EventArgs e)
-        {
-            Console.WriteLine("Session_Start");
-        }
- 
-        protected void Session_End(object sender, EventArgs e)
-        {
-            
-        } 
+        
 
     }
 }

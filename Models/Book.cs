@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
@@ -21,7 +21,10 @@ namespace EBook.Models
         [MaxLength(20)]
         public string Publisher { get; set; }
 
-        public int PublishYear { get; set; }
+        
+        
+        //TODO
+        public DateTime PublishYear { get; set; }
 
         public int PageNum { get; set; }
 
