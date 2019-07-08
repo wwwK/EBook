@@ -76,7 +76,7 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/SeeShoppingCart")]
-        public IHttpActionResult SeeShoppingCart(GetRequest data)
+        public IHttpActionResult SeeShoppingCart()
         {
             if (!ModelState.IsValid)
             {

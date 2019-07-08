@@ -47,6 +47,13 @@ namespace EBook.Models
         [ForeignKey("MerchandiseId")]
         public Merchandise Merchandise { get; set; }
         
+        public int SourceAdressIndex { set; get; }
+        [ForeignKey("SourceAddressIndex")]
+        public SellerAddress SourceAddress { get; set; }
+        
+        public int DestinationAddressIndex { set; get; }
+        [ForeignKey("DestinationAddressIndex")]
+        public CustomerAddress Destination { get; set; }
         
         
         public int UsedCouponId { set; get; }

@@ -88,13 +88,14 @@ namespace EBook.Controllers
         public class GetRequest
         {
             public int SellerId;
+            public int MerchandiseId;
             public int TransactId;
             public string Comment;
         }
         
         [HttpPost]
-        [Route("api/GetAllTransact")]
-        public IHttpActionResult GetAllTransacts(GetRequest data)
+        [Route("api/SellerGetAllTransacts")]
+        public IHttpActionResult SellerGetAllTransacts()
         {
             if (!ModelState.IsValid)
             {
@@ -116,12 +117,24 @@ namespace EBook.Controllers
             }
             
             
-            Transact[] transacts = TransactService.GetAllTransacts(data.SellerId);
+            Transact[] transacts = TransactService.SellerGetAllTransacts(sellerId);
             if (transacts.Length == 0)
             {
                 return BadRequest("No Transacts Found");
             }
             return Ok(transacts);
+        }
+
+        [HttpPost]
+        [Route("api/GetAllComments")]
+        public IHttpActionResult GetAllComments(GetRequest data)
+        {
+            TransactService.CommentInfo[] comments = TransactService.GetCommentsOfMerchandise(data.MerchandiseId);
+            if (comments.Length == 0)
+            {
+                return BadRequest("No Comments Found");
+            }
+            return Ok(comments);
         }
         
 
@@ -161,6 +174,25 @@ namespace EBook.Controllers
             }
 
             return Ok(transact);
+        }
+
+        [HttpPost]
+        [Route("api/GetLogistics")]
+        public IHttpActionResult GetLogistics(GetRequest data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+ 
+             
+            //var a = new BookSearch();
+            TransactAddressInfo[] transactAddressed = TransactAddress.GetTransactAddress(data.TransactId);
+            if (transactAddressed.Length == 0)
+            {
+                return BadRequest("No Transact Found");
+            }
+            return Ok(transactAddressed[0]);
         }
     }
 }

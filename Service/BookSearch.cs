@@ -23,7 +23,6 @@ namespace EBook.Service
         public string Description;
         public int Price;
         public string ShopName;
-        public int SellerId;
     }
 
     public static class BookSearch
@@ -53,7 +52,6 @@ namespace EBook.Service
                     PageNum = book.PageNum,
                     Description = bookMerchandise.Description,
                     Price = bookMerchandise.Price,
-                    SellerId = bookMerchandise.SellerId,
                     ShopName = bookInfo.ShopName,
                     
                 };
@@ -83,7 +81,6 @@ namespace EBook.Service
                     PageNum = book.PageNum,
                     Description = bookMerchandise.Description,
                     Price = bookMerchandise.Price,
-                    SellerId = bookMerchandise.SellerId,
                     ShopName = bookInfo.ShopName,
                     
                 };
@@ -113,7 +110,6 @@ namespace EBook.Service
                     PageNum = book.PageNum,
                     Description = bookMerchandise.Description,
                     Price = bookMerchandise.Price,
-                    SellerId = bookMerchandise.SellerId,
                     ShopName = bookInfo.ShopName,
                     
                 };
@@ -143,7 +139,6 @@ namespace EBook.Service
                     PageNum = book.PageNum,
                     Description = bookMerchandise.Description,
                     Price = bookMerchandise.Price,
-                    SellerId = bookMerchandise.SellerId,
                     ShopName = bookInfo.ShopName,
                     
                 };
@@ -173,7 +168,35 @@ namespace EBook.Service
                     PageNum = book.PageNum,
                     Description = bookMerchandise.Description,
                     Price = bookMerchandise.Price,
-                    SellerId = bookMerchandise.SellerId,
+                    ShopName = bookInfo.ShopName,
+                    
+                };
+
+            return selectedBookInfos.ToArray();
+        }
+        
+        public static BookInfo[] BookSearchWithMerchandiseId(int merchandiseId)
+        {
+            Book[] booksArray = db.Books.ToArray();
+            Merchandise[] merchandisesArray = db.Merchandises.ToArray();
+            Seller[] sellersArray = db.Sellers.ToArray();
+            IEnumerable<BookInfo> selectedBookInfos = 
+                from book in booksArray
+                join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray
+                from bookMerchandise in bookMerchandiseArray
+                join seller in sellersArray on bookMerchandise.SellerId equals seller.SellerId into bookInfoArray
+                from bookInfo in bookInfoArray
+                where bookMerchandise.MerchandiseId == merchandiseId
+                select new BookInfo
+                {
+                    ISBN = book.ISBN,
+                    Title = book.Title,
+                    Author = book.Author,
+                    Publisher = book.Publisher,
+                    PublishYear = book.PublishYear,
+                    PageNum = book.PageNum,
+                    Description = bookMerchandise.Description,
+                    Price = bookMerchandise.Price,
                     ShopName = bookInfo.ShopName,
                     
                 };

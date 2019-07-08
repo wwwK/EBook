@@ -15,11 +15,10 @@ namespace EBook.Service
     public class MerchandiseInfo
     {
         public int MerchandiseId;
-        public int SellerId;
         public string ISBN;
         public string Description;
         public int Price;
-        public int IsValid;
+        //public int IsValid;
         public string ImagePath1;
         public string ImagePath2;
         public string ImagePath3;
@@ -49,7 +48,6 @@ namespace EBook.Service
                 select new MerchandiseInfo
                 {
                     MerchandiseId = cartMerchandise.MerchandiseId,
-                    SellerId = cartMerchandise.SellerId,
                     ISBN = cartMerchandise.ISBN,
                     Description = cartMerchandise.Description,
                     Price = cartMerchandise.Price,

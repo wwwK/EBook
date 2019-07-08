@@ -82,9 +82,26 @@ namespace EBook.Controllers
             public string Comment;
         }
 
-        
 
+        [HttpPost]
+        [Route("api/GetMerchandise")]
+        public IHttpActionResult GetMerchandise(GetRequest data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+ 
+
+            BookInfo[] books = BookSearch.BookSearchWithMerchandiseId(data.MerchandiseId);
+            if (books.Length == 0)
+            {
+                return BadRequest("No Merchandise Found");
+            }
+            return Ok(books[0]);
+        }
 //get ok
+/*
         [HttpGet]
         [Route("api/GetMerchandise")]
         public IHttpActionResult GetMerchandise(GetRequest data)
@@ -96,6 +113,6 @@ namespace EBook.Controllers
             }
 
             return Ok(merchandise);
-        }
+        }*/
     }
 }
