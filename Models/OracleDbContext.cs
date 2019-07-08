@@ -35,6 +35,7 @@ namespace EBook.Models
         public DbSet<Question> Questions { get; set; }
            
         
+        public DbSet<SellerAddress>SellerAddresses { get; set; }
         
         public DbSet<Collect>Collects{ get; set; }
         
