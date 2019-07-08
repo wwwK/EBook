@@ -82,6 +82,8 @@ namespace EBook.Models
         
         
         public int Point { get; set; }
+        
+        public string AvatarPath { set; get; }
 
         
         
