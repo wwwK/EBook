@@ -5,19 +5,16 @@ using Newtonsoft.Json;
 
 namespace EBook.Models
 {
-    public class CustomerAddress
+    public class SellerAddress
     {
         
         
         
         [Key]
         public int AddressIndex { get; set; }
-
         
-        public string ReceiverName { get; set; }
         
-
-        public string ReceivePhone { get; set; }
+        public string Phone { get; set; }
         
 
         public string Province { get; set; }
@@ -27,14 +24,8 @@ namespace EBook.Models
 
 
         public string Block { get; set; }
-
         
         
-        public string DetailAddress { get; set; }
-
-
-        
-        public int ZipCode { get; set; }
 
 
         public int CustomerId{ get; set; }

@@ -38,7 +38,6 @@ namespace EBook.Controllers
                 DetailAddress = data.DetailAddress,
                 ZipCode = data.ZipCode,
                 CustomerId = data.CustomerId,
-                IsDefault = data.IsDefault,
             };
             
             db.CustomerAddresses.Add(address);

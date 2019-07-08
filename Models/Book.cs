@@ -21,6 +21,8 @@ namespace EBook.Models
         [MaxLength(20)]
         public string Publisher { get; set; }
 
+        
+        //TODO
         public DateTime PublishYear { get; set; }
 
         public int PageNum { get; set; }

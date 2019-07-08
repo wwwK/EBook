@@ -32,6 +32,12 @@ namespace EBook.Models
         public int LogisticTrackNum { set; get; }
         
         public string Comment { set; get; }
+        
+        
+        //TODO
+        
+        
+        
 
 /*
 
