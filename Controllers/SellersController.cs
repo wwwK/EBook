@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
+using NETCore.Encrypt;
 
 
 namespace EBook.Controllers
@@ -34,7 +35,7 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
 
-            var tmpResult = Service.EmailSend.CheckVerifyCode(data.SellerData.SellerEmail, data.ValidateCode);
+            var tmpResult = Service.SellerEmailSend.CheckVerifyCode(data.SellerData.SellerEmail, data.ValidateCode);
             if (tmpResult != 0)
             {
                 switch (tmpResult)
@@ -47,24 +48,30 @@ namespace EBook.Controllers
                         return BadRequest("Validate code expired.");
                 }
             }
-            
+//            "Password": "123456",
+//            "ShopName": "interesting",
+//            "CreditLevel": 10,
+//            "ShopDescription": "mmp",
+//            "AvatarPath": "mmp",
+//            "DefaultSellerAddressIndex": 0,
+//            "SellerEmail": "631102050@qq.com",
+//            "SellerPhone": "13761491703"
 
-//            Seller seller = new Seller
-//            {
-//                Password = data.SellerData.Password,
-//                ShopName = data.SellerData.ShopName,
-//                CreditLevel = data.SellerData.CreditLevel,
-//                ShopDescription = data.SellerData.ShopDescription,
-//                SellerPhone = data.SellerData.SellerPhone,
-//
-//            };
-//          
+            Seller seller = new Seller()
+            {
+                Password = EncryptProvider.Md5(data.SellerData.Password),
+                ShopName = data.SellerData.ShopName,
+                CreditLevel = data.SellerData.CreditLevel,
+                ShopDescription = data.SellerData.ShopDescription,
+                SellerPhone = data.SellerData.SellerPhone,
+                SellerEmail = data.SellerData.SellerEmail,
+                AvatarPath = data.SellerData.AvatarPath,
+                DefaultSellerAddressIndex = data.SellerData.DefaultSellerAddressIndex
+            };
 
 
 
-            Seller seller =new Seller();
-            
-            seller = data.SellerData;
+
 
             var inserted = db.Sellers.Add(seller);
 

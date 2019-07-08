@@ -12,7 +12,7 @@ namespace EBook.Models
         [Key]
         public int SellerId { get; set; }
 
-        [MaxLength(20)]
+        [MaxLength(1000)]
         public string Password { get; set; }
 
         

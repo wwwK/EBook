@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
+using NETCore.Encrypt;
 
 
 namespace EBook.Controllers
@@ -57,7 +58,7 @@ namespace EBook.Controllers
                 PhoneNum = data.CustomerData.PhoneNum,
                 DateOfBirth = data.CustomerData.DateOfBirth,
                 Point = data.CustomerData.Point,
-                Password = BCrypt.Net.BCrypt.HashPassword(data.CustomerData.Password)
+                Password = EncryptProvider.Md5(data.CustomerData.Password)
             };
 
             var inserted = db.Customers.Add(customer);

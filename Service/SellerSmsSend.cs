@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace EBook.Service
 {
-    public static class SmsSend
+    public static class SellerSmsSend
     {
         private static int appid = 1400228523;
 
