@@ -62,5 +62,7 @@ namespace EBook.Models
         
         public string Comment { set; get; }
         
+        public DateTime CommentTime { set; get; }
+        
     }
 }

@@ -36,7 +36,7 @@ namespace EBook.Controllers
                 return BadRequest("Not Login");
             }
 
-            int customerId = Session.GetUserIdFromSession(int.Parse(session.Value));
+            int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId < 0)
             {
                 return BadRequest("Not Login");
@@ -56,6 +56,7 @@ namespace EBook.Controllers
                     Amount = data.Amount,
                     LogisticTrackNum = data.LogisticTrackNum,
                     Comment = data.Comment,
+                    CommentTime = data.CommentTime,
                 };
 
 
@@ -75,6 +76,7 @@ namespace EBook.Controllers
                 updatetransact.Amount = data.Amount;
                 updatetransact.LogisticTrackNum = data.LogisticTrackNum;
                 updatetransact.Comment = data.Comment;
+                updatetransact.CommentTime = data.CommentTime;
                 db.SaveChanges();
                 return Ok("Update Success");
             }
@@ -85,9 +87,32 @@ namespace EBook.Controllers
 
         public class GetRequest
         {
+            public int SellerId;
             public int TransactId;
             public string Comment;
         }
+        
+        [HttpPost]
+        [Route("api/GetAllComments")]
+        public IHttpActionResult GetAllTransacts(GetRequest data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+ 
+             
+            //var a = new BookSearch();
+            Transact[] transacts = TransactService.GetAllTransacts(data.SellerId);
+            if (transacts.Length == 0)
+            {
+                return BadRequest("No Transacts Found");
+            }
+            return Ok(transacts);
+        }
+        
+
+
 
         //添加评论接口
         [HttpPost]
@@ -106,8 +131,9 @@ namespace EBook.Controllers
             return Ok();
         }
 
-        [HttpGet]
-        [Route("api/Transact/1")]
+        //get ok
+        [HttpPost]
+        [Route("api/GetTransact")]
         public IHttpActionResult GetTransact(GetRequest data)
         {
             if (!ModelState.IsValid)

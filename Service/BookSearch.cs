@@ -18,7 +18,7 @@ namespace EBook.Service
         public string Title;
         public string Author;
         public string Publisher;
-        public int PublishYear;
+        public DateTime PublishYear;
         public int PageNum;
         public string Description;
         public int Price;

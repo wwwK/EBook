@@ -69,16 +69,17 @@ namespace EBook.Controllers
             public string ISBN;
         }
 
-        [HttpGet]
-        [Route("api/Book/{ISBN}")]
-        public IHttpActionResult GetBook(string ISBN)
+        //get ok
+        [HttpPost]
+        [Route("api/GetBook")]
+        public IHttpActionResult GetBook(GetRequest data)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var book = db.Books.Find(ISBN);
+            var book = db.Books.Find(data.ISBN);
             if (book == null)
             {
                 return NotFound();

@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
-
+using EBook.Service;
 
 namespace EBook.Controllers
 {
@@ -26,22 +26,47 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            Question question = new Question
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
             {
-                QuestionId = data.QuestionId,
-                CustomerId = data.CustomerId,
-                AboutMerchandiseId = data.AboutMerchandiseId,
-                SubmitTime = data.SubmitTime,
-                Content = data.Content,
-            };
+                return BadRequest("Not Login");
+            }
 
-            db.Questions.Add(question);
-            
+            int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
+            if (customerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
 
-            db.SaveChanges();
-            
+            if (db.Questions.Find(data.QuestionId) == null)
+            {
+                Question question = new Question    
+                {
+                    QuestionId = data.QuestionId,
+                    CustomerId = customerId,
+                    AboutMerchandiseId = data.AboutMerchandiseId,
+                    SubmitTime = data.SubmitTime,
+                    Content = data.Content,
+                };
 
-            return Ok();
+
+                db.Questions.Add(question);
+                db.SaveChanges();
+
+                return Ok("Insert Success");
+            }
+
+            var updatequestion = db.Questions.FirstOrDefault(q => q.QuestionId == data.QuestionId);
+            if (updatequestion != null)
+            {
+                updatequestion.SubmitTime = data.SubmitTime;
+                updatequestion.Content = data.Content;
+                updatequestion.IsValid = data.IsValid;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
         }
 
 
@@ -49,9 +74,10 @@ namespace EBook.Controllers
         {
             public int QuestionId;
         }
-
-        [HttpGet]
-        [Route("api/Question/1")]
+        
+        //get ok
+        [HttpPost]
+        [Route("api/GetQuestion")]
         public IHttpActionResult GetQuestion(GetRequest data)
         {
             var question = db.Questions.Find(data.QuestionId);

@@ -10,6 +10,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using BCrypt.Net;
 using System.Web.SessionState;
+using EBook.Service;
 
 
 namespace EBook.Controllers
@@ -29,6 +30,17 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
 
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Login");
+            }
+
+            int sellseId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
+            if (sellseId < 0)
+            {
+                return BadRequest("Not Login");
+            }
             if (db.Merchandises.Find(data.MerchandiseId) == null)
             {
                 Merchandise merchandise = new Merchandise
@@ -72,12 +84,12 @@ namespace EBook.Controllers
 
         
 
-
+//get ok
         [HttpGet]
-        [Route("api/Merchandise/{MerchandiseId}")]
-        public IHttpActionResult GetMerchandise(int MerchandiseId)
+        [Route("api/GetMerchandise")]
+        public IHttpActionResult GetMerchandise(GetRequest data)
         {
-            var merchandise = db.Merchandises.Find(MerchandiseId);
+            var merchandise = db.Merchandises.Find(data.MerchandiseId);
             if (merchandise == null)
             {
                 return NotFound();

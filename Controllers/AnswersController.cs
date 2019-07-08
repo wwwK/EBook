@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
-
+using EBook.Service;
 
 namespace EBook.Controllers
 {
@@ -18,6 +18,7 @@ namespace EBook.Controllers
         private OracleDbContext db = new OracleDbContext();
 
 
+        //insert update
         [HttpPost]
         [Route("api/Answer/")]
         public IHttpActionResult InsertAnswer(Answer data)
@@ -26,23 +27,47 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            Answer answer = new Answer
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
             {
-                AnswerId = data.AnswerId,
-                CustomerId = data.CustomerId,
-                QuestionAnsweredId = data.QuestionAnsweredId,
-                SubmitTime = data.SubmitTime,
-                Content = data.Content,
-            };
+                return BadRequest("Not Login");
+            }
+
+            int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
+            if (customerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
+
+            if (db.Answers.Find(data.AnswerId) == null)
+            {
+                Answer answer = new Answer    
+                {
+                    AnswerId = data.AnswerId,
+                    CustomerId = customerId,
+                    QuestionAnsweredId = data.QuestionAnsweredId,
+                    SubmitTime = data.SubmitTime,
+                    Content = data.Content,
+                };
 
 
-            db.Answers.Add(answer);
-            
+                db.Answers.Add(answer);
+                db.SaveChanges();
 
-            db.SaveChanges();
-            
+                return Ok("Insert Success");
+            }
 
-            return Ok();
+            var updateanswer = db.Answers.FirstOrDefault(a => a.AnswerId == data.AnswerId);
+            if (updateanswer != null)
+            {
+                updateanswer.SubmitTime = data.SubmitTime;
+                updateanswer.Content = data.Content;
+                updateanswer.IsValid = data.IsValid;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
         }
 
 
@@ -51,8 +76,9 @@ namespace EBook.Controllers
             public int AnswerId;
         }
 
-        [HttpGet]
-        [Route("api/Answer/1")]
+        //get ok
+        [HttpPost]
+        [Route("api/GetAnswer")]
         public IHttpActionResult GetAnswer(GetRequest data)
         {
             if (!ModelState.IsValid)

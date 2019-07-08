@@ -33,7 +33,7 @@ namespace EBook.Controllers
                 return BadRequest("Not Login");
             }
 
-            int customerId = Session.GetUserIdFromSession(int.Parse(session.Value));
+            int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId < 0)
             {
                 return BadRequest("Not Login");
@@ -68,7 +68,7 @@ namespace EBook.Controllers
             return BadRequest("Unable to Insert and Update");
         }
 
-        public class GetRequest
+       /* public class GetRequest
         {
             public int CustomerId;
             public int CouponId;
@@ -85,6 +85,6 @@ namespace EBook.Controllers
             }
 
             return Ok(own);
-        }
+        }*/
     }
 }

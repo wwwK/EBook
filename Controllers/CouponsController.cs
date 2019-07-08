@@ -64,15 +64,16 @@ namespace EBook.Controllers
             public int CouponId;
         }
 
-        [HttpGet]
-        [Route("api/Coupon/{CouponId}")]
-        public IHttpActionResult GetCoupon(int CouponId)
+        //get ok
+        [HttpPost]
+        [Route("api/GetCoupon")]
+        public IHttpActionResult GetCoupon(GetRequest data)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var coupon = db.Coupons.Find(CouponId);
+            var coupon = db.Coupons.Find(data.CouponId);
             if (coupon == null)
             {
                 return NotFound();
