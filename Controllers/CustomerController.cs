@@ -49,8 +49,7 @@ namespace EBook.Controllers
 
             Customer customer = new Customer()
             {
-                FirstName = data.CustomerData.FirstName,
-                LastName = data.CustomerData.LastName,
+                RealName = data.CustomerData.RealName,
                 NickName = data.CustomerData.NickName,
                 DefaultAddressIndex = data.CustomerData.DefaultAddressIndex,
                 IdCardNum = data.CustomerData.IdCardNum,

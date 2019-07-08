@@ -93,7 +93,7 @@ namespace EBook.Controllers
         }
         
         [HttpPost]
-        [Route("api/GetAllComments")]
+        [Route("api/GetAllTransact")]
         public IHttpActionResult GetAllTransacts(GetRequest data)
         {
             if (!ModelState.IsValid)
@@ -103,6 +103,19 @@ namespace EBook.Controllers
  
              
             //var a = new BookSearch();
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Login");
+            }
+
+            var sellerId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
+            if (sellerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
+            
+            
             Transact[] transacts = TransactService.GetAllTransacts(data.SellerId);
             if (transacts.Length == 0)
             {

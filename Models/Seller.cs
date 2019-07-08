@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,25 +16,31 @@ namespace EBook.Models
         public string Password { get; set; }
 
         
-        //todo unique
+        [Index(IsUnique = true)]
         [MaxLength(50)]
         public string ShopName { get; set; }
 
         
         public int CreditLevel { get; set; }
 
-        [MaxLength(500)]
+        [MaxLength(200)]
         public string ShopDescription { get; set; }
+        
+        
+        
+        [MaxLength(60)]
+        public string AvatarPath { set; get; }
 
-        [MaxLength(20)]
-        public string City { get; set; }
-
+        
+        
+        public int DefaultSellerAddressIndex { get; set; }
+        
         
         
         [Required]
         [MaxLength(20)]
         [EmailAddress]
-        public string Email { get; set; }
+        public string SellerEmail { get; set; }
 
         [Phone]
         [Index]
@@ -41,5 +48,14 @@ namespace EBook.Models
         public string SellerPhone { get; set; }
         
         
+        
+        
+        public int IsValid { get; set; }
+
+
+        public Seller()
+        {
+            IsValid = 1;
+        }
     }
 }

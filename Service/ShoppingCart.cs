@@ -19,8 +19,12 @@ namespace EBook.Service
         public string ISBN;
         public string Description;
         public int Price;
-        public bool IsValid;
-        public string ImagePath;
+        public int IsValid;
+        public string ImagePath1;
+        public string ImagePath2;
+        public string ImagePath3;
+        public string ImagePath4;
+        public string ImagePath5;
         public string ShopName;
         public int Amount;
     }
@@ -49,8 +53,11 @@ namespace EBook.Service
                     ISBN = cartMerchandise.ISBN,
                     Description = cartMerchandise.Description,
                     Price = cartMerchandise.Price,
-                    IsValid = cartMerchandise.IsValid,
-                    ImagePath = cartMerchandise.ImagePath,
+                    ImagePath1 = cartMerchandise.ImagePath1,
+                    ImagePath2 = cartMerchandise.ImagePath2,
+                    ImagePath3 = cartMerchandise.ImagePath3,
+                    ImagePath4 = cartMerchandise.ImagePath4,
+                    ImagePath5 = cartMerchandise.ImagePath5,
                     ShopName = merchandiseSeller.ShopName,
                     Amount = shoppingcart.Amount,
                 };

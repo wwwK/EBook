@@ -20,7 +20,7 @@ namespace EBook.Controllers
                 return BadRequest("Not logged in.");
             }
 
-            var userId = Service.Session.GetUserIdFromSession(int.Parse(cookie.Value));
+            var userId = Service.CustomerSession.GetCustomerIdFromSession(int.Parse(cookie.Value));
             if (userId < 0)
             {
                 return BadRequest("Not logged in.");

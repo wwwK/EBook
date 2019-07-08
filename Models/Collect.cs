@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,13 +24,14 @@ namespace EBook.Models
 
         public DateTime CollectTime { get; set; }
         
-        public bool IsValid { get; set; }
+
+    
+        public int IsValid { get; set; }
 
         public Collect()
         {
-            IsValid = true;
+            IsValid = 1;
         }
-
 
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,7 +21,18 @@ namespace EBook.Models
         
         public int PriceLimit { set; get; }
         
-        public string CouponStatus { set; get; }
+        
+                
+        
+  
+        
+
+        public int IsValid { get; set; }
+
+        public Coupon()
+        {
+            IsValid = 1;
+        }
         
     }
 }

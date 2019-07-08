@@ -34,6 +34,66 @@ namespace EBook.Controllers
                 EmailStatus = emailStatus;
             }
         }
+        
+        
+        public class SmsData
+        {
+            public  string Phone;
+
+            public string Password;
+
+
+            //注册=0，修改资料=1
+            public int PhoneStatus;
+
+        
+        }
+        
+        [HttpPost]
+        [Route("api/SellerSms")]
+        public IHttpActionResult Sms(SmsData data)
+        {
+            
+            EBook.Service.SmsSend.SendVerifyCode(data.Phone);
+            
+            
+            var result = from seller in db.Sellers
+                where seller.SellerPhone == data.Phone
+                select seller;
+
+            // 电话已存在
+            if (result.Any() && data.PhoneStatus == 0)
+            {
+                return BadRequest("Phone exist");
+            }
+
+            EBook.Service.SmsSend.SendVerifyCode(data.Phone);
+            
+            return Ok();
+        }
+        
+        [HttpPost]
+        [Route("api/SellerSendMail")]
+        public IHttpActionResult SendMail(LoginData data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Email Invalid.");
+            }
+
+            var result = from seller in db.Sellers
+                where seller.SellerEmail == data.Email
+                select seller;
+
+            // 邮箱已存在
+            if (result.Any() && data.EmailStatus == 0)
+            {
+                return BadRequest("Email exist");
+            }
+
+            EBook.Service.EmailSend.SendVerifyCode(data.Email);
+            return Ok();
+        }
 
         [HttpPost]
         [Route("api/SellerLogin")]
@@ -45,7 +105,7 @@ namespace EBook.Controllers
             }
             
             var result = from seller in db.Sellers
-                where seller.Email == data.Email
+                where seller.SellerEmail == data.Email
                 select seller;
 
             if (!result.Any())

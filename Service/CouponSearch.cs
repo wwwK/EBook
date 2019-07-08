@@ -44,9 +44,7 @@ namespace EBook.Service
                     SellerId = coupon.ReleaseBySellerId,
                     DiscountAmount = coupon.DiscountAmount,
                     ValidThrough = coupon.ValidThrough,
-                    PriceLimit = coupon.PriceLimit,
-                    CouponState = coupon.CouponStatus,
-
+                    PriceLimit = coupon.PriceLimit
                 };
 
             return selectedCouponInfos.ToArray();

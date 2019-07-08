@@ -13,7 +13,7 @@ namespace EBook.Models
         public int CustomerId { get; set; }
         [ForeignKey("CustomerId")]
         public Customer Customer { set; get; }
-        
+        //
         [Key]
         [Column(Order=2)]
         public int SellerId { get; set; }

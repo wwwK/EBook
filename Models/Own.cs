@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -20,14 +21,13 @@ namespace EBook.Models
         [ForeignKey("CouponId")]
         public Coupon Coupon { get; set; }
 
-        [MaxLength(20)]
-        public string Status { get; set; }
         
-        public int OwnNum { get; set; }
+        public int IsValid { get; set; }
+
 
         public Own()
         {
-            OwnNum = 0;
+            IsValid = 1;
         }
 
     }

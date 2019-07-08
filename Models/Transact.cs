@@ -33,7 +33,7 @@ namespace EBook.Models
         
         public string Comment { set; get; }*/
 
-        //TODO
+        
         [Key]
         public int TransactId { set; get; }
         
@@ -47,6 +47,8 @@ namespace EBook.Models
         [ForeignKey("MerchandiseId")]
         public Merchandise Merchandise { get; set; }
         
+        
+        
         public int UsedCouponId { set; get; }
         //可能不使用优惠券，不设置外键参照约束
         
@@ -54,15 +56,28 @@ namespace EBook.Models
         
         public int ActualPrice { set; get; }
         
-        public string Status { set; get; }
+        
+        // 1未付款  2未发货  3未收货   4收货   5评价 0 取消
+        public int Status { set; get; }
         
         public int Amount { set; get; }
 
         public int LogisticTrackNum { set; get; }
         
+        
+        [MaxLength(200)]
         public string Comment { set; get; }
         
+        [MaxLength(50)]
+        public string ImagePath1 { set; get; }
+        
+        [MaxLength(50)]
+        public string ImagePath2 { set; get; }
+        
         public DateTime CommentTime { set; get; }
+        
+        
+        
         
     }
 }

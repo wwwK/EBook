@@ -18,7 +18,7 @@ namespace EBook.Service
         public string Title;
         public string Author;
         public string Publisher;
-        public DateTime PublishYear;
+        public int PublishYear;
         public int PageNum;
         public string Description;
         public int Price;
@@ -41,7 +41,7 @@ namespace EBook.Service
                 from bookMerchandise in bookMerchandiseArray
                 join seller in sellersArray on bookMerchandise.SellerId equals seller.SellerId into bookInfoArray
                 from bookInfo in bookInfoArray
-                where book.Title.IndexOf(s) >= 0 && bookMerchandise.IsValid
+                where book.Title.IndexOf(s) >= 0 && bookMerchandise.IsValid == 1
                 select new BookInfo
                 {
                     ISBN = book.ISBN,

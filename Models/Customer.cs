@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
+using System.Security.Principal;
 using Newtonsoft.Json;
 
 namespace EBook.Models
@@ -15,36 +17,21 @@ namespace EBook.Models
         [Key]
         public int CustomerId { get; set; }
         
+        
         [MaxLength(20)]
-        public string FirstName { get; set; }
-
-        [MaxLength(20)]
-        public string LastName { get; set; }
-
+        public string RealName { get; set; }
+        
+        
         [MaxLength(20)]
         public string NickName { get; set; }
-
-
-       
-        // [NotMapped]
+        
+        
         [MaxLength(1000)]
         public string Password { get; set; }
-
-
-//        [JsonIgnore]
-//        [MaxLength(50)]
-//        public string PasswordHash
-//        {
-//            get { return BCrypt.Net.BCrypt.HashPassword(Password);}
-//            set { PasswordHash = BCrypt.Net.BCrypt.HashPassword(Password);}
-//
-//        }
-       
-
-
-
+        
         
         public int DefaultAddressIndex { get; set; }
+        
         
         [MaxLength(20)]
         public string IdCardNum { get; set; }
@@ -53,7 +40,7 @@ namespace EBook.Models
    
 
         [Index]
-//        [Index(IsUnique = true)]
+        [Index(IsUnique = true)]
         [Required]
         [MaxLength(20)]
         [EmailAddress]
@@ -61,8 +48,9 @@ namespace EBook.Models
 
         
  
-        [Index]
+        [Index(IsUnique = true)]
         [Required]
+        [Phone]
         [MaxLength(11)]
         public string PhoneNum{ get; set; }
         
@@ -83,21 +71,32 @@ namespace EBook.Models
         
         public int Point { get; set; }
         
+        public int IsValid { get; set; }
+        
+        
+        [MaxLength(60)]
         public string AvatarPath { set; get; }
 
         
         
+        [JsonIgnore]
+        public ICollection<CustomerAddress> CustomerAddresses { get; set; }
         
-        // public ICollection<CustomerAddress> CustomerAddresses { get; set; }
+                        
         
-        // public ICollection<ShoppingCart> ShoppingCartRecords { get; set; }
+        [JsonIgnore]
+        public ICollection<Answer> Answers { get; set; }
 
-        // public ICollection<Collect> Collection { get; set; }
+        
+        [JsonIgnore]
+        public ICollection<Question> Questions { get; set; }
+
+
         public Customer()
         {
-            
+            IsValid = 1;
         }
-
-
+        
+        
     }
 }

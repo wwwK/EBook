@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -22,10 +23,16 @@ namespace EBook.Models
         [ForeignKey("MerchandiseId")]
         public Merchandise Merchandise { get; set; }
         
-        public bool IsValid { get; set; }
-
-        public int Amount { get; set; }
         
+        public int IsValid { get; set; }
+        
+        public int Amount { get; set; }
+
+
+        public ShoppingCart()
+        {
+            IsValid = 1;
+        }
         
     }
 }

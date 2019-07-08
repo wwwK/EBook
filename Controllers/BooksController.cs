@@ -23,8 +23,7 @@ namespace EBook.Controllers
         [HttpPost]
         [Route("api/Book/")]
         public IHttpActionResult InsertBooks(Book data)
-        {
-            Console.Write(ShopNameService.GetSellerIdByShopName("shop"));
+        { 
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

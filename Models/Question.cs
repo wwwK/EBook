@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -29,13 +30,15 @@ namespace EBook.Models
         [MaxLength(200)]
         public string Content { get; set; }
         
-        public bool IsValid { get; set; }
+        
+        public int IsValid { get; set; }
 
-        public Question()
-        {
-            IsValid = true;
-        }
+         public ICollection<Answer> Answers { set; get; }
 
-        // public ICollection<Answer> Answers { set; get; }
+
+         public Question()
+         {
+             IsValid = 1;
+         }
     }
 }

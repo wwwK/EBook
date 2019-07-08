@@ -241,6 +241,7 @@
     <Compile Include="Controllers\CouponSearchController.cs" />
     <Compile Include="Controllers\CustomerAddressesController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MerchandisesController.cs" />
     <Compile Include="Controllers\OwnsController.cs" />
@@ -273,10 +274,13 @@
     <Compile Include="Service\BookSearch.cs" />
     <Compile Include="Service\CouponSearch.cs" />
     <Compile Include="Service\EmailSend.cs" />
+    <Compile Include="Service\FileUploadAuthorize.cs" />
     <Compile Include="Service\SellerSession.cs" />
     <Compile Include="Service\CustomerSession.cs" />
+    <Compile Include="Service\ShopName.cs" />
     <Compile Include="Service\ShoppingCart.cs" />
     <Compile Include="Service\SmsSend.cs" />
+    <Compile Include="Service\Transact.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

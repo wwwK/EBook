@@ -45,8 +45,6 @@ namespace EBook.Controllers
                 {
                     CustomerId = customerId,
                     CouponId = data.CouponId,
-                    Status = data.Status,
-                    OwnNum = data.OwnNum,
                 };
 
 
@@ -56,11 +54,12 @@ namespace EBook.Controllers
                 return Ok("Insert Success");
             }
 
+            
+            //TODO
             var updateown = db.Owns.FirstOrDefault(o => o.CustomerId == customerId && o.CouponId == data.CouponId);
             if (updateown != null)
             {
-                updateown.Status = data.Status;
-                updateown.OwnNum = data.OwnNum;
+                updateown.IsValid = data.IsValid;
                 db.SaveChanges();
                 return Ok("Update Success");
             }

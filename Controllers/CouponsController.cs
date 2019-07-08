@@ -36,7 +36,6 @@ namespace EBook.Controllers
                     DiscountAmount = data.DiscountAmount,
                     ValidThrough = data.ValidThrough,
                     PriceLimit = data.PriceLimit,
-                    CouponStatus =data.CouponStatus,
                 };
                 
                 db.Coupons.Add(coupon);
@@ -51,7 +50,6 @@ namespace EBook.Controllers
                 updatecoupon.DiscountAmount = data.DiscountAmount;
                 updatecoupon.ValidThrough = data.ValidThrough;
                 updatecoupon.PriceLimit = data.PriceLimit;
-                updatecoupon.CouponStatus = data.CouponStatus;
                 db.SaveChanges();
                 return Ok("Update Success");
             }
