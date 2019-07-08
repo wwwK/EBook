@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-
 using EBook.Models;
 using BCrypt.Net;
 using EBook.Service;
+using NETCore.Encrypt;
 
 namespace EBook.Controllers
 {
@@ -33,45 +33,9 @@ namespace EBook.Controllers
                 EmailStatus = emailStatus;
             }
         }
-        public class SmsData
-        {
-            public  string Phone;
-
-            public string Password;
 
 
-            //注册=0，修改资料=1
-            public int PhoneStatus;
 
-        
-        }
-        
-        
-        
-        [HttpPost]
-        [Route("api/Sms")]
-        public IHttpActionResult Sms(SmsData data)
-        {
-            
-            EBook.Service.SmsSend.SendVerifyCode(data.Phone);
-            
-            
-            var result = from customer in db.Customers
-                where customer.PhoneNum == data.Phone
-                select customer;
-
-            // 电话已存在
-            if (result.Any() && data.PhoneStatus == 0)
-            {
-                return BadRequest("Phone exist");
-            }
-
-            EBook.Service.SmsSend.SendVerifyCode(data.Phone);
-            
-            return Ok();
-        }
-        
-        
 
         [HttpPost]
         [Route("api/SendMail")]
@@ -95,6 +59,29 @@ namespace EBook.Controllers
             EBook.Service.EmailSend.SendVerifyCode(data.Email);
             return Ok();
         }
+        
+        [HttpPost]
+        [Route("api/MailChangePassword")]
+        public IHttpActionResult MailChangePassword(LoginData data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            var updatedCustomer = db.Customers.FirstOrDefault(b => b.Email == data.Email);
+            if (updatedCustomer != null)
+            {
+                updatedCustomer.Password = EncryptProvider.Md5(data.Password);
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
 
         [HttpPost]
         [Route("api/Login")]
@@ -114,7 +101,10 @@ namespace EBook.Controllers
                 return NotFound();
             }
 
-            var hashed = BCrypt.Net.BCrypt.HashPassword(data.Password);
+            var hashed = EncryptProvider.Md5(data.Password);
+
+            Console.WriteLine(result.First().Password);
+            Console.WriteLine(hashed);
             if (result.First().Password != hashed)
             {
                 return BadRequest("Password incorrect.");

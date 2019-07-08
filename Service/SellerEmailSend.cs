@@ -4,7 +4,7 @@ using Mafly.Mail;
 
 namespace EBook.Service
 {
-    public static class EmailSend
+    public static class SellerEmailSend
     {
         private struct VerifyRecord
         {
