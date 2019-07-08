@@ -21,6 +21,8 @@ namespace EBook.Models
         public int MerchandiseId { get; set; }
         [ForeignKey("MerchandiseId")]
         public Merchandise Merchandise { get; set; }
+        
+        public bool IsValid { get; set; }
 
         public int Amount { get; set; }
         

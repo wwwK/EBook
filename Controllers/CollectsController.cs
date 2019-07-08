@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
+using EBook.Service;
 
 
 namespace EBook.Controllers
@@ -18,6 +19,7 @@ namespace EBook.Controllers
         private OracleDbContext db = new OracleDbContext();
 
 
+        //insert update
         [HttpPost]
         [Route("api/Collect/")]
         public IHttpActionResult InsertCollect(Collect data)
@@ -26,21 +28,46 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            Collect collect = new Collect
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
             {
-                CustomerId = data.CustomerId,
-                MerchandiseId = data.MerchandiseId,
-                CollectTime = data.CollectTime
-            };
+                return BadRequest("Not Login");
+            }
             
-            db.Collects.Add(collect);
+            int customerId = Session.GetUserIdFromSession(int.Parse(session.Value));
+            if (customerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
+            if (db.Collects.Find(data.CustomerId,data.MerchandiseId) == null)
+            {
+                Collect collect = new Collect
+                {
+                    CustomerId = customerId,
+                    MerchandiseId = data.MerchandiseId,
+                    CollectTime = data.CollectTime,
+                };
+                
+                db.Collects.Add(collect);
+                db.SaveChanges();
 
-            db.SaveChanges();
-            
-            return Ok();
+                return Ok("Insert Success");
+            }
+
+            var updatecollect = db.Collects.FirstOrDefault(c => c.CustomerId == customerId && c.MerchandiseId == data.MerchandiseId);
+            if (updatecollect != null)
+            {
+                updatecollect.CollectTime = data.CollectTime;
+                updatecollect.IsValid = data.IsValid;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
+
         }
 
-
+/*
         public class GetRequest
         {
             public int CustomerId;
@@ -62,6 +89,6 @@ namespace EBook.Controllers
             }
 
             return Ok(collect);
-        }
+        }*/
     }
 }

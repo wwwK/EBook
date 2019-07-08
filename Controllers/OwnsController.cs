@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
-
+using EBook.Service;
 
 namespace EBook.Controllers
 {
@@ -18,6 +18,7 @@ namespace EBook.Controllers
         private OracleDbContext db = new OracleDbContext();
 
 
+        //insert update
         [HttpPost]
         [Route("api/Own/")]
         public IHttpActionResult InsertOwn(Own data)
@@ -26,22 +27,45 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
-            Own own = new Own
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
             {
-                CustomerId = data.CustomerId,
-                CouponId = data.CouponId,
-                Status = data.Status,
+                return BadRequest("Not Login");
+            }
 
-            };
+            int customerId = Session.GetUserIdFromSession(int.Parse(session.Value));
+            if (customerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
 
-            db.Owns.Add(own);
-            
+            if (db.Owns.Find(customerId,data.CouponId) == null)
+            {
+                Own own = new Own
+                {
+                    CustomerId = customerId,
+                    CouponId = data.CouponId,
+                    Status = data.Status,
+                    OwnNum = data.OwnNum,
+                };
 
-            db.SaveChanges();
-            
 
-            return Ok();
+                db.Owns.Add(own);
+                db.SaveChanges();
+
+                return Ok("Insert Success");
+            }
+
+            var updateown = db.Owns.FirstOrDefault(o => o.CustomerId == customerId && o.CouponId == data.CouponId);
+            if (updateown != null)
+            {
+                updateown.Status = data.Status;
+                updateown.OwnNum = data.OwnNum;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
         }
 
         public class GetRequest

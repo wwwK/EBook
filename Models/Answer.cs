@@ -26,6 +26,13 @@ namespace EBook.Models
 
         [MaxLength(200)]
         public string Content { get; set; }
+        
+        public bool IsValid { get; set; }
+
+        public Answer()
+        {
+            IsValid = true;
+        }
 
         
     }

@@ -23,11 +23,11 @@ namespace EBook.Service
         public string CouponState;
     }
 
-    public class CouponSearch
+    public static class CouponSearch
     {
-        public OracleDbContext db = new OracleDbContext();
+        public static OracleDbContext db = new OracleDbContext();
 
-        public CouponInfo[] CouponSearchWithShopName(string s)
+        public static CouponInfo[] CouponSearchWithShopName(string s)
         {
             Coupon[] couponsArray = db.Coupons.ToArray(); 
             Seller[] sellersArray = db.Sellers.ToArray();

@@ -18,7 +18,8 @@ namespace EBook.Controllers
     {
         private OracleDbContext db = new OracleDbContext();
 
-
+        
+        //insert update
         [HttpPost]
         [Route("api/Merchandise/")]
         public IHttpActionResult InsertMerchandise(Merchandise data)
@@ -27,22 +28,40 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
-            Merchandise merchandise = new Merchandise
+
+            if (db.Merchandises.Find(data.MerchandiseId) == null)
             {
-                MerchandiseId = data.MerchandiseId,
-                SellerId = data.SellerId,
-                ISBN = data.ISBN,
-                Description = data.Description,
-                Price = data.Price,
-            };
+                Merchandise merchandise = new Merchandise
+                {
+                    MerchandiseId = data.MerchandiseId,
+                    SellerId = data.SellerId,
+                    ISBN = data.ISBN,
+                    Description = data.Description,
+                    Price = data.Price,
+                    IsValid = data.IsValid,
+                };
 
-            db.Merchandises.Add(merchandise);
-            
 
-            db.SaveChanges();
-            
-            return Ok();
+                db.Merchandises.Add(merchandise);
+                db.SaveChanges();
+
+                return Ok("Insert Success");
+            }
+
+            var updatedmerchandise = db.Merchandises.FirstOrDefault(m => m.MerchandiseId == data.MerchandiseId);
+            if (updatedmerchandise != null)
+            {
+                updatedmerchandise.ISBN = data.ISBN;
+                updatedmerchandise.Description = data.Description;
+                updatedmerchandise.Price = data.Price;
+                updatedmerchandise.IsValid = data.IsValid;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
+
+
         }
 
         public class GetRequest
@@ -51,29 +70,14 @@ namespace EBook.Controllers
             public string Comment;
         }
 
-        //添加评论接口
-        [HttpPost]
-        [Route("api/Comment")]
-        public IHttpActionResult UpdateComment(GetRequest data)
-        {
-            var transact = db.Transacts.FirstOrDefault(m => m.MerchandiseId == data.MerchandiseId);
-
-            if (transact != null)
-            {
-                transact.Comment = data.Comment;
-                return BadRequest("No Such Transact");
-            }
-
-            db.SaveChanges();
-            return Ok();
-        }
         
 
+
         [HttpGet]
-        [Route("api/Merchandise/1")]
-        public IHttpActionResult GetMerchandise(GetRequest data)
+        [Route("api/Merchandise/{MerchandiseId}")]
+        public IHttpActionResult GetMerchandise(int MerchandiseId)
         {
-            var merchandise = db.Merchandises.Find(data.MerchandiseId);
+            var merchandise = db.Merchandises.Find(MerchandiseId);
             if (merchandise == null)
             {
                 return NotFound();

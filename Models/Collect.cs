@@ -22,6 +22,13 @@ namespace EBook.Models
 
 
         public DateTime CollectTime { get; set; }
+        
+        public bool IsValid { get; set; }
+
+        public Collect()
+        {
+            IsValid = true;
+        }
 
 
     }

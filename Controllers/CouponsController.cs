@@ -18,6 +18,7 @@ namespace EBook.Controllers
         private OracleDbContext db = new OracleDbContext();
 
 
+        //insert update
         [HttpPost]
         [Route("api/Coupon/")]
         public IHttpActionResult InsertCoupon(Coupon data)
@@ -26,21 +27,36 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            Coupon coupon = new Coupon
+            if (db.Coupons.Find(data.CouponId) == null)
             {
-                CouponId = data.CouponId,
-                ReleaseBySellerId = data.ReleaseBySellerId,
-                DiscountAmount = data.DiscountAmount,
-                ValidThrough = data.ValidThrough,
-                PriceLimit = data.PriceLimit,
-                CouponStatus =data.CouponStatus,
-            };
-            
-            db.Coupons.Add(coupon);
-            
-            db.SaveChanges();
-            
-            return Ok();
+                Coupon coupon = new Coupon
+                {
+                    CouponId = data.CouponId,
+                    ReleaseBySellerId = data.ReleaseBySellerId,
+                    DiscountAmount = data.DiscountAmount,
+                    ValidThrough = data.ValidThrough,
+                    PriceLimit = data.PriceLimit,
+                    CouponStatus =data.CouponStatus,
+                };
+                
+                db.Coupons.Add(coupon);
+                db.SaveChanges();
+
+                return Ok("Insert Success");
+            }
+
+            var updatecoupon = db.Coupons.FirstOrDefault(c => c.CouponId == data.CouponId);
+            if (updatecoupon != null)
+            {
+                updatecoupon.DiscountAmount = data.DiscountAmount;
+                updatecoupon.ValidThrough = data.ValidThrough;
+                updatecoupon.PriceLimit = data.PriceLimit;
+                updatecoupon.CouponStatus = data.CouponStatus;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
         }
 
         public class GetRequest
@@ -49,14 +65,14 @@ namespace EBook.Controllers
         }
 
         [HttpGet]
-        [Route("api/Coupon/1")]
-        public IHttpActionResult GetCoupon(GetRequest data)
+        [Route("api/Coupon/{CouponId}")]
+        public IHttpActionResult GetCoupon(int CouponId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var coupon = db.Coupons.Find(data.CouponId);
+            var coupon = db.Coupons.Find(CouponId);
             if (coupon == null)
             {
                 return NotFound();

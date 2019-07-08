@@ -29,15 +29,19 @@ namespace EBook.Controllers
  
         [HttpPost]
         [Route("api/CouponSearch/")]
-        public IHttpActionResult CouponSearch(SearchDate data)
+        public IHttpActionResult CouponSearchWithShopName(SearchDate data)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-             
-            CouponSearch a = new CouponSearch();
-            return Ok(a.CouponSearchWithShopName(data.searchinfo));
+
+            CouponInfo[] coupons = CouponSearch.CouponSearchWithShopName(data.searchinfo);
+            if (coupons.Length == 0)
+            {
+                return BadRequest("No Coupons Found");
+            }
+            return Ok(coupons);
         }
          
         /*[HttpGet]

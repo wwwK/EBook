@@ -18,7 +18,7 @@ namespace EBook.Service
         public string Title;
         public string Author;
         public string Publisher;
-        public DateTime PublishYear;
+        public int PublishYear;
         public int PageNum;
         public string Description;
         public int Price;
@@ -26,11 +26,11 @@ namespace EBook.Service
         public int SellerId;
     }
 
-    public class BookSearch
+    public static class BookSearch
     {
-        public OracleDbContext db = new OracleDbContext();
+        public static OracleDbContext db = new OracleDbContext();
 
-        public BookInfo[] BookSearchWithTitle(string s)
+        public static BookInfo[] BookSearchWithTitle(string s)
         {
             Book[] booksArray = db.Books.ToArray();
             Merchandise[] merchandisesArray = db.Merchandises.ToArray();
@@ -41,7 +41,7 @@ namespace EBook.Service
                 from bookMerchandise in bookMerchandiseArray
                 join seller in sellersArray on bookMerchandise.SellerId equals seller.SellerId into bookInfoArray
                 from bookInfo in bookInfoArray
-                where book.Title.IndexOf(s) >= 0
+                where book.Title.IndexOf(s) >= 0 && bookMerchandise.IsValid
                 select new BookInfo
                 {
                     ISBN = book.ISBN,
@@ -60,7 +60,7 @@ namespace EBook.Service
             return selectedBookInfos.ToArray();
         }
         
-        public BookInfo[] BookSearchWithAuther(string s)
+        public static BookInfo[] BookSearchWithAuther(string s)
         {
             Book[] booksArray = db.Books.ToArray();
             Merchandise[] merchandisesArray = db.Merchandises.ToArray();
@@ -90,7 +90,7 @@ namespace EBook.Service
             return selectedBookInfos.ToArray();
         }
         
-        public BookInfo[] BookSearchWithPublisher(string s)
+        public static BookInfo[] BookSearchWithPublisher(string s)
         {
             Book[] booksArray = db.Books.ToArray();
             Merchandise[] merchandisesArray = db.Merchandises.ToArray();
@@ -120,7 +120,7 @@ namespace EBook.Service
             return selectedBookInfos.ToArray();
         }
         
-        public BookInfo[] BookSearchWithIsnb(string s)
+        public static BookInfo[] BookSearchWithIsnb(string s)
         {
             Book[] booksArray = db.Books.ToArray();
             Merchandise[] merchandisesArray = db.Merchandises.ToArray();
@@ -150,7 +150,7 @@ namespace EBook.Service
             return selectedBookInfos.ToArray();
         }
         
-        public BookInfo[] BookSearchWithShopName(string s)
+        public static BookInfo[] BookSearchWithShopName(string s)
         {
             Book[] booksArray = db.Books.ToArray();
             Merchandise[] merchandisesArray = db.Merchandises.ToArray();

@@ -14,6 +14,8 @@ namespace EBook.Models
         [MaxLength(20)]
         public string Password { get; set; }
 
+        
+        //todo unique
         [MaxLength(50)]
         public string ShopName { get; set; }
 

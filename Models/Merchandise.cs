@@ -29,6 +29,9 @@ namespace EBook.Models
         
         [MaxLength(50)]
         public string ImagePath { set; get; }
+        
+        [MaxLength(50)]
+        public string VideoPath { set; get; }
 
         public Merchandise()
         {

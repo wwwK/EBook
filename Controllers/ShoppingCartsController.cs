@@ -20,6 +20,7 @@ namespace EBook.Controllers
         private OracleDbContext db = new OracleDbContext();
 
 
+        //insert update
         [HttpPost]
         [Route("api/ShoppingCart/")]
         public IHttpActionResult InsertShoppingCart(ShoppingCart data)
@@ -28,21 +29,44 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
-            ShoppingCart shoppingCart = new ShoppingCart
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
             {
-                CustomerId = data.CustomerId,
-                MerchandiseId = data.MerchandiseId,
-                Amount = data.Amount,
-
-            };
-
-            db.ShoppingCarts.Add(shoppingCart);
-
-            db.SaveChanges();
+                return BadRequest("Not Login");
+            }
             
+            int customerId = Session.GetUserIdFromSession(int.Parse(session.Value));
+            if (customerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
+            if (db.ShoppingCarts.Find(customerId,data.MerchandiseId) == null)
+            {
+                ShoppingCart shoppingCart = new ShoppingCart
+                {
+                    CustomerId = customerId,
+                    MerchandiseId = data.MerchandiseId,
+                    Amount = data.Amount,
+                };
 
-            return Ok();
+
+                db.ShoppingCarts.Add(shoppingCart);
+                db.SaveChanges();
+
+                return Ok("Insert Success");
+            }
+
+            var updateshoppingcart = db.ShoppingCarts.FirstOrDefault(s => s.CustomerId == customerId && s.MerchandiseId == data.MerchandiseId);
+            if (updateshoppingcart != null)
+            {
+                updateshoppingcart.Amount = data.Amount;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
+
+            
         }
 
         public class GetRequest
@@ -72,7 +96,7 @@ namespace EBook.Controllers
             {
                 return BadRequest("Not Login");
             }
-            return Ok(a.SeeShoppingCartWithCustomerId(customerId));
+            return Ok(a.CheckShoppingCartWithCustomerId(customerId));
         }
 
         /*[HttpGet]

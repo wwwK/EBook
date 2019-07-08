@@ -24,7 +24,7 @@ using System.Threading.Tasks;
              public string searchinfo;
          }
 
-
+         //记得改！
          
  
          [HttpPost]
@@ -37,9 +37,13 @@ using System.Threading.Tasks;
              }
  
              
-             var a = new BookSearch();
-             BookInfo[] css = a.BookSearchWithTitle(data.searchinfo);
-             return Ok(a.BookSearchWithTitle(data.searchinfo));
+             //var a = new BookSearch();
+             BookInfo[] books = BookSearch.BookSearchWithTitle(data.searchinfo);
+             if (books.Length == 0)
+             {
+                 return BadRequest("No Books Found");
+             }
+             return Ok(books);
          }
          
          /*[HttpGet]

@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
+using EBook.Service;
 
 
 namespace EBook.Controllers
@@ -18,29 +19,49 @@ namespace EBook.Controllers
         private OracleDbContext db = new OracleDbContext();
 
 
+        //insert update
         [HttpPost]
         [Route("api/Book/")]
         public IHttpActionResult InsertBooks(Book data)
         {
+            Console.Write(ShopNameService.GetSellerIdByShopName("shop"));
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var book = new Book
-            {
-                ISBN = data.ISBN,
-                Title = data.Title,
-                Author = data.Author,
-                Publisher = data.Publisher,
-                PublishYear = data.PublishYear,
-                PageNum = data.PageNum,
-            };
 
-            db.Books.Add(book);
-            
-            db.SaveChanges();
-            
-            return Ok();
+            if (db.Books.Find(data.ISBN) == null)
+            {
+                Book book = new Book
+                {
+                    ISBN = data.ISBN,
+                    Title = data.Title,
+                    Author = data.Author,
+                    Publisher = data.Publisher,
+                    PublishYear = data.PublishYear,
+                    PageNum = data.PageNum,
+                };
+
+
+                db.Books.Add(book);
+                db.SaveChanges();
+
+                return Ok("Insert Success");
+            }
+
+            var updatedbook = db.Books.FirstOrDefault(b => b.ISBN == data.ISBN);
+            if (updatedbook != null)
+            {
+                updatedbook.ISBN = data.ISBN;
+                updatedbook.Author = data.Author;
+                updatedbook.Publisher = data.Publisher;
+                updatedbook.PublishYear = data.PublishYear;
+                updatedbook.PageNum = data.PageNum;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
         }
 
         public class GetRequest
@@ -49,18 +70,20 @@ namespace EBook.Controllers
         }
 
         [HttpGet]
-        [Route("api/Book/1")]
-        public IHttpActionResult GetBook(GetRequest data)
+        [Route("api/Book/{ISBN}")]
+        public IHttpActionResult GetBook(string ISBN)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var book = db.Books.Find(data.ISBN);
+
+            var book = db.Books.Find(ISBN);
             if (book == null)
             {
                 return NotFound();
             }
+
             return Ok(book);
         }
     }

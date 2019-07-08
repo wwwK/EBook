@@ -10,6 +10,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using BCrypt.Net;
 using System.Web.SessionState;
+using EBook.Service;
 
 
 namespace EBook.Controllers
@@ -19,6 +20,7 @@ namespace EBook.Controllers
         private OracleDbContext db = new OracleDbContext();
 
 
+        //insert update
         [HttpPost]
         [Route("api/Transact/")]
         public IHttpActionResult InsertTransact(Transact data)
@@ -27,33 +29,81 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
-            Transact transact = new Transact
+
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
             {
-                CustomerId = data.CustomerId,
-                MerchandiseId = data.MerchandiseId,
-                CreateTime = data.CreateTime,
-                ActualPrice = data.ActualPrice,
-                Status = data.Status,
-                Amount = data.Amount,
-                LogisticTrackNum = data.LogisticTrackNum,
-                Comment = data.Comment,
-            };
+                return BadRequest("Not Login");
+            }
 
-            db.Transacts.Add(transact);
-            
+            int customerId = Session.GetUserIdFromSession(int.Parse(session.Value));
+            if (customerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
 
-            db.SaveChanges();
-            
+            if (db.Transacts.Find(data.TransactId) == null)
+            {
+                Transact transact = new Transact
+                {
+                    TransactId = data.TransactId,
+                    CustomerId = customerId,
+                    MerchandiseId = data.MerchandiseId,
+                    CreateTime = data.CreateTime,
+                    UsedCouponId = data.UsedCouponId,
+                    ActualPrice = data.ActualPrice,
+                    Status = data.Status,
+                    Amount = data.Amount,
+                    LogisticTrackNum = data.LogisticTrackNum,
+                    Comment = data.Comment,
+                };
 
-            return Ok();
+
+                db.Transacts.Add(transact);
+                db.SaveChanges();
+
+                return Ok("Insert Success");
+            }
+
+            var updatetransact = db.Transacts.FirstOrDefault(t => t.TransactId == data.TransactId);
+            if (updatetransact != null)
+            {
+                updatetransact.CreateTime = data.CreateTime;
+                updatetransact.UsedCouponId = data.UsedCouponId;
+                updatetransact.ActualPrice = data.ActualPrice;
+                updatetransact.Status = data.Status;
+                updatetransact.Amount = data.Amount;
+                updatetransact.LogisticTrackNum = data.LogisticTrackNum;
+                updatetransact.Comment = data.Comment;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
+
         }
 
         public class GetRequest
         {
-            public int CustomerId;
-            public int MerchandiseId;
-            public DateTime CreateTime;
+            public int TransactId;
+            public string Comment;
+        }
+
+        //添加评论接口
+        [HttpPost]
+        [Route("api/Comment")]
+        public IHttpActionResult UpdateComment(GetRequest data)
+        {
+            var transact = db.Transacts.FirstOrDefault(t => t.TransactId == data.TransactId);
+
+            if (transact == null)
+            {
+                return BadRequest("No Such Transact");
+            }
+
+            transact.Comment = data.Comment;
+            db.SaveChanges();
+            return Ok();
         }
 
         [HttpGet]
@@ -64,8 +114,8 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
-            var transact = db.Transacts.Find(data.CustomerId,data.MerchandiseId,data.CreateTime);
+
+            var transact = db.Transacts.Find(data.TransactId);
             if (transact == null)
             {
                 return NotFound();

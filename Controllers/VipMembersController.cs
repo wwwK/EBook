@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
+using EBook.Service;
 
 
 namespace EBook.Controllers
@@ -18,32 +19,65 @@ namespace EBook.Controllers
         private OracleDbContext db = new OracleDbContext();
 
 
+        public class VipRequest
+        {
+            public string ShopName;
+            public double DiscountRatio;
+            public DateTime ValidThrough;
+        }
+        
+
+        //insert update
         [HttpPost]
         [Route("api/VipMember/")]
-        public IHttpActionResult InsertVipMember(VipMember data)
+        public IHttpActionResult InsertVipMember(VipRequest data)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            
-            VipMember vipMember = new VipMember
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
             {
-                CustomerId = data.CustomerId,
-                SellerId = data.SellerId,
-                DiscountRatio = data.DiscountRatio,
-                ValidThrough = data.ValidThrough,
-            };
+                return BadRequest("Not Login");
+            }
 
- 
+            int customerId = Session.GetUserIdFromSession(int.Parse(session.Value));
+            if (customerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
 
-            db.VipMembers.Add(vipMember);
-            
+            var sellerId = ShopNameService.GetSellerIdByShopName(data.ShopName);
 
-            db.SaveChanges();
-            
+            if (db.VipMembers.Find(customerId,sellerId) == null)
+            {
+                VipMember vipMember = new VipMember
+                {
+                    CustomerId = customerId,
+                    SellerId = sellerId,
+                    DiscountRatio = data.DiscountRatio,
+                    ValidThrough = data.ValidThrough,
+                };
 
-            return Ok();
+
+                db.VipMembers.Add(vipMember);
+                db.SaveChanges();
+
+                return Ok("Insert Success");
+            }
+
+            var updatevipmember = db.VipMembers.FirstOrDefault(v => v.CustomerId == customerId && v.SellerId == sellerId);
+            if (updatevipmember != null)
+            {
+                updatevipmember.DiscountRatio = data.DiscountRatio;
+                updatevipmember.ValidThrough = data.ValidThrough;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
+
         }
 
         public class GetRequest

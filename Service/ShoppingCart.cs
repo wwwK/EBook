@@ -28,7 +28,7 @@ namespace EBook.Service
     {
         public OracleDbContext db = new OracleDbContext();
         
-        public MerchandiseInfo[] SeeShoppingCartWithCustomerId(int customerId)
+        public MerchandiseInfo[] CheckShoppingCartWithCustomerId(int customerId)
         {
             ShoppingCart[] shoppingCartsArray = db.ShoppingCarts.ToArray();
             Seller[] sellersArray = db.Sellers.ToArray();
