@@ -11,9 +11,9 @@ namespace EBook.Service
             public string VerifyCode;
             public DateTime ValidThrough;
         }
-        
-        private static Dictionary<string, VerifyRecord> _records = new Dictionary<string, VerifyRecord>();
-        
+
+        private static readonly Dictionary<string, VerifyRecord> _records = new Dictionary<string, VerifyRecord>();
+
         public static void SendVerifyCode(string mailAdd)
         {
             var random = new Random();
@@ -22,7 +22,7 @@ namespace EBook.Service
             {
                 _records[mailAdd] = new VerifyRecord
                 {
-                    VerifyCode = verifyCode, 
+                    VerifyCode = verifyCode,
                     ValidThrough = DateTime.Now.AddMinutes(5)
                 };
             }
@@ -30,7 +30,7 @@ namespace EBook.Service
             {
                 _records.Add(mailAdd, new VerifyRecord
                 {
-                    VerifyCode = verifyCode, 
+                    VerifyCode = verifyCode,
                     ValidThrough = DateTime.Now.AddMinutes(5)
                 });
             }
@@ -43,7 +43,7 @@ namespace EBook.Service
                 Body = "您的注册验证码是：" + verifyCode + "。5分钟有效。"
             });
         }
-        
+
         // :return 0:success  -1: code not set -2:code incorrect -3: Code expired 
         public static int CheckVerifyCode(string mailAdd, string code)
         {
@@ -54,11 +54,13 @@ namespace EBook.Service
                 {
                     return -2;
                 }
+
                 if (record.ValidThrough < DateTime.Now)
                 {
                     _records.Remove(mailAdd);
                     return -3;
                 }
+
                 _records.Remove(mailAdd);
                 return 0;
             }

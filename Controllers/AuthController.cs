@@ -33,6 +33,45 @@ namespace EBook.Controllers
                 EmailStatus = emailStatus;
             }
         }
+        public class SmsData
+        {
+            public  string Phone;
+
+            public string Password;
+
+
+            //注册=0，修改资料=1
+            public int PhoneStatus;
+
+        
+        }
+        
+        
+        
+        [HttpPost]
+        [Route("api/Sms")]
+        public IHttpActionResult Sms(SmsData data)
+        {
+            
+            EBook.Service.SmsSend.SendVerifyCode(data.Phone);
+            
+            
+            var result = from customer in db.Customers
+                where customer.PhoneNum == data.Phone
+                select customer;
+
+            // 电话已存在
+            if (result.Any() && data.PhoneStatus == 0)
+            {
+                return BadRequest("Phone exist");
+            }
+
+            EBook.Service.SmsSend.SendVerifyCode(data.Phone);
+            
+            return Ok();
+        }
+        
+        
 
         [HttpPost]
         [Route("api/SendMail")]

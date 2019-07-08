@@ -74,7 +74,6 @@
 /Users/spark/RiderProjects/EBook/bin/System.Web.WebPages.xml
 /Users/spark/RiderProjects/EBook/bin/System.Web.WebPages.Deployment.xml
 /Users/spark/RiderProjects/EBook/bin/System.Web.WebPages.Razor.xml
-/Users/spark/RiderProjects/EBook/bin/Newtonsoft.Json.xml
 /Users/spark/RiderProjects/EBook/bin/Antlr3.Runtime.pdb
 /Users/spark/RiderProjects/EBook/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 /Users/spark/RiderProjects/EBook/obj/Debug/EBook.csprojAssemblyReference.cache
@@ -202,3 +201,18 @@
 /Users/yh/repos/RiderProjects/EBook/obj/Debug/EBook.pdb
 /Users/spark/RiderProjects/EBook/bin/BCrypt.Net.dll
 /Users/spark/RiderProjects/EBook/bin/BCrypt.Net.xml
+/Users/spark/RiderProjects/EBook/bin/Microsoft.AspNet.TelemetryCorrelation.dll
+/Users/spark/RiderProjects/EBook/bin/System.Diagnostics.DiagnosticSource.dll
+/Users/spark/RiderProjects/EBook/bin/Microsoft.AspNet.TelemetryCorrelation.xml
+/Users/spark/RiderProjects/EBook/bin/System.Diagnostics.DiagnosticSource.xml
+/Users/spark/RiderProjects/EBook/bin/Mafly.Mail.dll
+/Users/spark/RiderProjects/EBook/bin/Mafly.Mail.xml
+/Users/spark/RiderProjects/EBook/bin/Newtonsoft.Json.xml
+/Users/spark/RiderProjects/EBook/bin/System.IO.dll
+/Users/spark/RiderProjects/EBook/bin/System.Net.Http.dll
+/Users/spark/RiderProjects/EBook/bin/System.Runtime.dll
+/Users/spark/RiderProjects/EBook/bin/System.Security.Cryptography.Algorithms.dll
+/Users/spark/RiderProjects/EBook/bin/System.Security.Cryptography.Encoding.dll
+/Users/spark/RiderProjects/EBook/bin/System.Security.Cryptography.Primitives.dll
+/Users/spark/RiderProjects/EBook/bin/System.Security.Cryptography.X509Certificates.dll
+/Users/spark/RiderProjects/EBook/bin/qcloudsms_csharp.dll
