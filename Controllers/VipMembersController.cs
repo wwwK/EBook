@@ -80,10 +80,58 @@ namespace EBook.Controllers
 
         }
 
-        public class GetRequest
+        
+        [HttpPost]
+        [Route("api/GetVipOfCustomer")]
+        public IHttpActionResult GetVipOfCustomer()
         {
-            public int CustomerId;
-            public int SellerId;
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Logged in");
+            }
+
+            var currentCustomerId = Service.CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
+            if (currentCustomerId < 0)
+            {
+                return BadRequest("Not Logged in");
+            }
+            
+            var result = Service.VipCheck.GetVipMemberFromCustomer(currentCustomerId);
+
+            if (result.Length == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+
+        [HttpPost]
+        [Route("api/GetVipOfSeller")]
+        public IHttpActionResult GetVipOfSeller()
+        {
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Logged in");
+            }
+
+            var currentSellerId = Service.SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
+            if (currentSellerId < 0)
+            {
+                return BadRequest("Not Logged in");
+            }
+            
+            var result = Service.VipCheck.GetVipMemberFromSeller(currentSellerId);
+
+            if (result.Length == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
         }
 
         /*[HttpGet]
