@@ -67,7 +67,7 @@ namespace EBook.Controllers
                 return BadRequest("Not Login");
             }
             
-            int customerId = Session.GetUserIdFromSession(int.Parse(session.Value));
+            int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId == 0)
             {
                 return BadRequest("Not Login");

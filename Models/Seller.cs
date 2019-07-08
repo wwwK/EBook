@@ -27,6 +27,11 @@ namespace EBook.Models
         public string City { get; set; }
 
         
+        
+        [Required]
+        [MaxLength(20)]
+        [EmailAddress]
+        public string Email { get; set; }
 
         [Phone]
         [Index]

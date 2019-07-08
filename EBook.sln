@@ -12,5 +12,6 @@ Global
 		{93566BF5-BEF2-4160-A25B-A0C274875749}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93566BF5-BEF2-4160-A25B-A0C274875749}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93566BF5-BEF2-4160-A25B-A0C274875749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93566BF5-BEF2-4160-A25B-A0C274875749}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
