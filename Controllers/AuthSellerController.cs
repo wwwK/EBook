@@ -26,6 +26,9 @@ namespace EBook.Controllers
             public readonly string Password;
             //注册=0，修改资料=1
             public readonly int EmailStatus;
+            
+            
+            public string ValidateCode;
 
             public LoginData(string email, string password, int emailStatus)
             {
@@ -70,6 +73,21 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
             
+            
+            var tmpResult = Service.SellerEmailSend.CheckVerifyCode(data.Email, data.ValidateCode);
+            if (tmpResult != 0)
+            {
+                switch (tmpResult)
+                {
+                    case -1:
+                        return BadRequest("Validate code not sent.");
+                    case -2:
+                        return BadRequest("Wrong validate code.");
+                    case -3:
+                        return BadRequest("Validate code expired.");
+                }
+            }
+
       
             var updatedSeller = db.Sellers.FirstOrDefault(b => b.SellerEmail == data.Email);
             if (updatedSeller != null)

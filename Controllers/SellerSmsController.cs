@@ -113,6 +113,20 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
             
+            var tmpResult = Service.SellerSmsSend.CheckVerifyCode(data.Phone, data.ValidateCode);
+            if (tmpResult != 0)
+            {
+                switch (tmpResult)
+                {
+                    case -1:
+                        return BadRequest("Validate code not sent.");
+                    case -2:
+                        return BadRequest("Wrong validate code.");
+                    case -3:
+                        return BadRequest("Validate code expired.");
+                }
+            }
+
       
             var updatedSeller = db.Sellers.FirstOrDefault(b => b.SellerPhone == data.Phone);
             if (updatedSeller != null)
