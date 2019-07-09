@@ -25,7 +25,7 @@ namespace EBook.Service
         public string DestinationProvince;
         public string DestinationCity;
         public string DestinationBlock;
-        public int LogisticTrackNum;
+        public string LogisticTrackNum;
     }
     
     public static class TransactAddress

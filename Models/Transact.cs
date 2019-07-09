@@ -69,7 +69,9 @@ namespace EBook.Models
         
         public int Amount { set; get; }
 
-        public int LogisticTrackNum { set; get; }
+        
+        [MaxLength(20)]
+        public string LogisticTrackNum { set; get; }
         
         
         [MaxLength(200)]
