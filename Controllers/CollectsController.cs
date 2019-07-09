@@ -39,7 +39,7 @@ namespace EBook.Controllers
             {
                 return BadRequest("Not Login");
             }
-            if (db.Collects.Find(data.CustomerId,data.MerchandiseId) == null)
+            if (db.Collects.Find(customerId,data.MerchandiseId) == null)
             {
                 Collect collect = new Collect
                 {
@@ -82,7 +82,7 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var collect = db.Collects.Find(data.CustomerId,data.MerchandiseId);
+            var collect = db.Collects.Find(customerId,data.MerchandiseId);
             if (collect == null)
             {
                 return NotFound();

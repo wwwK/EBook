@@ -35,13 +35,12 @@ namespace EBook.Service
                 from coupon in couponsArray
                 join seller in sellersArray on coupon.ReleaseBySellerId equals seller.SellerId into shopCouponsArray
                 from shopCoupon in shopCouponsArray
-                where shopCoupon.ShopName.IndexOf(s) >= 0
-                //select coupon;
+                where shopCoupon.ShopName.IndexOf(s) >= 0 && shopCoupon.IsValid == 1
                 select new CouponInfo
                 {
                     ShopName = shopCoupon.ShopName,
                     CouponId = coupon.CouponId,
-                    SellerId = coupon.ReleaseBySellerId,
+                    //SellerId = coupon.ReleaseBySellerId,
                     DiscountAmount = coupon.DiscountAmount,
                     ValidThrough = coupon.ValidThrough,
                     PriceLimit = coupon.PriceLimit
@@ -49,6 +48,30 @@ namespace EBook.Service
 
             return selectedCouponInfos.ToArray();
         }
+        public static CouponInfo[] GetAllCouponsWithSellerId(int sellerId)
+        {
+            Coupon[] couponsArray = db.Coupons.ToArray(); 
+            Seller[] sellersArray = db.Sellers.ToArray();
+            IEnumerable<CouponInfo> selectedCouponInfos =
+                from coupon in couponsArray
+                join seller in sellersArray on coupon.ReleaseBySellerId equals seller.SellerId into sellerCouponsArray
+                from sellerCoupon in sellerCouponsArray
+                where sellerCoupon.SellerId == sellerId && sellerCoupon.IsValid == 1
+                //select coupon;
+                select new CouponInfo
+                {
+                    ShopName = sellerCoupon.ShopName,
+                    CouponId = coupon.CouponId,
+                    //SellerId = coupon.ReleaseBySellerId,
+                    DiscountAmount = coupon.DiscountAmount,
+                    ValidThrough = coupon.ValidThrough,
+                    PriceLimit = coupon.PriceLimit
+                };
+
+            return selectedCouponInfos.ToArray();
+        }
+        
+        
         
         
     }

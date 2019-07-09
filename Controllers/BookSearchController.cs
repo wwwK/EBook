@@ -21,7 +21,7 @@ using System.Threading.Tasks;
 
          public class SearchDate
          {
-             public string searchinfo;
+             public string Title;
          }
 
          //记得改！
@@ -38,7 +38,7 @@ using System.Threading.Tasks;
  
              
              //var a = new BookSearch();
-             BookInfo[] books = BookSearch.BookSearchWithTitle(data.searchinfo);
+             BookInfo[] books = BookSearch.BookSearchWithTitle(data.Title);
              if (books.Length == 0)
              {
                  return BadRequest("No Books Found");

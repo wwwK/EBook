@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
-
+using EBook.Service;
 
 namespace EBook.Controllers
 {
@@ -27,17 +27,30 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Login");
+            }
+
+            var sellerId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
+            if (sellerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
+
             if (db.Coupons.Find(data.CouponId) == null)
             {
                 Coupon coupon = new Coupon
                 {
                     CouponId = data.CouponId,
-                    ReleaseBySellerId = data.ReleaseBySellerId,
+                    ReleaseBySellerId = sellerId,
                     DiscountAmount = data.DiscountAmount,
                     ValidThrough = data.ValidThrough,
                     PriceLimit = data.PriceLimit,
                 };
-                
+
                 db.Coupons.Add(coupon);
                 db.SaveChanges();
 
@@ -62,6 +75,17 @@ namespace EBook.Controllers
             public int CouponId;
         }
 
+        public class CouponInfo
+        {
+            public int CouponId;
+
+            public int DiscountAmount;
+
+            public DateTime ValidThrough;
+
+            public int PriceLimit;
+        }
+
         //get ok
         [HttpPost]
         [Route("api/GetCoupon")]
@@ -71,11 +95,13 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
+
             var coupon = db.Coupons.Find(data.CouponId);
-            if (coupon == null)
+            if (coupon == null || coupon.IsValid == 0)
             {
                 return NotFound();
             }
+
 
             return Ok(coupon);
         }

@@ -21,11 +21,33 @@ namespace EBook.Controllers
 
         public class SearchDate
         {
-            public string searchinfo;
+            public string ShopName;
         }
 
 
-         
+        [HttpPost]
+        [Route("api/GetAllCoupons")]
+        public IHttpActionResult GetAllCouponsWithSeller()
+        {
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Login");
+            }
+            var sellerId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
+            if (sellerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
+
+            CouponInfo[] coupons = CouponSearch.GetAllCouponsWithSellerId(sellerId);
+            if (coupons.Length == 0)
+            {
+                return BadRequest("No Coupons Found");
+            }
+
+            return Ok(coupons);
+        }
  
         [HttpPost]
         [Route("api/CouponSearch/")]
@@ -36,7 +58,7 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
 
-            CouponInfo[] coupons = CouponSearch.CouponSearchWithShopName(data.searchinfo);
+            CouponInfo[] coupons = CouponSearch.CouponSearchWithShopName(data.ShopName);
             if (coupons.Length == 0)
             {
                 return BadRequest("No Coupons Found");
