@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
-
+using EBook.Service;
 
 namespace EBook.Controllers
 {
@@ -26,25 +26,56 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
-            CustomerAddress address = new CustomerAddress
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
             {
-                AddressIndex = data.AddressIndex,
-                ReceiverName = data.ReceiverName,
-                ReceivePhone = data.ReceivePhone,
-                Province = data.Province,
-                City = data.City,
-                Block = data.Block,
-                DetailAddress = data.DetailAddress,
-                ZipCode = data.ZipCode,
-                CustomerId = data.CustomerId,
-            };
+                return BadRequest("Not Login");
+            }
             
-            db.CustomerAddresses.Add(address);
+            int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
+            if (customerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
+
+            if (db.CustomerAddresses.Find(data.AddressIndex) == null)
+            {
+                CustomerAddress address = new CustomerAddress
+                {
+                    AddressIndex = data.AddressIndex,
+                    ReceiverName = data.ReceiverName,
+                    ReceivePhone = data.ReceivePhone,
+                    Province = data.Province,
+                    City = data.City,
+                    Block = data.Block,
+                    DetailAddress = data.DetailAddress,
+                    ZipCode = data.ZipCode,
+                    CustomerId = customerId, //todo
+                };
+                
             
-            db.SaveChanges();
+                db.CustomerAddresses.Add(address);
             
-            return Ok();
+                db.SaveChanges();
+            
+                return Ok("Insert Success");
+            }
+            var updatecustomeraddress = db.CustomerAddresses.FirstOrDefault(ca =>ca.AddressIndex == data.AddressIndex);
+            if (updatecustomeraddress != null)
+            {
+                updatecustomeraddress.ReceiverName = data.ReceiverName;
+                updatecustomeraddress.ReceivePhone = data.ReceivePhone;
+                updatecustomeraddress.Province = data.Province;
+                updatecustomeraddress.City = data.City;
+                updatecustomeraddress.Block = data.Block;
+                updatecustomeraddress.DetailAddress = data.DetailAddress;
+                updatecustomeraddress.ZipCode = data.ZipCode;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
+
         }
 
         public class GetRequest
@@ -53,7 +84,7 @@ namespace EBook.Controllers
         }
 
         [HttpGet]
-        [Route("api/CustomerAddress/1")]
+        [Route("api/GetCustomerAddress")]
         public IHttpActionResult GetCustomerAddress(GetRequest data)
         {
             if (!ModelState.IsValid)

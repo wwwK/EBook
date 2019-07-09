@@ -46,7 +46,7 @@ namespace EBook.Controllers
                 Merchandise merchandise = new Merchandise
                 {
                     MerchandiseId = data.MerchandiseId,
-                    SellerId = data.SellerId,
+                    SellerId = sellseId,        
                     ISBN = data.ISBN,
                     Description = data.Description,
                     Price = data.Price,
@@ -102,6 +102,7 @@ namespace EBook.Controllers
         }
 //get ok
 /*
+ ++       
         [HttpGet]
         [Route("api/GetMerchandise")]
         public IHttpActionResult GetMerchandise(GetRequest data)
