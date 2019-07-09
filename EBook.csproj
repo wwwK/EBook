@@ -292,6 +292,7 @@
     <Compile Include="Service\ShoppingCart.cs" />
     <Compile Include="Service\SmsSend.cs" />
     <Compile Include="Service\Transact.cs" />
+    <Compile Include="Service\TransactAddress.cs" />
     <Compile Include="Service\VipCheck.cs" />
   </ItemGroup>
   <ItemGroup>

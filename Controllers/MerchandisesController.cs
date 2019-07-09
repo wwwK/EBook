@@ -120,6 +120,8 @@ namespace EBook.Controllers
         {
             public string sellerShopName;
         }
+        
+        
         [HttpPost]
         [Route("api/GetMerchandisesOfSeller")]
         public IHttpActionResult GetMerchandisesOfSeller(SellerRequest data)
