@@ -124,6 +124,40 @@ namespace EBook.Controllers
             }
             return Ok(transacts);
         }
+        
+        
+        [HttpPost]
+        [Route("api/CustomerGetAllTransacts")]
+        public IHttpActionResult CustomerGetAllTransacts()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+ 
+             
+            //var a = new BookSearch();
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Login");
+            }
+
+            var customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
+            if (customerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
+            
+            
+            Transact[] transacts = TransactService.CustomerGetAllTransacts(customerId);
+            if (transacts.Length == 0)
+            {
+                return BadRequest("No Transacts Found");
+            }
+            return Ok(transacts);
+        }
+        
 
         [HttpPost]
         [Route("api/GetAllComments")]

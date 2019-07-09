@@ -9,9 +9,15 @@ namespace EBook.Controllers
     public class FileController: ApiController
     {
         private OracleDbContext db = new OracleDbContext();
+
+        class UploadTokenResponse
+        {
+            public string token;
+            public string key;
+        }
         
         [HttpPost]
-        [Route("api/Customer/RequestAvatarUpload")]
+        [Route("api/RequestCustomerAvatarUpload")]
         public IHttpActionResult RequestAvatarUpload()
         {
             var cookie = HttpContext.Current.Request.Cookies.Get("sessionId");
@@ -37,8 +43,12 @@ namespace EBook.Controllers
             db.SaveChanges();
             
             var token = Service.FileUploadAuthorize.GenerateUploadToken(fileName);
-
-            return Ok($"{{\"token\":\"{token}\",\"key\":\"{fileName}\"}}");
+    
+            return Ok(new UploadTokenResponse()
+            {
+                token = token,
+                key = fileName
+            });
         }
          
     }

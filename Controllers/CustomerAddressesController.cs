@@ -78,12 +78,44 @@ namespace EBook.Controllers
 
         }
 
+        [HttpPost]
+        [Route("api/SellerGetAllTransactsDestinationAddress")]
+        public IHttpActionResult SellerGetAllTransactsSourceAddress()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Login");
+            }
+
+            int sellseId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
+            if (sellseId < 0)
+            {
+                return BadRequest("Not Login");
+            }
+
+            DestinationAddressInfo[] destinationAddressInfos =
+                TransactAddress.SellerGetAllTransactsDestinationAddressInfos(sellseId);
+            if (destinationAddressInfos.Length == 0)
+            {
+                return BadRequest("No Address Found");
+            }
+
+            return Ok(destinationAddressInfos);
+        }
+        
+
         public class GetRequest
         {
             public int AddressIndex;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("api/GetCustomerAddress")]
         public IHttpActionResult GetCustomerAddress(GetRequest data)
         {
