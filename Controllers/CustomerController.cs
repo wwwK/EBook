@@ -10,7 +10,7 @@ using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
 using NETCore.Encrypt;
-
+using EBook.Service;
 
 namespace EBook.Controllers
 {
@@ -78,13 +78,25 @@ namespace EBook.Controllers
         }
 
 
-        [HttpGet]
-        [Route("api/Customer/{CustomerId}")]
-        public IHttpActionResult GetUser(int customerId)
+        [HttpPost]
+        [Route("api/GetCustomer")]
+        public IHttpActionResult GetCustomer()
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Login");
+            }
+
+            int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
+            if (customerId < 0)
+            {
+                return BadRequest("Not Login");
             }
 
             var customer = db.Customers.Find(customerId);
@@ -94,6 +106,54 @@ namespace EBook.Controllers
             }
 
             return Ok(customer);
+        }
+
+        public class UpdateInfo
+        {
+            public string RealName;
+            public string NickName;
+            public int DefaultAddressIndex;
+            public string IdCardNum;
+            public DateTime DateOfBirth;
+            public int Point;
+            public string AvatarPath;
+        }
+
+        [HttpPost]
+        [Route("api/UpdateCustomer")]
+        public IHttpActionResult UpdateCustomer(UpdateInfo data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Login");
+            }
+
+            int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
+            if (customerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
+
+            var updatecustomer = db.Customers.FirstOrDefault(c => c.CustomerId == customerId);
+            if (updatecustomer != null)
+            {
+                updatecustomer.NickName = data.NickName;
+                updatecustomer.DefaultAddressIndex = data.DefaultAddressIndex;
+                updatecustomer.IdCardNum = data.IdCardNum;
+                updatecustomer.DateOfBirth = data.DateOfBirth;
+                updatecustomer.Point = data.Point;
+                updatecustomer.AvatarPath = data.AvatarPath;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
         }
     }
 }

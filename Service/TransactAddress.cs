@@ -27,6 +27,12 @@ namespace EBook.Service
         public string DestinationBlock;
         public int LogisticTrackNum;
     }
+
+    public class DestinationAddressInfo
+    {
+        public string Province;
+        public string City;
+    }
     
     public static class TransactAddress
     {
@@ -65,6 +71,27 @@ namespace EBook.Service
             
 
             return selectedAddressInfos.ToArray();
+        }
+
+        public static DestinationAddressInfo[] SellerGetAllTransactsDestinationAddressInfos(int sellerId)
+        {
+            Transact[] transactsArray = db.Transacts.ToArray();
+            Merchandise[] merchandisesArray = db.Merchandises.ToArray();
+            CustomerAddress[] customerAddressesArray = db.CustomerAddresses.ToArray();
+            IEnumerable < DestinationAddressInfo > selectedSourceAddressInfos=
+                from merchandise in merchandisesArray
+                join transact in transactsArray on merchandise.MerchandiseId equals transact.MerchandiseId  into
+                    merchanTransactsArray
+                from merchanTransact in merchanTransactsArray 
+                join customerAddress in customerAddressesArray 
+                    on merchanTransact.DestinationAddressIndex equals customerAddress.AddressIndex
+                where merchandise.SellerId == sellerId
+                select new DestinationAddressInfo
+                {
+                    Province = customerAddress.Province,
+                    City = customerAddress.City,
+                };
+            return selectedSourceAddressInfos.ToArray();
         }
     }
 }

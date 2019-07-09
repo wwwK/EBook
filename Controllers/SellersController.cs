@@ -10,7 +10,7 @@ using System.Net.Http.Headers;
 using BCrypt.Net;
 using System.Web.SessionState;
 using NETCore.Encrypt;
-
+using EBook.Service;
 
 namespace EBook.Controllers
 {
@@ -88,6 +88,7 @@ namespace EBook.Controllers
 
             return Ok();
         }
+        /*
         [HttpPost]
         [Route("api/Seller/1")]
         public IHttpActionResult InsertSeller(Seller data)
@@ -116,23 +117,85 @@ namespace EBook.Controllers
 
             return Ok();
         }
-
+*/
         public class GetRequest
         {
             public int SellerId;
         }
 
-        [HttpGet]
-        [Route("api/Seller/1")]
-        public IHttpActionResult GetMerchandise(GetRequest data)
+        [HttpPost]
+        [Route("api/GetSeller")]
+        public IHttpActionResult GetSeller()
         {
-            var seller = db.Sellers.Find(data.SellerId);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Login");
+            }
+            
+            int sellerId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
+            if (sellerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
+
+            var seller = db.Sellers.Find(sellerId);
             if (seller == null)
             {
                 return NotFound();
             }
 
             return Ok(seller);
+        }
+
+        public class UpdateInfo
+        {
+            public string ShopName;
+            public int CreditLevel;
+            public string ShopDescription;
+            public string AvatarPath;
+            public int DefaultSellerAddressIndex;
+        }
+        
+        
+        [HttpPost]
+        [Route("api/UpdateSeller")]
+        public IHttpActionResult UpdateSeller(UpdateInfo data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
+            {
+                return BadRequest("Not Login");
+            }
+
+            int sellerId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
+            if (sellerId < 0)
+            {
+                return BadRequest("Not Login");
+            }
+
+            var updateseller = db.Sellers.FirstOrDefault(s => s.SellerId == sellerId);
+            if (updateseller != null)
+            {
+                updateseller.ShopName = data.ShopName;
+                updateseller.CreditLevel = data.CreditLevel;
+                updateseller.ShopDescription = data.ShopDescription;
+                updateseller.AvatarPath = data.AvatarPath;
+                updateseller.DefaultSellerAddressIndex = data.DefaultSellerAddressIndex;
+                db.SaveChanges();
+                return Ok("Update Success");
+            }
+
+            return BadRequest("Unable to Insert and Update");
         }
     }
 }
