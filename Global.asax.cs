@@ -24,7 +24,7 @@ namespace EBook
             
             //Database.SetInitializer(new DropCreateDatabaseAlways<OracleDbContext>());
             //表项更改后启用该句重新建表
-
+ 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

@@ -48,7 +48,7 @@ namespace EBook.Service
                 join transact in transactsArray on customerAddress.AddressIndex equals transact.DestinationAddressIndex
                     into transactAddArray
                 from transactAdd in transactAddArray
-                join sellerAddress in sellerAddressesArray on transactAdd.SourceAdressIndex equals sellerAddress
+                join sellerAddress in sellerAddressesArray on transactAdd.SourceAddressIndex equals sellerAddress
                     .AddressIndex into sellerAddressArray
                 from sellerAddress in sellerAddressesArray
                 where transactAdd.TransactId == transactId // && transactAdd.Status > 0        //todo
