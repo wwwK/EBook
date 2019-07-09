@@ -14,6 +14,7 @@ namespace EBook.Service
 {
     public class BookInfo
     {
+        public int MerchandiseId;
         public string ISBN;
         public string Title;
         public string Author;
@@ -43,6 +44,7 @@ namespace EBook.Service
                 where book.Title.IndexOf(s) >= 0 && bookMerchandise.IsValid == 1
                 select new BookInfo
                 {
+                    MerchandiseId = bookMerchandise.MerchandiseId,
                     ISBN = book.ISBN,
                     Title = book.Title,
                     Author = book.Author,
@@ -73,6 +75,7 @@ namespace EBook.Service
                 where book.Author.IndexOf(s) >= 0
                 select new BookInfo
                 {
+                    MerchandiseId = bookMerchandise.MerchandiseId,
                     ISBN = book.ISBN,
                     Title = book.Title,
                     Author = book.Author,
@@ -102,6 +105,7 @@ namespace EBook.Service
                 where book.Publisher.IndexOf(s) >= 0
                 select new BookInfo
                 {
+                    MerchandiseId = bookMerchandise.MerchandiseId,
                     ISBN = book.ISBN,
                     Title = book.Title,
                     Author = book.Author,
@@ -131,6 +135,7 @@ namespace EBook.Service
                 where book.ISBN.IndexOf(s) >= 0
                 select new BookInfo
                 {
+                    MerchandiseId = bookMerchandise.MerchandiseId,
                     ISBN = book.ISBN,
                     Title = book.Title,
                     Author = book.Author,
@@ -160,6 +165,7 @@ namespace EBook.Service
                 where bookMerchandise.Seller.ShopName.IndexOf(s) >= 0
                 select new BookInfo
                 {
+                    MerchandiseId = bookMerchandise.MerchandiseId,
                     ISBN = book.ISBN,
                     Title = book.Title,
                     Author = book.Author,
@@ -189,6 +195,7 @@ namespace EBook.Service
                 where bookMerchandise.MerchandiseId == merchandiseId
                 select new BookInfo
                 {
+                    MerchandiseId = bookMerchandise.MerchandiseId,
                     ISBN = book.ISBN,
                     Title = book.Title,
                     Author = book.Author,
