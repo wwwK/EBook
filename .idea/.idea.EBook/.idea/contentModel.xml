@@ -41,12 +41,15 @@
         <e p="CouponSearchController.cs" t="Include" />
         <e p="CustomerAddressesController.cs" t="Include" />
         <e p="CustomerController.cs" t="Include" />
+        <e p="CustomerSmsController.cs" t="Include" />
         <e p="FileController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
         <e p="MerchandisesController.cs" t="Include" />
         <e p="OwnsController.cs" t="Include" />
+        <e p="QuestionAnswerController.cs" t="Include" />
         <e p="QuestionsController.cs" t="Include" />
         <e p="SellersController.cs" t="Include" />
+        <e p="SellerSmsController.cs" t="Include" />
         <e p="ShoppingCartsController.cs" t="Include" />
         <e p="TransactsController.cs" t="Include" />
         <e p="VipMembersController.cs" t="Include" />
@@ -113,11 +116,16 @@
         <e p="CustomerSession.cs" t="Include" />
         <e p="EmailSend.cs" t="Include" />
         <e p="FileUploadAuthorize.cs" t="Include" />
+        <e p="MD5Helper.cs" t="Include" />
+        <e p="QuestionAnswerService.cs" t="Include" />
+        <e p="SellerEmailSend.cs" t="Include" />
         <e p="SellerSession.cs" t="Include" />
+        <e p="SellerSmsSend.cs" t="Include" />
         <e p="ShopName.cs" t="Include" />
         <e p="ShoppingCart.cs" t="Include" />
         <e p="SmsSend.cs" t="Include" />
         <e p="Transact.cs" t="Include" />
+        <e p="VipCheck.cs" t="Include" />
       </e>
       <e p="Views" t="Include">
         <e p="_ViewStart.cshtml" t="Include" />
