@@ -89,7 +89,8 @@ namespace EBook.Controllers
             public int TransactId;
             public string Comment;
         }
-        
+
+
         [HttpPost]
         [Route("api/SellerGetAllTransacts")]
         public IHttpActionResult SellerGetAllTransacts()

@@ -16,6 +16,7 @@ namespace EBook.Service
     {
         public int MerchandiseId;
         public string ISBN;
+        public string Title;
         public string Description;
         public double Price;
         public string ImagePath1;

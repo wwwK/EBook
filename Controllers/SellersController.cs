@@ -126,6 +126,7 @@ namespace EBook.Controllers
         [Route("api/GetSeller")]
         public IHttpActionResult GetSeller()
         {
+            //maybe false
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
