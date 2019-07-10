@@ -33,13 +33,13 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
             int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
             if (db.Transacts.Find(data.TransactId) == null)
@@ -62,32 +62,39 @@ namespace EBook.Controllers
                 db.Transacts.Add(transact);
                 db.SaveChanges();
 
-                return Ok("Insert Success");
+                return Ok("添加订单成功！");
             }
 
-            var updatetransact = db.Transacts.FirstOrDefault(t => t.TransactId == data.TransactId);
-            if (updatetransact != null)
+            var updateTransact = db.Transacts.FirstOrDefault(t => t.TransactId == data.TransactId);
+            if (updateTransact != null)
             {
-                updatetransact.UsedCouponId = data.UsedCouponId;
-                updatetransact.ActualPrice = data.ActualPrice;
-                updatetransact.Status = data.Status;
-                updatetransact.Amount = data.Amount;
-                updatetransact.LogisticTrackNum = data.LogisticTrackNum;
-                updatetransact.Comment = data.Comment;
-                updatetransact.CommentTime = data.CommentTime;
+                updateTransact.UsedCouponId = data.UsedCouponId;
+                updateTransact.ActualPrice = data.ActualPrice;
+                updateTransact.Status = data.Status;
+                updateTransact.Amount = data.Amount;
+                updateTransact.LogisticTrackNum = data.LogisticTrackNum;
+                updateTransact.Comment = data.Comment;
+                updateTransact.CommentTime = data.CommentTime;
                 db.SaveChanges();
-                return Ok("Update Success");
+                return Ok("更改订单成功！");
             }
 
-            return BadRequest("Unable to Insert and Update");
+            return BadRequest("请重新添加订单");
 
         }
 
         public class GetRequest
         {
-            public int MerchandiseId;
-            public int TransactId;
-            public string Comment;
+            public readonly int MerchandiseId;
+            public readonly int TransactId;
+            public readonly string Comment;
+
+            public GetRequest(int merchandiseId, int transactId, string comment)
+            {
+                MerchandiseId = merchandiseId;
+                TransactId = transactId;
+                Comment = comment;
+            }
         }
         
         [HttpPost]
@@ -104,20 +111,20 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
             var sellerId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
             if (sellerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
             
             
             Transact[] transacts = TransactService.SellerGetAllTransacts(sellerId);
             if (transacts.Length == 0)
             {
-                return BadRequest("No Transacts Found");
+                return BadRequest("没有订单信息！");
             }
             return Ok(transacts);
         }
@@ -137,20 +144,20 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请重新登录！");
             }
 
             var customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
             
             
             Transact[] transacts = TransactService.CustomerGetAllTransacts(customerId);
             if (transacts.Length == 0)
             {
-                return BadRequest("No Transacts Found");
+                return BadRequest("没有订单信息！");
             }
             return Ok(transacts);
         }
@@ -163,7 +170,7 @@ namespace EBook.Controllers
             TransactService.CommentInfo[] comments = TransactService.GetCommentsOfMerchandise(data.MerchandiseId);
             if (comments.Length == 0)
             {
-                return BadRequest("No Comments Found");
+                return BadRequest("还没有人发表评论哦");
             }
             return Ok(comments);
         }
@@ -180,7 +187,7 @@ namespace EBook.Controllers
 
             if (transact == null)
             {
-                return BadRequest("No Such Transact");
+                return BadRequest("订单号不存在！");
             }
 
             transact.Comment = data.Comment;
@@ -222,7 +229,7 @@ namespace EBook.Controllers
             TransactAddressInfo[] transactAddressed = TransactAddress.GetTransactAddress(data.TransactId);
             if (transactAddressed.Length == 0)
             {
-                return BadRequest("No Transact Found");
+                return BadRequest("没有找到对应订单！");
             }
             return Ok(transactAddressed[0]);
         }

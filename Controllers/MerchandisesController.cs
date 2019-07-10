@@ -1,15 +1,7 @@
-﻿using System.Threading.Tasks;
-using System.Web;
+﻿using System.Web;
 using System.Web.Http;
 using EBook.Models;
-using System;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using BCrypt.Net;
-using System.Web.SessionState;
 using EBook.Service;
 
 
@@ -17,7 +9,7 @@ namespace EBook.Controllers
 {
     public class MerchandiseController : ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
         
         //insert update
@@ -33,19 +25,19 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
-            int sellseId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
-            if (sellseId < 0)
+            int sellerId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
+            if (sellerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
-            if (db.Merchandises.Find(data.MerchandiseId) == null)
+            if (_db.Merchandises.Find(data.MerchandiseId) == null)
             {
                 Merchandise merchandise = new Merchandise
                 {
-                    SellerId = sellseId,        
+                    SellerId = sellerId,        
                     ISBN = data.ISBN,
                     Description = data.Description,
                     Price = data.Price,
@@ -53,31 +45,36 @@ namespace EBook.Controllers
                 };
 
 
-                db.Merchandises.Add(merchandise);
-                db.SaveChanges();
+                _db.Merchandises.Add(merchandise);
+                _db.SaveChanges();
 
-                return Ok("Insert Success");
+                return Ok("商品上架成功！");
             }
 
-            var updatedmerchandise = db.Merchandises.FirstOrDefault(m => m.MerchandiseId == data.MerchandiseId);
-            if (updatedmerchandise != null)
+            var updatedMerchandise = _db.Merchandises.FirstOrDefault(m => m.MerchandiseId == data.MerchandiseId);
+            if (updatedMerchandise != null)
             {
-                updatedmerchandise.ISBN = data.ISBN;
-                updatedmerchandise.Description = data.Description;
-                updatedmerchandise.Price = data.Price;
-                updatedmerchandise.IsValid = data.IsValid;
-                db.SaveChanges();
-                return Ok("Update Success");
+                updatedMerchandise.ISBN = data.ISBN;
+                updatedMerchandise.Description = data.Description;
+                updatedMerchandise.Price = data.Price;
+                updatedMerchandise.IsValid = data.IsValid;
+                _db.SaveChanges();
+                return Ok("更新商品成功！");
             }
 
-            return BadRequest("Unable to Insert and Update");
+            return BadRequest("请重新更新商品！");
 
 
         }
 
         public class GetRequest
         {
-            public int MerchandiseId;
+            public readonly int MerchandiseId;
+
+            public GetRequest(int merchandiseId)
+            {
+                MerchandiseId = merchandiseId;
+            }
         }
 
 
@@ -116,7 +113,12 @@ namespace EBook.Controllers
 
         public class SellerRequest
         {
-            public string sellerShopName;
+            public readonly string SellerShopName;
+
+            public SellerRequest(string sellerShopName)
+            {
+                this.SellerShopName = sellerShopName;
+            }
         }
         
         
@@ -125,9 +127,9 @@ namespace EBook.Controllers
         public IHttpActionResult GetMerchandisesOfSeller(SellerRequest data)
         {
             var result =
-                (from seller in db.Sellers
-                    where seller.ShopName == data.sellerShopName
-                    join merchandise in db.Merchandises on seller.SellerId equals merchandise.SellerId
+                (from seller in _db.Sellers
+                    where seller.ShopName == data.SellerShopName
+                    join merchandise in _db.Merchandises on seller.SellerId equals merchandise.SellerId
                  select merchandise).ToArray();
 
             if (result.Length == 0)

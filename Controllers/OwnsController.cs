@@ -30,13 +30,13 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
             int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
             if (db.Owns.Find(customerId,data.CouponId) == null)
@@ -51,39 +51,22 @@ namespace EBook.Controllers
                 db.Owns.Add(own);
                 db.SaveChanges();
 
-                return Ok("Insert Success");
+                return Ok("获取优惠券成功！");
             }
 
             
             
-            var updateown = db.Owns.FirstOrDefault(o => o.CustomerId == customerId && o.CouponId == data.CouponId);
-            if (updateown != null)
+            var updateOwn = db.Owns.FirstOrDefault(o => o.CustomerId == customerId && o.CouponId == data.CouponId);
+            if (updateOwn != null)
             {
-                updateown.IsValid = data.IsValid;
+                updateOwn.IsValid = data.IsValid;
                 db.SaveChanges();
-                return Ok("Update Success");
+                return Ok("使用成功！");
             }
 
-            return BadRequest("Unable to Insert and Update");
+            return BadRequest("请重新操作优惠券！");
         }
 
-       /* public class GetRequest
-        {
-            public int CustomerId;
-            public int CouponId;
-        }
 
-        [HttpGet]
-        [Route("api/Own/1")]
-        public IHttpActionResult GetOwn(GetRequest data)
-        {
-            var own = db.Owns.Find(data.CustomerId,data.CouponId);
-            if (own == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(own);
-        }*/
     }
 }

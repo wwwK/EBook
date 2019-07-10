@@ -17,7 +17,7 @@ namespace EBook.Controllers
 {
     public class ShoppingCartController : ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
 //
         //insert update
@@ -32,15 +32,15 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
             
             int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
-            if (db.ShoppingCarts.Find(customerId,data.MerchandiseId) == null)
+            if (_db.ShoppingCarts.Find(customerId,data.MerchandiseId) == null)
             {
                 ShoppingCart shoppingCart = new ShoppingCart
                 {
@@ -50,21 +50,21 @@ namespace EBook.Controllers
                 };
 
 
-                db.ShoppingCarts.Add(shoppingCart);
-                db.SaveChanges();
+                _db.ShoppingCarts.Add(shoppingCart);
+                _db.SaveChanges();
 
-                return Ok("Insert Success");
+                return Ok("添加到购物车成功！");
             }
 
-            var updateshoppingcart = db.ShoppingCarts.FirstOrDefault(s => s.CustomerId == customerId && s.MerchandiseId == data.MerchandiseId);
-            if (updateshoppingcart != null)
+            var updateShoppingCart = _db.ShoppingCarts.FirstOrDefault(s => s.CustomerId == customerId && s.MerchandiseId == data.MerchandiseId);
+            if (updateShoppingCart != null)
             {
-                updateshoppingcart.Amount = data.Amount;
-                db.SaveChanges();
-                return Ok("Update Success");
+                updateShoppingCart.Amount = data.Amount;
+                _db.SaveChanges();
+                return Ok("购物车更新成功！");
             }
 
-            return BadRequest("Unable to Insert and Update");
+            return BadRequest("请重新添加到购物车！");
 
             
         }
@@ -88,13 +88,13 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
             
             int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId == 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
             return Ok(a.CheckShoppingCartWithCustomerId(customerId));
         }

@@ -16,7 +16,7 @@ namespace EBook.Controllers
 {
     public class BookController : ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
 
         //insert update
@@ -29,7 +29,7 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (db.Books.Find(data.ISBN) == null)
+            if (_db.Books.Find(data.ISBN) == null)
             {
                 Book book = new Book
                 {
@@ -45,13 +45,13 @@ namespace EBook.Controllers
                 };
 
 
-                db.Books.Add(book);
-                db.SaveChanges();
+                _db.Books.Add(book);
+                _db.SaveChanges();
 
-                return Ok("Insert Success");
+                return Ok("书籍插入成功！");
             }
 
-            var updatedbook = db.Books.FirstOrDefault(b => b.ISBN == data.ISBN);
+            var updatedbook = _db.Books.FirstOrDefault(b => b.ISBN == data.ISBN);
             if (updatedbook != null)
             {
                 updatedbook.ISBN = data.ISBN;
@@ -59,18 +59,23 @@ namespace EBook.Controllers
                 updatedbook.Publisher = data.Publisher;
                 updatedbook.PublishYear = data.PublishYear;
                 updatedbook.PageNum = data.PageNum;
-                db.SaveChanges();
-                return Ok("Update Success");
+                _db.SaveChanges();
+                return Ok("书籍更新成功！");
             }
 
-            return BadRequest("Unable to Insert and Update");
+            return BadRequest("请重新操作！");
         }
 
         
         
         public class GetRequest
         {
-            public string ISBN;
+            public readonly string ISBN;
+
+            public GetRequest(string isbn)
+            {
+                ISBN = isbn;
+            }
         }
 
         //get ok
@@ -83,7 +88,7 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
 
-            var book = db.Books.Find(data.ISBN);
+            var book = _db.Books.Find(data.ISBN);
             if (book == null)
             {
                 return NotFound();

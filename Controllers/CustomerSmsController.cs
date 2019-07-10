@@ -10,25 +10,36 @@ namespace EBook.Controllers
 {
     public class CustomerSmsController : ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
         public class SmsData
         {
-            public string Phone;
-
-            public string Password;
+            public readonly string Phone;
 
 
             //注册=0，修改资料=1
-            public int PhoneStatus;
+            public readonly int PhoneStatus;
+
+            public SmsData(string phone, int phoneStatus)
+            {
+                Phone = phone;
+                PhoneStatus = phoneStatus;
+            }
         }
 
         
         public class SmsLoginData
         {
-            public  string Phone;
-            public string ValidateCode;
-            public string Password;
+            public readonly string Phone;
+            public readonly string ValidateCode;
+            public readonly string Password;
+
+            public SmsLoginData(string phone, string validateCode, string password)
+            {
+                Phone = phone;
+                ValidateCode = validateCode;
+                Password = password;
+            }
         }
 
         [HttpPost]
@@ -38,19 +49,19 @@ namespace EBook.Controllers
             EBook.Service.SmsSend.SendVerifyCode(data.Phone);
 
 
-            var result = from customer in db.Customers
+            var result = from customer in _db.Customers
                 where customer.PhoneNum == data.Phone
                 select customer;
 
             // 电话已存在
             if (result.Any() && data.PhoneStatus == 0)
             {
-                return BadRequest("Phone exist");
+                return BadRequest("您输入的电话已经被注册了！");
             }
 
             EBook.Service.SmsSend.SendVerifyCode(data.Phone);
 
-            return Ok();
+            return Ok("验证码已经发送！");
         }
 
 
@@ -63,7 +74,7 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = from customer in db.Customers
+            var result = from customer in _db.Customers
                 where customer.PhoneNum == data.Phone
                 select customer;
 
@@ -79,11 +90,11 @@ namespace EBook.Controllers
                 switch (tmpResult)
                 {
                     case -1:
-                        return BadRequest("Validate code not sent.");
+                        return BadRequest("请先点击发送验证码！");
                     case -2:
-                        return BadRequest("Wrong validate code.");
+                        return BadRequest("验证码错误，请输入正确的验证码！");
                     case -3:
-                        return BadRequest("Validate code expired.");
+                        return BadRequest("请重新发送验证码！");
                 }
             }
 
@@ -114,21 +125,21 @@ namespace EBook.Controllers
                 switch (tmpResult)
                 {
                     case -1:
-                        return BadRequest("Validate code not sent.");
+                        return BadRequest("V请先点击发送验证啊吗！");
                     case -2:
-                        return BadRequest("Wrong validate code.");
+                        return BadRequest("验证码错误，请输入正确的验证码！");
                     case -3:
-                        return BadRequest("Validate code expired.");
+                        return BadRequest("请重新发送验证码！");
                 }
             }
 
 
-            var updatedCustomer = db.Customers.FirstOrDefault(b => b.PhoneNum == data.Phone);
+            var updatedCustomer = _db.Customers.FirstOrDefault(b => b.PhoneNum == data.Phone);
             if (updatedCustomer != null)
             {
                 updatedCustomer.Password = EncryptProvider.Md5(data.Password);
-                db.SaveChanges();
-                return Ok("Update Success");
+                _db.SaveChanges();
+                return Ok("重置密码成功！");
             }
             else
             {
