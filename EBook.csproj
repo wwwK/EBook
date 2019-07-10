@@ -248,6 +248,7 @@
     <Compile Include="Controllers\CustomerSmsController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogisticController.cs" />
     <Compile Include="Controllers\MerchandisesController.cs" />
     <Compile Include="Controllers\OwnsController.cs" />
     <Compile Include="Controllers\QuestionAnswerController.cs" />
@@ -282,6 +283,7 @@
     <Compile Include="Service\CouponSearch.cs" />
     <Compile Include="Service\EmailSend.cs" />
     <Compile Include="Service\FileUploadAuthorize.cs" />
+    <Compile Include="Service\Logistics.cs" />
     <Compile Include="Service\MD5Helper.cs" />
     <Compile Include="Service\QuestionAnswerService.cs" />
     <Compile Include="Service\SellerEmailSend.cs" />
