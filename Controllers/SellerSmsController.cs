@@ -61,6 +61,7 @@ namespace EBook.Controllers
                 return BadRequest("电话已经被注册了，请输入新的电话号码！");
             }
 
+            
             EBook.Service.SellerSmsSend.SendVerifyCode(data.Phone);
             
             return Ok();
