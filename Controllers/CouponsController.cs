@@ -15,7 +15,7 @@ namespace EBook.Controllers
 {
     public class CouponController : ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
 
         //insert update
@@ -31,16 +31,16 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
             var sellerId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
             if (sellerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
-            if (db.Coupons.Find(data.CouponId) == null)
+            if (_db.Coupons.Find(data.CouponId) == null)
             {
                 Coupon coupon = new Coupon
                 {
@@ -50,28 +50,33 @@ namespace EBook.Controllers
                     PriceLimit = data.PriceLimit,
                 };
 
-                db.Coupons.Add(coupon);
-                db.SaveChanges();
+                _db.Coupons.Add(coupon);
+                _db.SaveChanges();
 
-                return Ok("Insert Success");
+                return Ok("优惠券发放成功！");
             }
 
-            var updatecoupon = db.Coupons.FirstOrDefault(c => c.CouponId == data.CouponId);
+            var updatecoupon = _db.Coupons.FirstOrDefault(c => c.CouponId == data.CouponId);
             if (updatecoupon != null)
             {
                 updatecoupon.DiscountAmount = data.DiscountAmount;
                 updatecoupon.ValidThrough = data.ValidThrough;
                 updatecoupon.PriceLimit = data.PriceLimit;
-                db.SaveChanges();
-                return Ok("Update Success");
+                _db.SaveChanges();
+                return Ok("优惠规则更新成功！");
             }
 
-            return BadRequest("Unable to Insert and Update");
+            return BadRequest("请重新设置优惠券");
         }
 
         public class GetRequest
         {
-            public int CouponId;
+            public readonly int CouponId;
+
+            public GetRequest(int couponId)
+            {
+                CouponId = couponId;
+            }
         }
 
         public class CouponInfo
@@ -95,7 +100,7 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
 
-            var coupon = db.Coupons.Find(data.CouponId);
+            var coupon = _db.Coupons.Find(data.CouponId);
             if (coupon == null || coupon.IsValid == 0)
             {
                 return NotFound();

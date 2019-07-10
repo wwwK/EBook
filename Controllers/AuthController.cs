@@ -13,7 +13,7 @@ namespace EBook.Controllers
 {
     public class AuthController : ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
 
         public class LoginData
@@ -22,18 +22,22 @@ namespace EBook.Controllers
 
             public readonly string Password;
 
+            [Phone] public readonly string Phone;
+
 
             //注册=0，修改资料=1
             public readonly int EmailStatus;
             
             
-            public string ValidateCode;
+            public readonly string ValidateCode;
 
-            public LoginData(string email, string password, int emailStatus)
+            public LoginData(string email, string password, int emailStatus, string phone, string validateCode)
             {
                 Email = email;
                 Password = password;
                 EmailStatus = emailStatus;
+                Phone = phone;
+                ValidateCode = validateCode;
             }
         }
 
@@ -46,17 +50,17 @@ namespace EBook.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest("Email Invalid.");
+                return BadRequest("邮件格式不正确，请输入正确的邮件格式！");
             }
 
-            var result = from customer in db.Customers
+            var result = from customer in _db.Customers
                 where customer.Email == data.Email
                 select customer;
 
             // 邮箱已存在
             if (result.Any() && data.EmailStatus == 0)
             {
-                return BadRequest("Email exist");
+                return BadRequest("您的邮箱已经被注册了！");
             }
 
             EBook.Service.EmailSend.SendVerifyCode(data.Email);
@@ -78,20 +82,20 @@ namespace EBook.Controllers
                 switch (tmpResult)
                 {
                     case -1:
-                        return BadRequest("Validate code not sent.");
+                        return BadRequest("请先发送验证码！");
                     case -2:
-                        return BadRequest("Wrong validate code.");
+                        return BadRequest("请输入正确的验证码！");
                     case -3:
-                        return BadRequest("Validate code expired.");
+                        return BadRequest("请重新验证！");
                 }
             }
 
-            var updatedCustomer = db.Customers.FirstOrDefault(b => b.Email == data.Email);
+            var updatedCustomer = _db.Customers.FirstOrDefault(b => b.Email == data.Email);
             if (updatedCustomer != null)
             {
                 updatedCustomer.Password = EncryptProvider.Md5(data.Password);
-                db.SaveChanges();
-                return Ok("Update Success");
+                _db.SaveChanges();
+                return Ok("修改密码成功");
             }
             else
             {
@@ -108,22 +112,30 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = from customer in db.Customers
+            var result = from customer in _db.Customers
                 where customer.Email == data.Email
                 select customer;
 
             if (!result.Any())
             {
-                return NotFound();
+                result = from customer in _db.Customers
+                    where customer.PhoneNum == data.Phone
+                    select customer;
+                if (!result.Any())
+                {
+                    return NotFound();
+                }
             }
+            
+            
+            
 
             var hashed = EncryptProvider.Md5(data.Password);
 
-            Console.WriteLine(result.First().Password);
-            Console.WriteLine(hashed);
+
             if (result.First().Password != hashed)
             {
-                return BadRequest("Password incorrect.");
+                return BadRequest("密码不正确！");
             }
 
             var cookie = new HttpCookie("sessionId")
@@ -157,7 +169,7 @@ namespace EBook.Controllers
         }
         
         
-        public class WechatRequest
+        public class WeChatRequest
         {
             public string id;
             public string password;
@@ -179,14 +191,14 @@ namespace EBook.Controllers
         
         [HttpPost]
         [Route("api/WechatMiniPhoneLogin")]
-        public IHttpActionResult WechatMiniPhoneLogin(WechatRequest data)
+        public IHttpActionResult WechatMiniPhoneLogin(WeChatRequest data)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             
-            var user = db.Customers.First(customer => customer.PhoneNum == data.id);
+            var user = _db.Customers.First(customer => customer.PhoneNum == data.id);
             if (user == null)
             {
                 return Ok(new WechatResponse()
@@ -206,10 +218,10 @@ namespace EBook.Controllers
             }
 
             var result =
-                (from transact in db.Transacts
+                (from transact in _db.Transacts
                 where transact.CustomerId == user.CustomerId
-                join merchandise in db.Merchandises on transact.MerchandiseId equals merchandise.MerchandiseId
-                join book in db.Books on merchandise.ISBN equals book.ISBN
+                join merchandise in _db.Merchandises on transact.MerchandiseId equals merchandise.MerchandiseId
+                join book in _db.Books on merchandise.ISBN equals book.ISBN
                 where book.EBookKey != null
                 select new WechatEbookInfo()
                 {
@@ -226,14 +238,14 @@ namespace EBook.Controllers
        
         [HttpPost]
         [Route("api/WechatMiniEmailLogin")]
-        public IHttpActionResult WechatMiniEmailLogin(WechatRequest data)
+        public IHttpActionResult WechatMiniEmailLogin(WeChatRequest data)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             
-            var user = db.Customers.First(customer => customer.Email == data.id);
+            var user = _db.Customers.First(customer => customer.Email == data.id);
             if (user == null)
             {
                 return Ok(new WechatResponse()
@@ -253,10 +265,10 @@ namespace EBook.Controllers
             }
 
             var result =
-                (from transact in db.Transacts
+                (from transact in _db.Transacts
                     where transact.CustomerId == user.CustomerId
-                    join merchandise in db.Merchandises on transact.MerchandiseId equals merchandise.MerchandiseId
-                    join book in db.Books on merchandise.ISBN equals book.ISBN
+                    join merchandise in _db.Merchandises on transact.MerchandiseId equals merchandise.MerchandiseId
+                    join book in _db.Books on merchandise.ISBN equals book.ISBN
                     where book.EBookKey != null
                     select new WechatEbookInfo()
                     {

@@ -28,13 +28,13 @@ namespace EBook.Service
 
     public static class BookSearch
     {
-        public static OracleDbContext db = new OracleDbContext();
+        private static readonly OracleDbContext Db = new OracleDbContext();
 
         public static BookInfo[] BookSearchWithTitle(string s)
         {
-            Book[] booksArray = db.Books.ToArray();
-            Merchandise[] merchandisesArray = db.Merchandises.ToArray();
-            Seller[] sellersArray = db.Sellers.ToArray();
+            Book[] booksArray = Db.Books.ToArray();
+            Merchandise[] merchandisesArray = Db.Merchandises.ToArray();
+            Seller[] sellersArray = Db.Sellers.ToArray();
             IEnumerable<BookInfo> selectedBookInfos =
                 from book in booksArray
                 join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray
@@ -63,9 +63,9 @@ namespace EBook.Service
         
         public static BookInfo[] BookSearchWithAuther(string s)
         {
-            Book[] booksArray = db.Books.ToArray();
-            Merchandise[] merchandisesArray = db.Merchandises.ToArray();
-            Seller[] sellersArray = db.Sellers.ToArray();
+            Book[] booksArray = Db.Books.ToArray();
+            Merchandise[] merchandisesArray = Db.Merchandises.ToArray();
+            Seller[] sellersArray = Db.Sellers.ToArray();
             IEnumerable<BookInfo> selectedBookInfos =
                 from book in booksArray
                 join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray
@@ -93,9 +93,9 @@ namespace EBook.Service
         
         public static BookInfo[] BookSearchWithPublisher(string s)
         {
-            Book[] booksArray = db.Books.ToArray();
-            Merchandise[] merchandisesArray = db.Merchandises.ToArray();
-            Seller[] sellersArray = db.Sellers.ToArray();
+            Book[] booksArray = Db.Books.ToArray();
+            Merchandise[] merchandisesArray = Db.Merchandises.ToArray();
+            Seller[] sellersArray = Db.Sellers.ToArray();
             IEnumerable<BookInfo> selectedBookInfos =
                 from book in booksArray
                 join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray
@@ -123,9 +123,9 @@ namespace EBook.Service
         
         public static BookInfo[] BookSearchWithIsnb(string s)
         {
-            Book[] booksArray = db.Books.ToArray();
-            Merchandise[] merchandisesArray = db.Merchandises.ToArray();
-            Seller[] sellersArray = db.Sellers.ToArray();
+            Book[] booksArray = Db.Books.ToArray();
+            Merchandise[] merchandisesArray = Db.Merchandises.ToArray();
+            Seller[] sellersArray = Db.Sellers.ToArray();
             IEnumerable<BookInfo> selectedBookInfos =
                 from book in booksArray
                 join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray
@@ -153,9 +153,9 @@ namespace EBook.Service
         
         public static BookInfo[] BookSearchWithShopName(string s)
         {
-            Book[] booksArray = db.Books.ToArray();
-            Merchandise[] merchandisesArray = db.Merchandises.ToArray();
-            Seller[] sellersArray = db.Sellers.ToArray();
+            Book[] booksArray = Db.Books.ToArray();
+            Merchandise[] merchandisesArray = Db.Merchandises.ToArray();
+            Seller[] sellersArray = Db.Sellers.ToArray();
             IEnumerable<BookInfo> selectedBookInfos = 
                 from book in booksArray
                 join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray
@@ -183,9 +183,9 @@ namespace EBook.Service
         
         public static BookInfo[] BookSearchWithMerchandiseId(int merchandiseId)
         {
-            Book[] booksArray = db.Books.ToArray();
-            Merchandise[] merchandisesArray = db.Merchandises.ToArray();
-            Seller[] sellersArray = db.Sellers.ToArray();
+            Book[] booksArray = Db.Books.ToArray();
+            Merchandise[] merchandisesArray = Db.Merchandises.ToArray();
+            Seller[] sellersArray = Db.Sellers.ToArray();
             IEnumerable<BookInfo> selectedBookInfos = 
                 from book in booksArray
                 join merchandise in merchandisesArray on book.ISBN equals merchandise.ISBN into bookMerchandiseArray

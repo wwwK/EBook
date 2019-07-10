@@ -21,7 +21,12 @@ namespace EBook.Controllers
 
         public class SearchDate
         {
-            public string ShopName;
+            public readonly string ShopName;
+
+            public SearchDate(string shopName)
+            {
+                ShopName = shopName;
+            }
         }
 
 
@@ -32,18 +37,18 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
             var sellerId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
             if (sellerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
             CouponInfo[] coupons = CouponSearch.GetAllCouponsWithSellerId(sellerId);
             if (coupons.Length == 0)
             {
-                return BadRequest("No Coupons Found");
+                return BadRequest("没有可用的优惠券！");
             }
 
             return Ok(coupons);
@@ -61,7 +66,7 @@ namespace EBook.Controllers
             CouponInfo[] coupons = CouponSearch.CouponSearchWithShopName(data.ShopName);
             if (coupons.Length == 0)
             {
-                return BadRequest("No Coupons Found");
+                return BadRequest("没有可用优惠券！");
             }
             return Ok(coupons);
         }

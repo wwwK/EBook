@@ -25,12 +25,12 @@ namespace EBook.Service
 
     public static class CouponSearch
     {
-        public static OracleDbContext db = new OracleDbContext();
+        private static readonly OracleDbContext Db = new OracleDbContext();
 
         public static CouponInfo[] CouponSearchWithShopName(string s)
         {
-            Coupon[] couponsArray = db.Coupons.ToArray(); 
-            Seller[] sellersArray = db.Sellers.ToArray();
+            Coupon[] couponsArray = Db.Coupons.ToArray(); 
+            Seller[] sellersArray = Db.Sellers.ToArray();
             IEnumerable<CouponInfo> selectedCouponInfos =
                 from coupon in couponsArray
                 join seller in sellersArray on coupon.ReleaseBySellerId equals seller.SellerId into shopCouponsArray
@@ -50,8 +50,8 @@ namespace EBook.Service
         }
         public static CouponInfo[] GetAllCouponsWithSellerId(int sellerId)
         {
-            Coupon[] couponsArray = db.Coupons.ToArray(); 
-            Seller[] sellersArray = db.Sellers.ToArray();
+            Coupon[] couponsArray = Db.Coupons.ToArray(); 
+            Seller[] sellersArray = Db.Sellers.ToArray();
             IEnumerable<CouponInfo> selectedCouponInfos =
                 from coupon in couponsArray
                 join seller in sellersArray on coupon.ReleaseBySellerId equals seller.SellerId into sellerCouponsArray

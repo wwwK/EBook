@@ -22,8 +22,14 @@ namespace EBook.Controllers
         
         public class RegisterData
         {
-            public Seller SellerData;
-            public string ValidateCode;
+            public readonly Seller SellerData;
+            public readonly string ValidateCode;
+
+            public RegisterData(Seller sellerData, string validateCode)
+            {
+                SellerData = sellerData;
+                ValidateCode = validateCode;
+            }
         }
 
         [HttpPost]
@@ -41,11 +47,25 @@ namespace EBook.Controllers
                 switch (tmpResult)
                 {
                     case -1:
-                        return BadRequest("Validate code not sent.");
+                        tmpResult = Service.SellerSmsSend.CheckVerifyCode(data.SellerData.SellerPhone, data.ValidateCode);
+                        if (tmpResult != 0)
+                        {
+                            switch (tmpResult)
+                            {
+                                case -1:
+                                    return BadRequest("请先点击发送验证码！");
+                                case -2:
+                                    return BadRequest("验证码错误，请输入正确的验证码！");
+                                case -3:
+                                    return BadRequest("请重新发送验证码！");
+                            }
+                        }
+
+                        break;
                     case -2:
-                        return BadRequest("Wrong validate code.");
+                        return BadRequest("验证码错误，请输入正确的验证码！");
                     case -3:
-                        return BadRequest("Validate code expired.");
+                        return BadRequest("请重新发送验证码！");
                 }
             }
 //            "Password": "123456",
@@ -64,6 +84,7 @@ namespace EBook.Controllers
                 CreditLevel = 5,
                 ShopDescription = data.SellerData.ShopDescription,
                 SellerEmail = data.SellerData.SellerEmail,
+                SellerPhone = data.SellerData.SellerPhone,
                 AvatarPath = "seller_avatar",
                 DefaultSellerAddressIndex = 0
             };
@@ -134,13 +155,13 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
             
             int sellerId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
             if (sellerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
             var seller = db.Sellers.Find(sellerId);
@@ -154,10 +175,18 @@ namespace EBook.Controllers
 
         public class UpdateInfo
         {
-            public string ShopName;
-            public int CreditLevel;
-            public string ShopDescription;
-            public int DefaultSellerAddressIndex;
+            public readonly string ShopName;
+            public readonly int CreditLevel;
+            public readonly string ShopDescription;
+            public readonly int DefaultSellerAddressIndex;
+
+            public UpdateInfo(string shopName, int creditLevel, string shopDescription, int defaultSellerAddressIndex)
+            {
+                ShopName = shopName;
+                CreditLevel = creditLevel;
+                ShopDescription = shopDescription;
+                DefaultSellerAddressIndex = defaultSellerAddressIndex;
+            }
         }
         
         
@@ -173,13 +202,13 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
             int sellerId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
             if (sellerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
             var updateseller = db.Sellers.FirstOrDefault(s => s.SellerId == sellerId);
@@ -190,10 +219,10 @@ namespace EBook.Controllers
                 updateseller.ShopDescription = data.ShopDescription;
                 updateseller.DefaultSellerAddressIndex = data.DefaultSellerAddressIndex;
                 db.SaveChanges();
-                return Ok("Update Success");
+                return Ok("修改资料成功！");
             }
 
-            return BadRequest("Unable to Insert and Update");
+            return BadRequest("请重新修改店铺信息！");
         }
     }
 }

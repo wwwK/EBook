@@ -15,7 +15,7 @@ namespace EBook.Controllers
 {
     public class QuestionController : ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
 
         [HttpPost]
@@ -29,16 +29,16 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
             int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
-            if (db.Questions.Find(data.QuestionId) == null)
+            if (_db.Questions.Find(data.QuestionId) == null)
             {
                 Question question = new Question    
                 {
@@ -49,29 +49,34 @@ namespace EBook.Controllers
                 };
 
 
-                db.Questions.Add(question);
-                db.SaveChanges();
+                _db.Questions.Add(question);
+                _db.SaveChanges();
 
-                return Ok("Insert Success");
+                return Ok("提问成功！");
             }
 
-            var updatequestion = db.Questions.FirstOrDefault(q => q.QuestionId == data.QuestionId);
-            if (updatequestion != null)
+            var updateQuestion = _db.Questions.FirstOrDefault(q => q.QuestionId == data.QuestionId);
+            if (updateQuestion != null)
             {
-                updatequestion.SubmitTime = data.SubmitTime;
-                updatequestion.Content = data.Content;
-                updatequestion.IsValid = data.IsValid;
-                db.SaveChanges();
-                return Ok("Update Success");
+                updateQuestion.SubmitTime = data.SubmitTime;
+                updateQuestion.Content = data.Content;
+                updateQuestion.IsValid = data.IsValid;
+                _db.SaveChanges();
+                return Ok("更新问题成功！");
             }
 
-            return BadRequest("Unable to Insert and Update");
+            return BadRequest("请重新更新问题！");
         }
 
 
         public class GetRequest
         {
-            public int QuestionId;
+            public readonly int QuestionId;
+
+            public GetRequest(int questionId)
+            {
+                QuestionId = questionId;
+            }
         }
         
         //get ok
@@ -79,7 +84,7 @@ namespace EBook.Controllers
         [Route("api/GetQuestion")]
         public IHttpActionResult GetQuestion(GetRequest data)
         {
-            var question = db.Questions.Find(data.QuestionId);
+            var question = _db.Questions.Find(data.QuestionId);
             if (question == null)
             {
                 return BadRequest();

@@ -14,23 +14,28 @@ namespace EBook.Controllers
         
         public class LogisticData
         {
-            public string logisticId;
+            public readonly string LogisticId;
+
+            public LogisticData(string logisticId)
+            {
+                this.LogisticId = logisticId;
+            }
         }
         
         
-        private const String host = "https://wuliu.market.alicloudapi.com";
-        private const String path = "/kdi";
-        private const String method = "GET";
-        private const String appcode = "b97dd3ef6e404289b123ab1f3a548209";
+        private const String Host = "https://wuliu.market.alicloudapi.com";
+        private const String Path = "/kdi";
+        private const String Method = "GET";
+        private const String AppCode = "b97dd3ef6e404289b123ab1f3a548209";
         
         
         [HttpPost]
         [Route("api/Logistic")]
         public IHttpActionResult LogisticSearch(LogisticData logisticData)
         {
-            String querys = "no=" + logisticData.logisticId;
+            String querys = "no=" + logisticData.LogisticId;
             String bodys = "";
-            String url = host + path;
+            String url = Host + Path;
             HttpWebRequest httpRequest = null;
             HttpWebResponse httpResponse = null;
 
@@ -39,7 +44,7 @@ namespace EBook.Controllers
                 url = url + "?" + querys;
             }
 
-            if (host.Contains("https://"))
+            if (Host.Contains("https://"))
             {
                 ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(CheckValidationResult);
                 httpRequest = (HttpWebRequest)WebRequest.CreateDefault(new Uri(url));
@@ -48,8 +53,8 @@ namespace EBook.Controllers
             {
                 httpRequest = (HttpWebRequest)WebRequest.Create(url);
             }
-            httpRequest.Method = method;
-            httpRequest.Headers.Add("Authorization", "APPCODE " + appcode);
+            httpRequest.Method = Method;
+            httpRequest.Headers.Add("Authorization", "APPCODE " + AppCode);
             if (0 < bodys.Length)
             {
                 byte[] data = Encoding.UTF8.GetBytes(bodys);

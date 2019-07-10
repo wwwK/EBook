@@ -283,7 +283,6 @@
     <Compile Include="Service\CouponSearch.cs" />
     <Compile Include="Service\EmailSend.cs" />
     <Compile Include="Service\FileUploadAuthorize.cs" />
-    <Compile Include="Service\Logistics.cs" />
     <Compile Include="Service\MD5Helper.cs" />
     <Compile Include="Service\QuestionAnswerService.cs" />
     <Compile Include="Service\SellerEmailSend.cs" />

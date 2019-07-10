@@ -16,11 +16,16 @@ namespace EBook.Controllers
 {
     public class QuestionAnswerController :ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private OracleDbContext _db = new OracleDbContext();
         
         public class MerchandiseRequest
         {
-            public int MerchandiseId;
+            public readonly int MerchandiseId;
+
+            public MerchandiseRequest(int merchandiseId)
+            {
+                MerchandiseId = merchandiseId;
+            }
         }
         
         // get Question and Answer by merchandise
@@ -39,7 +44,12 @@ namespace EBook.Controllers
         
         public class QuestionRequest
         {
-            public int QuestionId;
+            public readonly int QuestionId;
+
+            public QuestionRequest(int questionId)
+            {
+                QuestionId = questionId;
+            }
         }
         
         
