@@ -45,12 +45,11 @@ namespace EBook.Controllers
             {
                 Merchandise merchandise = new Merchandise
                 {
-                    MerchandiseId = data.MerchandiseId,
                     SellerId = sellseId,        
                     ISBN = data.ISBN,
                     Description = data.Description,
                     Price = data.Price,
-                    IsValid = data.IsValid,
+                    IsValid = 1,
                 };
 
 
@@ -79,7 +78,6 @@ namespace EBook.Controllers
         public class GetRequest
         {
             public int MerchandiseId;
-            public string Comment;
         }
 
 

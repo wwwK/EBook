@@ -27,7 +27,7 @@ namespace EBook.Controllers
         {
             public  string Phone;
             public string ValidateCode;
-            public string NewPassword;
+            public string Password;
         }
         
         
@@ -131,7 +131,7 @@ namespace EBook.Controllers
             var updatedSeller = db.Sellers.FirstOrDefault(b => b.SellerPhone == data.Phone);
             if (updatedSeller != null)
             {
-                updatedSeller.Password = EncryptProvider.Md5(data.NewPassword);
+                updatedSeller.Password = EncryptProvider.Md5(data.Password);
                 db.SaveChanges();
                 return Ok("Update Success");
             }

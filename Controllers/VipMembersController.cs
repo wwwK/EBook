@@ -27,6 +27,8 @@ namespace EBook.Controllers
         }
         
 
+        
+        
         //insert update
         [HttpPost]
         [Route("api/VipMember/")]

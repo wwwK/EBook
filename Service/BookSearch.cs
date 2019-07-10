@@ -22,7 +22,7 @@ namespace EBook.Service
         public int PublishYear;
         public int PageNum;
         public string Description;
-        public int Price;
+        public double Price;
         public string ShopName;
     }
 

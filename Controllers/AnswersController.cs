@@ -43,10 +43,9 @@ namespace EBook.Controllers
             {
                 Answer answer = new Answer    
                 {
-                    AnswerId = data.AnswerId,
                     CustomerId = customerId,
                     QuestionAnsweredId = data.QuestionAnsweredId,
-                    SubmitTime = data.SubmitTime,
+                    SubmitTime = DateTime.Now,
                     Content = data.Content,
                 };
 
@@ -60,7 +59,7 @@ namespace EBook.Controllers
             var updateanswer = db.Answers.FirstOrDefault(a => a.AnswerId == data.AnswerId);
             if (updateanswer != null)
             {
-                updateanswer.SubmitTime = data.SubmitTime;
+                updateanswer.SubmitTime = DateTime.Now;
                 updateanswer.Content = data.Content;
                 updateanswer.IsValid = data.IsValid;
                 db.SaveChanges();

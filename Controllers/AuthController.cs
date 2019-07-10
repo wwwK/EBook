@@ -155,5 +155,120 @@ namespace EBook.Controllers
 
             return Ok();
         }
+        
+        
+        public class WechatRequest
+        {
+            public string id;
+            public string password;
+        }
+
+        public class WechatEbookInfo
+        {
+            public string title;
+            public string key;
+        }
+        
+        public class WechatResponse
+        {
+            public bool ok;
+            public WechatEbookInfo[] result;
+            public string error;
+        }
+        
+        
+        [HttpPost]
+        [Route("api/WechatMiniPhoneLogin")]
+        public IHttpActionResult WechatMiniPhoneLogin(WechatRequest data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            var user = db.Customers.First(customer => customer.PhoneNum == data.id);
+            if (user == null)
+            {
+                return Ok(new WechatResponse()
+                {
+                    ok = false,
+                    error = "Customer not found"
+                });
+            }
+
+            if (user.Password != EncryptProvider.Md5(data.password))
+            {
+                return Ok(new WechatResponse()
+                {
+                    ok = false,
+                    error = "Wrong password."
+                });
+            }
+
+            var result =
+                (from transact in db.Transacts
+                where transact.CustomerId == user.CustomerId
+                join merchandise in db.Merchandises on transact.MerchandiseId equals merchandise.MerchandiseId
+                join book in db.Books on merchandise.ISBN equals book.ISBN
+                where book.EBookKey != null
+                select new WechatEbookInfo()
+                {
+                    title = book.Title,
+                    key = book.EBookKey
+                }).ToArray();
+
+            return Ok(new WechatResponse()
+            {
+                ok = true,
+                result = result
+            });
+        }
+       
+        [HttpPost]
+        [Route("api/WechatMiniEmailLogin")]
+        public IHttpActionResult WechatMiniEmailLogin(WechatRequest data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            var user = db.Customers.First(customer => customer.Email == data.id);
+            if (user == null)
+            {
+                return Ok(new WechatResponse()
+                {
+                    ok = false,
+                    error = "Customer not found"
+                });
+            }
+
+            if (user.Password != EncryptProvider.Md5(data.password))
+            {
+                return Ok(new WechatResponse()
+                {
+                    ok = false,
+                    error = "Wrong password."
+                });
+            }
+
+            var result =
+                (from transact in db.Transacts
+                    where transact.CustomerId == user.CustomerId
+                    join merchandise in db.Merchandises on transact.MerchandiseId equals merchandise.MerchandiseId
+                    join book in db.Books on merchandise.ISBN equals book.ISBN
+                    where book.EBookKey != null
+                    select new WechatEbookInfo()
+                    {
+                        title = book.Title,
+                        key = book.EBookKey
+                    }).ToArray();
+
+            return Ok(new WechatResponse()
+            {
+                ok = true,
+                result = result
+            });
+        }
     }
 }

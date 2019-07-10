@@ -17,8 +17,7 @@ namespace EBook.Service
         public int MerchandiseId;
         public string ISBN;
         public string Description;
-        public int Price;
-        //public int IsValid;
+        public double Price;
         public string ImagePath1;
         public string ImagePath2;
         public string ImagePath3;
@@ -44,7 +43,7 @@ namespace EBook.Service
                 join seller in sellersArray on cartMerchandise.SellerId equals seller.SellerId into
                     merchandiseSellerArray
                 from merchandiseSeller in merchandiseSellerArray
-                where shoppingcart.CustomerId == customerId & shoppingcart.Amount > 0
+                where shoppingcart.CustomerId == customerId & shoppingcart.Amount > 0 && cartMerchandise.IsValid == 1
                 select new MerchandiseInfo
                 {
                     MerchandiseId = cartMerchandise.MerchandiseId,

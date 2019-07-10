@@ -42,7 +42,6 @@ namespace EBook.Controllers
             {
                 CustomerAddress address = new CustomerAddress
                 {
-                    AddressIndex = data.AddressIndex,
                     ReceiverName = data.ReceiverName,
                     ReceivePhone = data.ReceivePhone,
                     Province = data.Province,

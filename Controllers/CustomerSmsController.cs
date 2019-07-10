@@ -28,7 +28,7 @@ namespace EBook.Controllers
         {
             public  string Phone;
             public string ValidateCode;
-            public string NewPassword;
+            public string Password;
         }
 
         [HttpPost]
@@ -55,8 +55,8 @@ namespace EBook.Controllers
 
 
         [HttpPost]
-        [Route("api/SellerSmsLogin")]
-        public IHttpActionResult SellerSmsLogin(SmsLoginData data)
+        [Route("api/SmsLogin")]
+        public IHttpActionResult SmsLogin(SmsLoginData data)
         {
             if (!ModelState.IsValid)
             {
@@ -126,7 +126,7 @@ namespace EBook.Controllers
             var updatedCustomer = db.Customers.FirstOrDefault(b => b.PhoneNum == data.Phone);
             if (updatedCustomer != null)
             {
-                updatedCustomer.Password = EncryptProvider.Md5(data.NewPassword);
+                updatedCustomer.Password = EncryptProvider.Md5(data.Password);
                 db.SaveChanges();
                 return Ok("Update Success");
             }

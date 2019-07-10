@@ -45,7 +45,7 @@ namespace EBook.Controllers
                 {
                     CustomerId = customerId,
                     MerchandiseId = data.MerchandiseId,
-                    CollectTime = data.CollectTime,
+                    CollectTime = DateTime.Now,
                 };
                 
                 db.Collects.Add(collect);
@@ -54,11 +54,11 @@ namespace EBook.Controllers
                 return Ok("Insert Success");
             }
 
-            var updatecollect = db.Collects.FirstOrDefault(c => c.CustomerId == customerId && c.MerchandiseId == data.MerchandiseId);
-            if (updatecollect != null)
+            var updateCollect = db.Collects.FirstOrDefault(c => c.CustomerId == customerId && c.MerchandiseId == data.MerchandiseId);
+            if (updateCollect != null)
             {
-                updatecollect.CollectTime = data.CollectTime;
-                updatecollect.IsValid = data.IsValid;
+                updateCollect.CollectTime = DateTime.Now;
+                updateCollect.IsValid = data.IsValid;
                 db.SaveChanges();
                 return Ok("Update Success");
             }

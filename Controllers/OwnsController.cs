@@ -55,7 +55,7 @@ namespace EBook.Controllers
             }
 
             
-            //TODO
+            
             var updateown = db.Owns.FirstOrDefault(o => o.CustomerId == customerId && o.CouponId == data.CouponId);
             if (updateown != null)
             {

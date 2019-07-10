@@ -44,7 +44,6 @@ namespace EBook.Controllers
             {
                 Coupon coupon = new Coupon
                 {
-                    CouponId = data.CouponId,
                     ReleaseBySellerId = sellerId,
                     DiscountAmount = data.DiscountAmount,
                     ValidThrough = data.ValidThrough,

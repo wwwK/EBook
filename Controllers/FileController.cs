@@ -16,6 +16,8 @@ namespace EBook.Controllers
             public string key;
         }
         
+        
+        
         [HttpPost]
         [Route("api/RequestCustomerAvatarUpload")]
         public IHttpActionResult RequestAvatarUpload()

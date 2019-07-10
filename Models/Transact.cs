@@ -77,6 +77,9 @@ namespace EBook.Models
         [MaxLength(200)]
         public string Comment { set; get; }
         
+        //0-5
+        public int CommentLevel { set; get; }
+        
         [MaxLength(50)]
         public string ImagePath1 { set; get; }
         

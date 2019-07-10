@@ -42,10 +42,9 @@ namespace EBook.Controllers
             {
                 Question question = new Question    
                 {
-                    QuestionId = data.QuestionId,
                     CustomerId = customerId,
                     AboutMerchandiseId = data.AboutMerchandiseId,
-                    SubmitTime = data.SubmitTime,
+                    SubmitTime = DateTime.Now,
                     Content = data.Content,
                 };
 

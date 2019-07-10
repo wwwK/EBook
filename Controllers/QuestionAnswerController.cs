@@ -20,7 +20,7 @@ namespace EBook.Controllers
         
         public class MerchandiseRequest
         {
-            public int merchandiseId;
+            public int MerchandiseId;
         }
         
         // get Question and Answer by merchandise
@@ -28,7 +28,7 @@ namespace EBook.Controllers
         [Route("api/GetQuestionFromMerchandise")]
         public IHttpActionResult GetQuestionFromMerchandise(MerchandiseRequest merchandiseData)
         {
-            var result = Service.QuestionAnswerService.GetQuestionsFromMerchandise(merchandiseData.merchandiseId);
+            var result = Service.QuestionAnswerService.GetQuestionsFromMerchandise(merchandiseData.MerchandiseId);
             if (result.Length == 0)
             {
                 return NotFound();
@@ -39,7 +39,7 @@ namespace EBook.Controllers
         
         public class QuestionRequest
         {
-            public int questionId;
+            public int QuestionId;
         }
         
         
@@ -47,7 +47,7 @@ namespace EBook.Controllers
         [Route("api/GetAnswerFromQuestion")]
         public IHttpActionResult GetAnswerFromQuestion(QuestionRequest questionData)
         {
-            var result = Service.QuestionAnswerService.GetAnswersFromQuestion(questionData.questionId);
+            var result = Service.QuestionAnswerService.GetAnswersFromQuestion(questionData.QuestionId);
             if (result.Length == 0)
             {
                 return NotFound();

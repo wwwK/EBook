@@ -39,6 +39,9 @@ namespace EBook.Controllers
                     Publisher = data.Publisher,
                     PublishYear = data.PublishYear,
                     PageNum = data.PageNum,
+                    EBookKey = data.EBookKey,
+                    ImagePath = data.ImagePath,
+                    IsValid = 1,
                 };
 
 
@@ -63,6 +66,8 @@ namespace EBook.Controllers
             return BadRequest("Unable to Insert and Update");
         }
 
+        
+        
         public class GetRequest
         {
             public string ISBN;

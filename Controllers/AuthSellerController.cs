@@ -40,6 +40,8 @@ namespace EBook.Controllers
         
 
         
+        //
+        
         [HttpPost]
         [Route("api/SellerSendMail")]
         public IHttpActionResult SendMail(LoginData data)

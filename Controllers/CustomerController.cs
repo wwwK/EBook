@@ -3,6 +3,8 @@ using System.Web;
 using System.Web.Http;
 using EBook.Models;
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -16,13 +18,19 @@ namespace EBook.Controllers
 {
     public class CustomerController : ApiController, IRequiresSessionState
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
 
         public class RegisterData
         {
-            public Customer CustomerData;
-            public string ValidateCode;
+            public  Customer CustomerData;
+            public  string ValidateCode;
+
+//            public RegisterData(Customer customerData, string validateCode)
+//            {
+//                CustomerData = customerData;
+//                ValidateCode = validateCode;
+//            }
         }
 
         [HttpPost]
@@ -35,6 +43,8 @@ namespace EBook.Controllers
             }
 
             var tmpResult = Service.EmailSend.CheckVerifyCode(data.CustomerData.Email, data.ValidateCode);
+            
+            
             if (tmpResult != 0)
             {
                 switch (tmpResult)
@@ -52,18 +62,18 @@ namespace EBook.Controllers
             {
                 RealName = data.CustomerData.RealName,
                 NickName = data.CustomerData.NickName,
-                DefaultAddressIndex = data.CustomerData.DefaultAddressIndex,
                 IdCardNum = data.CustomerData.IdCardNum,
                 Email = data.CustomerData.Email,
-                PhoneNum = data.CustomerData.PhoneNum,
                 DateOfBirth = data.CustomerData.DateOfBirth,
-                Point = data.CustomerData.Point,
-                Password = EncryptProvider.Md5(data.CustomerData.Password)
+                Password = EncryptProvider.Md5(data.CustomerData.Password),
+                Gender = data.CustomerData.Gender,
             };
 
-            var inserted = db.Customers.Add(customer);
+            var inserted = _db.Customers.Add(customer);
 
-            db.SaveChanges();
+           
+                _db.SaveChanges();
+           
 
             var cookie = new HttpCookie("sessionId")
             {
@@ -80,7 +90,7 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/GetCustomer")]
-        public IHttpActionResult GetCustomer()
+        public IHttpActionResult GetCustomer(Customer data)
         {
             if (!ModelState.IsValid)
             {
@@ -99,7 +109,9 @@ namespace EBook.Controllers
                 return BadRequest("Not Login");
             }
 
-            var customer = db.Customers.Find(customerId);
+            var customer = _db.Customers.Find(data.CustomerId);
+
+
             if (customer == null)
             {
                 return NotFound();
@@ -110,13 +122,11 @@ namespace EBook.Controllers
 
         public class UpdateInfo
         {
-            public string RealName;
             public string NickName;
             public int DefaultAddressIndex;
-            public string IdCardNum;
             public DateTime DateOfBirth;
             public int Point;
-            public string AvatarPath;
+            public int IsValid = 1;
         }
 
         [HttpPost]
@@ -140,16 +150,15 @@ namespace EBook.Controllers
                 return BadRequest("Not Login");
             }
 
-            var updatecustomer = db.Customers.FirstOrDefault(c => c.CustomerId == customerId);
+            var updatecustomer = _db.Customers.FirstOrDefault(c => c.CustomerId == customerId);
             if (updatecustomer != null)
             {
                 updatecustomer.NickName = data.NickName;
                 updatecustomer.DefaultAddressIndex = data.DefaultAddressIndex;
-                updatecustomer.IdCardNum = data.IdCardNum;
                 updatecustomer.DateOfBirth = data.DateOfBirth;
                 updatecustomer.Point = data.Point;
-                updatecustomer.AvatarPath = data.AvatarPath;
-                db.SaveChanges();
+                updatecustomer.IsValid = data.IsValid;
+                _db.SaveChanges();
                 return Ok("Update Success");
             }
 

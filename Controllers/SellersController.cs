@@ -61,12 +61,11 @@ namespace EBook.Controllers
             {
                 Password = EncryptProvider.Md5(data.SellerData.Password),
                 ShopName = data.SellerData.ShopName,
-                CreditLevel = data.SellerData.CreditLevel,
+                CreditLevel = 5,
                 ShopDescription = data.SellerData.ShopDescription,
-                SellerPhone = data.SellerData.SellerPhone,
                 SellerEmail = data.SellerData.SellerEmail,
-                AvatarPath = data.SellerData.AvatarPath,
-                DefaultSellerAddressIndex = data.SellerData.DefaultSellerAddressIndex
+                AvatarPath = "seller_avatar",
+                DefaultSellerAddressIndex = 0
             };
 
 
@@ -157,7 +156,6 @@ namespace EBook.Controllers
             public string ShopName;
             public int CreditLevel;
             public string ShopDescription;
-            public string AvatarPath;
             public int DefaultSellerAddressIndex;
         }
         
@@ -189,7 +187,6 @@ namespace EBook.Controllers
                 updateseller.ShopName = data.ShopName;
                 updateseller.CreditLevel = data.CreditLevel;
                 updateseller.ShopDescription = data.ShopDescription;
-                updateseller.AvatarPath = data.AvatarPath;
                 updateseller.DefaultSellerAddressIndex = data.DefaultSellerAddressIndex;
                 db.SaveChanges();
                 return Ok("Update Success");

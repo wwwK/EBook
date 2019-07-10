@@ -46,17 +46,16 @@ namespace EBook.Controllers
             {
                 Transact transact = new Transact
                 {
-                    TransactId = data.TransactId,
                     CustomerId = customerId,
                     MerchandiseId = data.MerchandiseId,
-                    CreateTime = data.CreateTime,
+                    CreateTime = DateTime.Now,
                     UsedCouponId = data.UsedCouponId,
                     ActualPrice = data.ActualPrice,
-                    Status = data.Status,
+                    Status = 0,
                     Amount = data.Amount,
-                    LogisticTrackNum = data.LogisticTrackNum,
-                    Comment = data.Comment,
-                    CommentTime = data.CommentTime,
+                    LogisticTrackNum = null,
+                    Comment = null,
+                    CommentTime = new DateTime(1970,1,1),
                 };
 
 
@@ -69,7 +68,6 @@ namespace EBook.Controllers
             var updatetransact = db.Transacts.FirstOrDefault(t => t.TransactId == data.TransactId);
             if (updatetransact != null)
             {
-                updatetransact.CreateTime = data.CreateTime;
                 updatetransact.UsedCouponId = data.UsedCouponId;
                 updatetransact.ActualPrice = data.ActualPrice;
                 updatetransact.Status = data.Status;
@@ -87,7 +85,6 @@ namespace EBook.Controllers
 
         public class GetRequest
         {
-            public int SellerId;
             public int MerchandiseId;
             public int TransactId;
             public string Comment;
@@ -187,6 +184,7 @@ namespace EBook.Controllers
             }
 
             transact.Comment = data.Comment;
+            transact.CommentTime = DateTime.Now;
             db.SaveChanges();
             return Ok();
         }

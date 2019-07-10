@@ -33,6 +33,8 @@ namespace EBook.Models
         public int PageNum { get; set; }
 
 
+        [MaxLength(30)]
+        public string EBookKey { set;get; }
         
         //[DefaultValue(1)]
         public int IsValid { get; set; }
