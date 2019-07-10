@@ -1,222 +1,21 @@
-POST http://106.52.66.141:8080/api/SellerLogin
+POST http://localhost:5000/api/SellerSms/
 Accept: */*
 Cache-Control: no-cache
-Cookie: 
 
 {
-	"Email": "631102050@qq.com",
-	"Password":"123456"
+"Phone":"13761491703"
+
 }
 
 ###
 
-POST http://106.52.66.141:8080/api/SellerLogout
+POST http://localhost:5000/api/Sms/
 Accept: */*
 Cache-Control: no-cache
-Cookie: sessionId=1800218221; path=/; expires=Tue, 09 Jul 2019 00:35:44 GMT
 
 {
-	
-}
+"Phone":"13761491703"
 
-###
-
-POST http://localhost:5000/api/SellerLogout
-Accept: */*
-Cache-Control: no-cache
-Cookie: sessionId=1800218221; path=/; expires=Tue, 09 Jul 2019 00:35:44 GMT
-
-{
-	
-}
-
-###
-
-POST http://106.52.66.141:8080/api/Seller/
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"ValidateCode": "182728",
-	"SellerData": {
-	"Password": "123456",
-	"ShopName": "interesting",
-	"CreditLevel": 10,
-	"ShopDescription": "mmp",
-	"AvatarPath": "mmp",
-	"DefaultSellerAddressIndex": 0,
-	"SellerEmail": "631102050@qq.com",
-	"SellerPhone": "13761491703"
-	}
-}
-
-###
-
-POST http://sparkx106.52.66.141:8080/api/Seller/
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"ValidateCode": "182728",
-	"SellerData": {
-	"Password": "123456",
-	"ShopName": "interesting",
-	"CreditLevel": 10,
-	"ShopDescription": "mmp",
-	"AvatarPath": "mmp",
-	"DefaultSellerAddressIndex": 0,
-	"SellerEmail": "631102050@qq.com",
-	"SellerPhone": "13761491703"
-	}
-}
-
-###
-
-POST http://106.52.66.141:8080/api/SellerSendMail/
-Accept: */*
-Cache-Control: no-cache
-Cookie: SessionId=;
-
-{
-"Email":"631102050@qq.com",
-"Password":"123456",
-}
-
-###
-
-POST http://106.52.66.141:8080/api/SellerSendMail/
-Accept: */*
-Cache-Control: no-cache
-Cookie: SessionId=;
-
-{
-"Email":"631102050@qq.com",
-"Password":"123456",
-}
-
-<> 2019-07-09T073017.500.json
-
-###
-
-POST http://106.52.66.141:8080api/SellerSendMail/
-Accept: */*
-Cache-Control: no-cache
-Cookie: SessionId=;
-
-{
-"Email":"631102050@qq.com",
-"Password":"123456",
-}
-
-<> 2019-07-09T072930.404.html
-
-###
-
-POST http://localhost:5000/api/SellerLogin
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-###
-
-POST http://localhost:5000/api/SellerLogin
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-###
-
-POST http://localhost:5000/api/SellerLogout
-Accept: */*
-Cache-Control: no-cache
-Cookie: sessionId=1684253096; path=/; expires=Mon, 08 Jul 2019 18:03:44 GMT
-
-{
-	
-}
-
-###
-
-POST http://localhost:5000/api/Seller/
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"ValidateCode": "658648",
-	"SellerData": {
-	"Password": "123456",
-	"ShopName": "interesting",
-	"CreditLevel": 10,
-	"ShopDescription": "mmp",
-	"AvatarPath": "mmp",
-	"DefaultSellerAddressIndex": 0,
-	"SellerEmail": "631102050@qq.com",
-	"SellerPhone": "13761491703"
-	}
-}
-
-###
-
-POST http://localhost:5000/api/SellerSendMail/
-Accept: */*
-Cache-Control: no-cache
-Cookie: SessionId=;
-
-{
-"Email":"631102050@qq.com",
-"Password":"123456",
-}
-
-###
-
-POST http://localhost:5000/api/Login
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-<> 2019-07-09T010617.400.json
-
-###
-
-POST http://localhost:5000/api/Login
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-<> 2019-07-09T010535.400.json
-
-###
-
-POST http://localhost:5000/api/Logout
-Accept: */*
-Cache-Control: no-cache
-Cookie: sessionId=300939480; path=/; expires=Mon, 08 Jul 2019 18:05:06 GMT
-
-{
-	
 }
 
 ###
@@ -227,120 +26,13 @@ Cache-Control: no-cache
 Cookie: SessionId=;
 
 {
-"ValidateCode":"128703",
+"ValidateCode":"197593",
 "CustomerData": {
-"FirstName":"zaq",
-"PhoneNum":"123457890",
-"Email":"631102050@qq.com",
-"Password":"123456"
-}
-}
-
-###
-
-POST http://localhost:5000/api/SendMail
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-###
-
-POST http://localhost:5000/api/SellerLogin
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-<> 2019-07-09T010420.400.json
-
-###
-
-POST http://localhost:5000/api/SellerLogout
-Accept: */*
-Cache-Control: no-cache
-Cookie: sessionId=1684253096; path=/; expires=Mon, 08 Jul 2019 18:03:44 GMT
-
-{
-	
-}
-
-###
-
-POST http://localhost:5000/api/Seller/
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"ValidateCode": "688568",
-	"SellerData": {
-	"Password": "123456",
-	"ShopName": "interesting",
-	"CreditLevel": 10,
-	"ShopDescription": "mmp",
-	"AvatarPath": "mmp",
-	"DefaultSellerAddressIndex": 0,
-	"SellerEmail": "631102050@qq.com",
-	"SellerPhone": "13761491703"
-	}
-}
-
-###
-
-POST http://localhost:5000/api/SellerSendMail/
-Accept: */*
-Cache-Control: no-cache
-Cookie: SessionId=;
-
-{
-"Email":"631102050@qq.com",
+"NickName":"zaq",
+"Email":"971953607@qq.com",
 "Password":"123456",
+"Gender":"男"
 }
-
-###
-
-POST http://localhost:5000/api/Login
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-###
-
-POST http://localhost:5000/api/Login
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-<> 2019-07-09T010029.500.json
-
-###
-
-POST http://localhost:5000/api/Logout
-Accept: */*
-Cache-Control: no-cache
-Cookie: sessionId=1254810242; path=/; expires=Mon, 08 Jul 2019 17:53:58 GMT
-
-{
-	
 }
 
 ###
@@ -351,14 +43,16 @@ Cache-Control: no-cache
 Cookie: SessionId=;
 
 {
-"ValidateCode":"404682",
+"ValidateCode":"197593",
 "CustomerData": {
-"FirstName":"zaq",
-"PhoneNum":"123457890",
+"NickName":"zaq",
 "Email":"631102050@qq.com",
-"Password":"123456"
+"Password":"123456",
+"Gender":"男"
 }
 }
+
+<> 2019-07-10T023050.400.json
 
 ###
 
@@ -368,61 +62,9 @@ Cache-Control: no-cache
 Cookie: 
 
 {
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-###
-
-POST http://localhost:5000/api/Login
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-<> 2019-07-09T125606.400.json
-
-###
-
-POST http://localhost:5000/api/SendMail
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-<> 2019-07-09T125554.400.json
-
-###
-
-POST http://localhost:5000/api/Login
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-<> 2019-07-09T125532.400.json
-
-###
-
-POST http://localhost:5000/api/Logout
-Accept: */*
-Cache-Control: no-cache
-Cookie: sessionId=1254810242; path=/; expires=Mon, 08 Jul 2019 17:53:58 GMT
-
-{
-	
+	"Email": "971953607@qq.com",
+	"Password":"123456",
+	"EmailStatus":0
 }
 
 ###
@@ -433,13 +75,12 @@ Cache-Control: no-cache
 Cookie: SessionId=;
 
 {
-"ValidateCode":"813897",
+"ValidateCode":"929712",
 "CustomerData": {
-"FirstName":"zaq",
-"Password":"123454324",
-"PhoneNum":"123457890",
+"NickName":"zaq",
 "Email":"631102050@qq.com",
-"Password":"123456"
+"Password":"123456",
+"Gender":"男"
 }
 }
 
@@ -452,87 +93,31 @@ Cookie:
 
 {
 	"Email": "631102050@qq.com",
-	"Password":"123456"
+	"Password":"123456",
+	"EmailStatus":0
 }
 
 ###
 
-POST http://localhost:5000/api/SellerLogin
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-<> 2019-07-09T125241.400.json
-
-###
-
-POST http://localhost:5000/api/SellerLogin
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-<> 2019-07-09T124954.400.json
-
-###
-
-POST http://localhost:5000/api/SellerLogin
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"Email": "631102050@qq.com",
-	"Password":"123456"
-}
-
-<> 2019-07-09T124935.400.json
-
-###
-
-POST http://localhost:5000/api/Seller/
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"ValidateCode": "170204",
-	"SellerData": {
-	"Password": "123456",
-	"ShopName": "interesting",
-	"CreditLevel": 10,
-	"ShopDescription": "mmp",
-	"AvatarPath": "mmp",
-	"DefaultSellerAddressIndex": 0,
-	"SellerEmail": "631102050@qq.com",
-	"SellerPhone": "13761491703"
-	}
-}
-
-###
-
-POST http://localhost:5000/api/SellerSendMail/
+POST http://localhost:5000/api/Customer
 Accept: */*
 Cache-Control: no-cache
 Cookie: SessionId=;
 
 {
+"ValidateCode":"615171",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"13761491703",
 "Email":"631102050@qq.com",
 "Password":"123456",
+"Gender":"男"
+}
 }
 
 ###
 
-POST http://localhost:5000/api/SellerLogin
+POST http://localhost:5000/api/SendMail
 Accept: */*
 Cache-Control: no-cache
 Cookie: 
@@ -540,13 +125,32 @@ Cookie:
 {
 	"Email": "631102050@qq.com",
 	"Password":"123456",
+	"EmailStatus":0
 }
-
-<> 2019-07-09T124014.400.json
 
 ###
 
-POST http://localhost:5000/api/SellerLogin
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"983546",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"13761491703",
+"Email":"631102050@qq.com",
+"Password":"123456",
+"Gender":"男"
+}
+}
+
+<> 2019-07-10T021836.400.json
+
+###
+
+POST http://localhost:5000/api/SendMail
 Accept: */*
 Cache-Control: no-cache
 Cookie: 
@@ -554,87 +158,390 @@ Cookie:
 {
 	"Email": "631102050@qq.com",
 	"Password":"123456",
+	"EmailStatus":0
 }
-
-<> 2019-07-09T123900.400.json
 
 ###
 
-POST http://localhost:5000/api/SellerLogin
+POST http://localhost:5000/api/Customer
 Accept: */*
 Cache-Control: no-cache
-Cookie: sessionId=2036558353; path=/; expires=Mon, 08 Jul 2019 17:37:34 GMT
+Cookie: SessionId=;
+
+{
+"ValidateCode":"341034",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"13761491703",
+"Email":"631102050@qq.com",
+"Password":"123456",
+"Gender":"男"
+}
+}
+
+<> 2019-07-10T021414.400.json
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
 
 {
 	"Email": "631102050@qq.com",
 	"Password":"123456",
+	"EmailStatus":0
 }
-
-<> 2019-07-09T123840.400.json
 
 ###
 
-POST http://localhost:5000/api/SellerLogin
+POST http://localhost:5000/api/Customer
 Accept: */*
 Cache-Control: no-cache
-Cookie: sessionId=2036558353; path=/; expires=Mon, 08 Jul 2019 17:37:34 GMT
+Cookie: SessionId=;
+
+{
+"ValidateCode":"107284",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"13761491703",
+"Email":"631102050@qq.com",
+"Password":"123456",
+"Gender":"男"
+}
+}
+
+<> 2019-07-10T021339.400.json
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"107284",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"13761491703",
+"Email":"631102050@qq.com",
+"Password":"123456",
+"Gender":"男"
+}
+}
+
+<> 2019-07-10T021031.400.json
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
 
 {
 	"Email": "631102050@qq.com",
-	"Password": "123456",
+	"Password":"123456",
+	"EmailStatus":0
 }
-
-<> 2019-07-09T123821.400.json
 
 ###
 
-POST http://localhost:5000/api/SellerLogout
+POST http://localhost:5000/api/Customer
 Accept: */*
 Cache-Control: no-cache
-Cookie: ssessionId=2036558353; path=/; expires=Mon, 08 Jul 2019 17:37:34 GMT
+Cookie: SessionId=;
 
 {
-	
+"ValidateCode":"594036",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"13761491703",
+"Email":"631102050@qq.com",
+"Password":"123456",
+"Gender":"男"
 }
+}
+
+<> 2019-07-10T020947.400.json
 
 ###
 
-POST http://localhost:5000/api/SellerLogin
+POST http://localhost:5000/api/Customer
 Accept: */*
 Cache-Control: no-cache
-Cookie: sessionId=2036558353; path=/; expires=Mon, 08 Jul 2019 17:37:34 GMT
+Cookie: SessionId=;
+
+{
+"ValidateCode":"594036",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"13761491703",
+"Email":"631102050@qq.com",
+"Password":"123456",
+"Gender":"男"
+}
+}
+
+<> 2019-07-10T020750.400.json
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"594036",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"13761491703",
+"Email":"631102050@qq.com",
+"Password":"123456",
+"Gender":"男"
+}
+}
+
+<> 2019-07-10T020729.400.json
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
 
 {
 	"Email": "631102050@qq.com",
-	"Password": "sdrftghgvb",
+	"Password":"123456",
+	"EmailStatus":0
 }
-
-<> 2019-07-09T123752.400.json
 
 ###
 
-POST http://localhost:5000/api/Seller/
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"094011",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456",
+"Gender":"男"
+}
+}
+
+<> 2019-07-10T020409.400.json
+
+###
+
+POST http://localhost:5000/api/SendMail
 Accept: */*
 Cache-Control: no-cache
 Cookie: 
 
 {
-	"ValidateCode": "011471",
-	"SellerData": {
-	"Password": "123456",
-	"ShopName": "interesting",
-	"CreditLevel": 10,
-	"ShopDescription": "mmp",
-	"AvatarPath": "mmp",
-	"DefaultSellerAddressIndex": 0,
-	"SellerEmail": "631102050@qq.com",
-	"SellerPhone": "13761491703"
-	}
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"EmailStatus":0
 }
 
 ###
 
-POST http://localhost:5000/api/SellerSendMail/
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"884773",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456",
+"Gender":"男"
+}
+}
+
+<> 2019-07-10T015813.400.json
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"EmailStatus":0
+}
+
+###
+
+POST http://localhost:5000/api/Login
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456"
+}
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"EmailStatus":0
+}
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"EmailStatus":0
+}
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"942319",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456"
+}
+}
+
+<> 2019-07-10T125506.500.json
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"EmailStatus":0
+}
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"EmailStatus":0
+}
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"382762",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456"
+}
+}
+
+<> 2019-07-10T125008.400.json
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"382762",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456"
+}
+}
+
+<> 2019-07-10T124929.500.json
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"498543",
+"CustomerData": {
+"NickName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456"
+}
+}
+
+<> 2019-07-10T124901.400.json
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"EmailStatus":0
+}
+
+###
+
+POST http://192.168.1.178:5000/api/SellerSendMail/
 Accept: */*
 Cache-Control: no-cache
 Cookie: SessionId=;
@@ -646,71 +553,252 @@ Cookie: SessionId=;
 
 ###
 
-POST http://localhost:5000/api/Seller/
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"ValidateCode": "621402",
-	"SellerData": {
-	"Password": "123456",
-	"ShopName": "interesting",
-	"CreditLevel": 10,
-	"ShopDescription": "mmp",
-	"AvatarPath": "mmp",
-	"DefaultSellerAddressIndex": 0,
-	"SellerEmail": "631102050@qq.com",
-	"SellerPhone": "13761491703"
-	}
-}
-
-<> 2019-07-09T123027.500.json
-
-###
-
-POST http://localhost:5000/api/SellerSendMail/
+POST http://localhost:5000/api/Customer
 Accept: */*
 Cache-Control: no-cache
 Cookie: SessionId=;
 
 {
+"ValidateCode":"522661",
+"CustomerData": {
+"FirstName":"zaq",
+"PhoneNum":"123457890",
 "Email":"631102050@qq.com",
-"Password":"123456",
+"Password":"123456"
 }
+}
+
+<> 2019-07-10T124744.400.json
 
 ###
 
-POST http://localhost:5000/api/Seller/
-Accept: */*
-Cache-Control: no-cache
-Cookie: 
-
-{
-	"ValidateCode": "202222",
-	"SellerData": {
-	"Password": "123456",
-	"ShopName": "interesting",
-	"CreditLevel": 10,
-	"ShopDescription": "mmp",
-	"AvatarPath": "mmp",
-	"DefaultSellerAddressIndex": 0,
-	"SellerEmail": "631102050@qq.com",
-	"SellerPhone": "13761491703"
-	}
-}
-
-<> 2019-07-09T122818.500.json
-
-###
-
-POST http://localhost:5000/api/SellerSendMail/
+POST http://localhost:5000/api/Customer
 Accept: */*
 Cache-Control: no-cache
 Cookie: SessionId=;
 
 {
+"ValidateCode":"522661",
+"CustomerData": {
+"FirstName":"zaq",
+"PhoneNum":"123457890",
 "Email":"631102050@qq.com",
-"Password":"123456",
+"Password":"123456"
+}
+}
+
+<> 2019-07-10T124312.400.json
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"522661",
+"CustomerData": {
+"FirstName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456"
+}
+}
+
+<> 2019-07-10T124307.400.json
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"522661",
+"CustomerData": {
+"FirstName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456"
+}
+}
+
+<> 2019-07-10T124301.500.json
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"EmailStatus":0
+}
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"819897",
+"CustomerData": {
+"FirstName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456"
+}
+}
+
+<> 2019-07-10T124139.400.json
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"819897",
+"CustomerData": {
+"FirstName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456"
+}
+}
+
+<> 2019-07-10T123736.500.json
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"EmailStatus":0
+}
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"794235",
+"CustomerData": {
+"FirstName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456"
+}
+}
+
+<> 2019-07-10T123700.400.json
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"794235",
+"CustomerData": {
+"FirstName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456"
+}
+}
+
+<> 2019-07-10T123650.500.json
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"EmailStatus":1
+}
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"EmailStatus":1
+}
+
+<> 2019-07-10T123528.500.json
+
+###
+
+POST http://localhost:5000/api/MailChangePassword
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"ValidateCode":"589299",
+}
+
+<> 2019-07-10T094006.200.json
+
+###
+
+POST http://localhost:5000/api/SendMail
+Accept: */*
+Cache-Control: no-cache
+Cookie: 
+
+{
+	"Email": "631102050@qq.com",
+	"Password":"123456",
+	"EmailStatus":1
+}
+
+###
+
+POST http://localhost:5000/api/Customer
+Accept: */*
+Cache-Control: no-cache
+Cookie: SessionId=;
+
+{
+"ValidateCode":"241873",
+"CustomerData": {
+"FirstName":"zaq",
+"PhoneNum":"123457890",
+"Email":"631102050@qq.com",
+"Password":"123456"
+}
 }
 
