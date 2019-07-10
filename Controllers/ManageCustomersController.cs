@@ -47,5 +47,20 @@ namespace EBook.Controllers
             return Ok("Insert Success");
         }
         
+        [HttpPost]
+        [Route("api/ManageUpdateCustomer")]
+        public IHttpActionResult ManageUpdateCustomer(Customer customer)
+        {
+            Customer updatedCustomer = db.Customers.FirstOrDefault(c => c.CustomerId == customer.CustomerId);
+            if (updatedCustomer != null)
+            {
+                updatedCustomer = customer;
+                db.SaveChanges();
+                return Ok("更新成功！");
+            }
+
+            return BadRequest("请重新操作！");
+        }
+        
     }
 }

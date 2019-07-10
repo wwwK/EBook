@@ -47,5 +47,19 @@ namespace EBook.Controllers
             return Ok("Insert Success");
         }
         
+        [HttpPost]
+        [Route("api/ManageUpdateBook")]
+        public IHttpActionResult ManageUpdateBook(Book book)
+        {
+            Book updatedBook = db.Books.FirstOrDefault(b => b.ISBN == book.ISBN);
+            if (updatedBook != null)
+            {
+                updatedBook = book;
+                db.SaveChanges();
+                return Ok("更新成功！");
+            }
+
+            return BadRequest("请重新操作！");
+        }
     }
 }

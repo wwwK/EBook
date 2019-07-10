@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 using EBook.Models;
 using System;
@@ -16,45 +14,45 @@ using EBook.Service;
 
 namespace EBook.Controllers
 {
-    public class ManageSellersController : ApiController
+    public class ManageOwnsController : ApiController
     {
         private OracleDbContext db = new OracleDbContext();
 
         [HttpPost]
-        [Route("api/ManageSelectSeller")]
-        public IHttpActionResult ManageSelectSeller()
+        [Route("api/ManageSelectOwn")]
+        public IHttpActionResult ManageSelectOwn()
         {
-            Seller[] tableSellers = db.Sellers.ToArray();
-            IEnumerable<Seller> selectTableSellers =
-                from seller in tableSellers
-                select seller;
-            return Ok(selectTableSellers.ToArray());
+            Own [] tableOwns = db.Owns.ToArray();
+            IEnumerable<Own>selectTableOwns =
+                from own in tableOwns
+                select own;
+            return Ok(selectTableOwns.ToArray());
 
         }
         
         
         [HttpPost]
-        [Route("api/ManageInsertSeller")]
-        public IHttpActionResult ManageInsertSeller(Seller seller)
+        [Route("api/ManageInsertOwn")]
+        public IHttpActionResult ManageInsertOwn(Own own)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            db.Sellers.Add(seller);
+            db.Owns.Add(own);
             db.SaveChanges();
 
             return Ok("Insert Success");
         }
         
         [HttpPost]
-        [Route("api/ManageUpdateSeller")]
-        public IHttpActionResult ManageUpdateSeller(Seller seller)
+        [Route("api/ManageUpdateOwn")]
+        public IHttpActionResult ManageUpdateOwn(Own own)
         {
-            Seller updatedSeller = db.Sellers.FirstOrDefault(s => s.SellerId == seller.SellerId);
-            if (updatedSeller != null)
+            Own updatedOwn = db.Owns.FirstOrDefault(o => o.CustomerId == own.CustomerId && o.CouponId == own.CouponId);
+            if (updatedOwn != null)
             {
-                updatedSeller = seller;
+                updatedOwn = own;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }
@@ -63,4 +61,5 @@ namespace EBook.Controllers
         }
         
     }
+
 }

@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 using EBook.Models;
 using System;
@@ -16,45 +14,45 @@ using EBook.Service;
 
 namespace EBook.Controllers
 {
-    public class ManageSellersController : ApiController
+    public class ManageCouponsController : ApiController
     {
         private OracleDbContext db = new OracleDbContext();
 
         [HttpPost]
-        [Route("api/ManageSelectSeller")]
-        public IHttpActionResult ManageSelectSeller()
+        [Route("api/ManageSelectCoupon")]
+        public IHttpActionResult ManageSelectCoupon()
         {
-            Seller[] tableSellers = db.Sellers.ToArray();
-            IEnumerable<Seller> selectTableSellers =
-                from seller in tableSellers
-                select seller;
-            return Ok(selectTableSellers.ToArray());
+            Coupon [] tableCoupons = db.Coupons.ToArray();
+            IEnumerable<Coupon>selectTableCoupons =
+                from coupon in tableCoupons
+                select coupon;
+            return Ok(selectTableCoupons.ToArray());
 
         }
         
         
         [HttpPost]
-        [Route("api/ManageInsertSeller")]
-        public IHttpActionResult ManageInsertSeller(Seller seller)
+        [Route("api/ManageInsertCoupon")]
+        public IHttpActionResult ManageInsertCoupon(Coupon coupon)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            db.Sellers.Add(seller);
+            db.Coupons.Add(coupon);
             db.SaveChanges();
 
             return Ok("Insert Success");
         }
         
         [HttpPost]
-        [Route("api/ManageUpdateSeller")]
-        public IHttpActionResult ManageUpdateSeller(Seller seller)
+        [Route("api/ManageUpdateCoupon")]
+        public IHttpActionResult ManageUpdateCoupon(Coupon coupon)
         {
-            Seller updatedSeller = db.Sellers.FirstOrDefault(s => s.SellerId == seller.SellerId);
-            if (updatedSeller != null)
+            Coupon updatedCoupon = db.Coupons.FirstOrDefault(c => c.CouponId == coupon.CouponId);
+            if (updatedCoupon != null)
             {
-                updatedSeller = seller;
+                updatedCoupon = coupon;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }
@@ -63,4 +61,5 @@ namespace EBook.Controllers
         }
         
     }
+
 }
