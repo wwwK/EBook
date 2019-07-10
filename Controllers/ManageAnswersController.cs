@@ -24,15 +24,14 @@ namespace EBook.Controllers
         [Route("api/ManageSelectAnswer")]
         public IHttpActionResult ManageSelectAnswer()
         {
-            Answer [] tableAnswers = db.Answers.ToArray();
+            Answer[] tableAnswers = db.Answers.ToArray();
             IEnumerable<Answer> selectTableAnswers =
                 from answer in tableAnswers
                 select answer;
             return Ok(selectTableAnswers.ToArray());
-
         }
-        
-        
+
+
         [HttpPost]
         [Route("api/ManageInsertAnswer")]
         public IHttpActionResult ManageInsertAnswer(Answer answer)
@@ -41,11 +40,27 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
+
             db.Answers.Add(answer);
             db.SaveChanges();
 
             return Ok("Insert Success");
         }
-        
+
+
+        [HttpPost]
+        [Route("api/ManageUpdateAnswer")]
+        public IHttpActionResult ManageUpdateAnswer(Answer answer)
+        {
+            Answer updatedAnswer = db.Answers.FirstOrDefault(a => a.AnswerId == answer.AnswerId);
+            if (updatedAnswer != null)
+            {
+                updatedAnswer = answer;
+                db.SaveChanges();
+                return Ok("更新成功！");
+            }
+
+            return BadRequest("请重新操作！");
+        }
     }
 }
