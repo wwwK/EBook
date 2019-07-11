@@ -52,7 +52,7 @@ namespace EBook.Controllers
             Transact updatedTransact = db.Transacts.FirstOrDefault(a => a.TransactId == transact.TransactId);
             if (updatedTransact != null)
             {
-                updatedTransact.Status = 0;
+                updatedTransact.Status = transact.Status;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }

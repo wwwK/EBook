@@ -52,7 +52,7 @@ namespace EBook.Controllers
             Collect updatedCollect = db.Collects.FirstOrDefault(c => c.CustomerId == collect.CustomerId && c.MerchandiseId == collect.MerchandiseId);
             if (updatedCollect != null)
             {
-                updatedCollect.IsValid = 0;
+                updatedCollect.IsValid = collect.IsValid;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }

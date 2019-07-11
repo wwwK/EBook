@@ -52,7 +52,7 @@ namespace EBook.Controllers
             ShoppingCart updatedShoppingCart = db.ShoppingCarts.FirstOrDefault(s => s.CustomerId == shoppingCart.CustomerId && s.MerchandiseId == shoppingCart.MerchandiseId);
             if (updatedShoppingCart != null)
             {
-                updatedShoppingCart.IsValid = 0;
+                updatedShoppingCart.IsValid = shoppingCart.IsValid;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }

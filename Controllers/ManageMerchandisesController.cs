@@ -52,7 +52,7 @@ namespace EBook.Controllers
             Merchandise updatedMerchandise = db.Merchandises.FirstOrDefault(m => m.MerchandiseId == merchandise.MerchandiseId);
             if (updatedMerchandise != null)
             {
-                updatedMerchandise.IsValid = 0;
+                updatedMerchandise.IsValid = merchandise.IsValid;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }

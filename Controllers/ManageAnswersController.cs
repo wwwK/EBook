@@ -55,7 +55,7 @@ namespace EBook.Controllers
             Answer updatedAnswer = db.Answers.FirstOrDefault(a => a.AnswerId == answer.AnswerId);
             if (updatedAnswer != null)
             {
-                updatedAnswer.IsValid = 0;
+                updatedAnswer.IsValid = answer.IsValid;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }

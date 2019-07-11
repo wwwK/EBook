@@ -52,7 +52,7 @@ namespace EBook.Controllers
             CustomerAddress updatedCustomerAddress = db.CustomerAddresses.FirstOrDefault(ca => ca.AddressIndex == customerAddress.AddressIndex);
             if (updatedCustomerAddress != null)
             {
-                updatedCustomerAddress.IsValid = 0;
+                updatedCustomerAddress.IsValid = customerAddress.IsValid;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }
