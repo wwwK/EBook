@@ -1,7 +1,9 @@
 
 using System;
+using System.Collections.Specialized;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -17,7 +19,7 @@ namespace EBook.Controllers
 {
     public class AuthSellerController:ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private static OracleDbContext db = new OracleDbContext();
 
         public class LoginData
         {
@@ -112,14 +114,13 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
             
-            var result = from seller in db.Sellers
+            var result = (from seller in db.Sellers
                 where seller.SellerEmail == data.Email
-                select seller;
+                select seller).ToArray();
 
-            if (!result.Any())
+            if (result.Length == 0)
             {
-
-                return NotFound();
+                return BadRequest("Fuck you");
             }
             var hashed = EncryptProvider.Md5(data.Password);
             if (result.First().Password != hashed)
@@ -132,7 +133,6 @@ namespace EBook.Controllers
                 Value = SellerSession.SetSessionId(result.First().SellerId).ToString(),
                 Expires = DateTime.Now.AddHours(1)
             };
-            
             
             HttpContext.Current.Response.Cookies.Add(cookie);
             
@@ -159,7 +159,7 @@ namespace EBook.Controllers
            
             HttpContext.Current.Response.Cookies.Remove("sessionId");
             
-            return Ok();
+            return Ok(HttpContext.Current.Request.Cookies);
         }
 
 

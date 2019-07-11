@@ -127,10 +127,6 @@ namespace EBook.Controllers
         [Route("api/GetSeller")]
         public IHttpActionResult GetSeller()
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {

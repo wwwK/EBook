@@ -14,8 +14,7 @@ namespace EBook.Controllers
     public class AuthController : ApiController
     {
         private OracleDbContext db = new OracleDbContext();
-
-
+        
         public class LoginData
         {
             [EmailAddress] public readonly string Email;
@@ -36,10 +35,7 @@ namespace EBook.Controllers
                 EmailStatus = emailStatus;
             }
         }
-
-
-
-
+        
         [HttpPost]
         [Route("api/SendMail")]
         public IHttpActionResult SendMail(LoginData data)
@@ -139,6 +135,120 @@ namespace EBook.Controllers
             return Ok();
         }
 
+        public class WechatRequest
+        {
+            public string id;
+            public string password;
+        }
+
+        public class WechatEbookInfo
+        {
+            public string title;
+            public string key;
+            public string picPath;
+        }
+        
+        public class WechatResponse
+        {
+            public bool ok;
+            public WechatEbookInfo[] result;
+            public string error;
+        }
+
+        private IHttpActionResult WechatDataCollect(int customerId)
+        {
+            var result =
+                (from transact in db.Transacts
+                    where transact.CustomerId == customerId
+                    join merchandise in db.Merchandises on transact.MerchandiseId equals merchandise.MerchandiseId
+                    join book in db.Books on merchandise.ISBN equals book.ISBN
+                    where book.Publisher != null
+                    select new WechatEbookInfo()
+                    {
+                        title = book.Title,
+                        key = book.Publisher,
+                        picPath = book.ImagePath
+                    });
+
+            if (result.Any())
+            {
+                return Ok(new WechatResponse()
+                {
+                    ok = true,
+                    result = result.ToArray()
+                });
+            }
+            else
+            {
+                return Ok(new WechatResponse()
+                {
+                    ok = false,
+                    error = "Not Found."
+                });
+            }
+        }
+        
+        [HttpPost]
+        [Route("api/WechatMiniPhoneLogin")]
+        public IHttpActionResult WechatMiniPhoneLogin(WechatRequest data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            var user = db.Customers.First(customer => customer.PhoneNum == data.id);
+            if (user == null)
+            {
+                return Ok(new WechatResponse()
+                {
+                    ok = false,
+                    error = "Customer not found"
+                });
+            }
+
+            if (user.Password != EncryptProvider.Md5(data.password))
+            {
+                return Ok(new WechatResponse()
+                {
+                    ok = false,
+                    error = "Wrong password."
+                });
+            }
+
+            return WechatDataCollect(user.CustomerId);
+        }
+        
+        [HttpPost]
+        [Route("api/WechatMiniEmailLogin")]
+        public IHttpActionResult WechatMiniEmailLogin(WechatRequest data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            var user = db.Customers.First(customer => customer.Email == data.id);
+            if (user == null)
+            {
+                return Ok(new WechatResponse()
+                {
+                    ok = false,
+                    error = "Customer not found"
+                });
+            }
+
+            if (user.Password != EncryptProvider.Md5(data.password))
+            {
+                return Ok(new WechatResponse()
+                {
+                    ok = false,
+                    error = "Wrong password."
+                });
+            }
+            
+            return WechatDataCollect(user.CustomerId);
+        }
 
         [HttpPost]
         [Route("api/Logout")]
