@@ -137,18 +137,22 @@ namespace EBook.Controllers
 
         public class UpdateInfo
         {
+            public readonly string RealName;
+            public readonly string IdCardNum;
             public readonly string NickName;
             public readonly int DefaultAddressIndex;
             public DateTime DateOfBirth;
             public readonly int Point;
             public const int IsValid = 1;
 
-            public UpdateInfo(string nickName, int defaultAddressIndex, DateTime dateOfBirth, int point)
+            public UpdateInfo(string nickName, int defaultAddressIndex, DateTime dateOfBirth, int point, string idCardNum, string realName)
             {
                 NickName = nickName;
                 DefaultAddressIndex = defaultAddressIndex;
                 DateOfBirth = dateOfBirth;
                 Point = point;
+                IdCardNum = idCardNum;
+                RealName = realName;
             }
         }
 
@@ -175,6 +179,8 @@ namespace EBook.Controllers
 
             var updateCustomer = _db.Customers.FirstOrDefault(c => c.CustomerId == customerId);
             if (updateCustomer == null) return BadRequest("请重新更新用户！");
+            updateCustomer.RealName = data.RealName;
+            updateCustomer.IdCardNum = data.IdCardNum;
             updateCustomer.NickName = data.NickName;
             updateCustomer.DefaultAddressIndex = data.DefaultAddressIndex;
             updateCustomer.DateOfBirth = data.DateOfBirth;
