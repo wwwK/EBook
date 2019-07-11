@@ -46,6 +46,11 @@ namespace EBook.Models
         [ForeignKey("CustomerId")]
         public Customer User { set; get; } 
         
+        public CustomerAddress()
+        {
+            IsValid = 1;
+        }
+        
 
     }
 }

@@ -21,7 +21,7 @@ namespace EBook.Service
             CustomerAddress[] customerAddressesArray = db.CustomerAddresses.ToArray();
             IEnumerable<CustomerAddress> selectedCustomerAddressesArray =
                 from customerAddress in customerAddressesArray
-                where customerAddress.CustomerId == customerId
+                where customerAddress.CustomerId == customerId && customerAddress.IsValid == 1
                 select customerAddress;
 
             return selectedCustomerAddressesArray.ToArray();
@@ -32,7 +32,7 @@ namespace EBook.Service
             SellerAddress[] sellerAddressesArray = db.SellerAddresses.ToArray();
             IEnumerable<SellerAddress> selectedSellerAddressesArray =
                 from sellerAddress in sellerAddressesArray
-                where sellerAddress.SellerId == sellerId
+                where sellerAddress.SellerId == sellerId && sellerAddress.IsValid == 1
                 select sellerAddress;
 
             return selectedSellerAddressesArray.ToArray();
