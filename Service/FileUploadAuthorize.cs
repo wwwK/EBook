@@ -9,8 +9,8 @@ namespace EBook.Service
     {
         private struct UploadPolicy
         {
-            public string Scope;
-            public long Deadline;
+            public string scope;
+            public long deadline;
         }
 
         private const string BucketName = "sparkxyf";
@@ -21,8 +21,8 @@ namespace EBook.Service
         {
             var policy = new UploadPolicy()
             {
-                Scope = $"{BucketName}:{fileName}",
-                Deadline = new DateTimeOffset(DateTime.Now.AddMinutes(10)).ToUnixTimeSeconds()
+                scope = $"{BucketName}:{fileName}",
+                deadline = new DateTimeOffset(DateTime.Now.AddMinutes(10)).ToUnixTimeSeconds()
             };
 
             return Json.Encode(policy);
