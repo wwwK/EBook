@@ -216,3 +216,4 @@
 /Users/spark/RiderProjects/EBook/bin/System.Security.Cryptography.Primitives.dll
 /Users/spark/RiderProjects/EBook/bin/System.Security.Cryptography.X509Certificates.dll
 /Users/spark/RiderProjects/EBook/bin/qcloudsms_csharp.dll
+/Users/spark/RiderProjects/EBook/bin/NETCore.Encrypt.dll

@@ -23,7 +23,7 @@ namespace EBook.Models
 
         public string Description { set; get; }
 
-        public int Price { set; get; }
+        public double Price { set; get; }
         
         
         

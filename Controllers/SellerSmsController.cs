@@ -15,19 +15,31 @@ namespace EBook.Controllers
         private OracleDbContext db = new OracleDbContext();
         public class SmsData
         {
-            public  string Phone;
-
-            public string Password;
+            public readonly string Phone;
+            
             //注册=0，修改资料=1
-            public int PhoneStatus;
+            public readonly int PhoneStatus;
+
+            public SmsData(string phone, int phoneStatus)
+            {
+                Phone = phone;
+                PhoneStatus = phoneStatus;
+            }
         }
 
 
         public class SellerSmsLoginData
         {
-            public  string Phone;
-            public string ValidateCode;
-            public string NewPassword;
+            public readonly string Phone;
+            public readonly string ValidateCode;
+            public readonly string Password;
+
+            public SellerSmsLoginData(string phone, string validateCode, string password)
+            {
+                Phone = phone;
+                ValidateCode = validateCode;
+                Password = password;
+            }
         }
         
         
@@ -46,9 +58,10 @@ namespace EBook.Controllers
             // 电话已存在
             if (result.Any() && data.PhoneStatus == 0)
             {
-                return BadRequest("Phone exist");
+                return BadRequest("电话已经被注册了，请输入新的电话号码！");
             }
 
+            
             EBook.Service.SellerSmsSend.SendVerifyCode(data.Phone);
             
             return Ok();
@@ -82,11 +95,11 @@ namespace EBook.Controllers
                 switch (tmpResult)
                 {
                     case -1:
-                        return BadRequest("Validate code not sent.");
+                        return BadRequest("请先点击发送验证码！");
                     case -2:
-                        return BadRequest("Wrong validate code.");
+                        return BadRequest("验证码错误，请输入正确的验证码！");
                     case -3:
-                        return BadRequest("Validate code expired.");
+                        return BadRequest("请重新发送验证码！");
                 }
             }
             
@@ -119,11 +132,11 @@ namespace EBook.Controllers
                 switch (tmpResult)
                 {
                     case -1:
-                        return BadRequest("Validate code not sent.");
+                        return BadRequest("请先点击发送验证码！");
                     case -2:
-                        return BadRequest("Wrong validate code.");
+                        return BadRequest("验证码错误，请输入正确的验证码！");
                     case -3:
-                        return BadRequest("Validate code expired.");
+                        return BadRequest("请重新发送验证码！");
                 }
             }
 
@@ -131,9 +144,9 @@ namespace EBook.Controllers
             var updatedSeller = db.Sellers.FirstOrDefault(b => b.SellerPhone == data.Phone);
             if (updatedSeller != null)
             {
-                updatedSeller.Password = EncryptProvider.Md5(data.NewPassword);
+                updatedSeller.Password = EncryptProvider.Md5(data.Password);
                 db.SaveChanges();
-                return Ok("Update Success");
+                return Ok("重置密码成功！");
             }
             else
             {

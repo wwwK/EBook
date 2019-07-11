@@ -8,13 +8,15 @@ namespace EBook.Controllers
 {
     public class FileController: ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
-        class UploadTokenResponse
+        private class UploadTokenResponse
         {
-            public string token;
-            public string key;
+            public string Token;
+            public string Key;
         }
+        
+        
         
         [HttpPost]
         [Route("api/RequestCustomerAvatarUpload")]
@@ -34,20 +36,20 @@ namespace EBook.Controllers
 
             var fileName = $"{userId}_avatar";
             
-            var result = (from customer in db.Customers
+            var result = (from customer in _db.Customers
                 where customer.CustomerId == userId
                 select customer).First();
 
             result.AvatarPath = fileName;
 
-            db.SaveChanges();
+            _db.SaveChanges();
             
             var token = Service.FileUploadAuthorize.GenerateUploadToken(fileName);
     
             return Ok(new UploadTokenResponse()
             {
-                token = token,
-                key = fileName
+                Token = token,
+                Key = fileName
             });
         }
          

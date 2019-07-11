@@ -15,7 +15,7 @@ namespace EBook.Controllers
 {
     public class CustomerAddressController : ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
 
         [HttpPost]
@@ -29,20 +29,19 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
             
             int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
-            if (db.CustomerAddresses.Find(data.AddressIndex) == null)
+            if (_db.CustomerAddresses.Find(data.AddressIndex) == null)
             {
                 CustomerAddress address = new CustomerAddress
                 {
-                    AddressIndex = data.AddressIndex,
                     ReceiverName = data.ReceiverName,
                     ReceivePhone = data.ReceivePhone,
                     Province = data.Province,
@@ -50,31 +49,29 @@ namespace EBook.Controllers
                     Block = data.Block,
                     DetailAddress = data.DetailAddress,
                     ZipCode = data.ZipCode,
-                    CustomerId = customerId, //todo
+                    CustomerId = customerId, 
                 };
                 
             
-                db.CustomerAddresses.Add(address);
+                _db.CustomerAddresses.Add(address);
+                
+                
             
-                db.SaveChanges();
+                _db.SaveChanges();
             
                 return Ok("Insert Success");
             }
-            var updatecustomeraddress = db.CustomerAddresses.FirstOrDefault(ca =>ca.AddressIndex == data.AddressIndex);
-            if (updatecustomeraddress != null)
-            {
-                updatecustomeraddress.ReceiverName = data.ReceiverName;
-                updatecustomeraddress.ReceivePhone = data.ReceivePhone;
-                updatecustomeraddress.Province = data.Province;
-                updatecustomeraddress.City = data.City;
-                updatecustomeraddress.Block = data.Block;
-                updatecustomeraddress.DetailAddress = data.DetailAddress;
-                updatecustomeraddress.ZipCode = data.ZipCode;
-                db.SaveChanges();
-                return Ok("Update Success");
-            }
-
-            return BadRequest("Unable to Insert and Update");
+            var updateCustomerAddress = _db.CustomerAddresses.FirstOrDefault(ca =>ca.AddressIndex == data.AddressIndex);
+            if (updateCustomerAddress == null) return BadRequest("Unable to Insert and Update");
+            updateCustomerAddress.ReceiverName = data.ReceiverName;
+            updateCustomerAddress.ReceivePhone = data.ReceivePhone;
+            updateCustomerAddress.Province = data.Province;
+            updateCustomerAddress.City = data.City;
+            updateCustomerAddress.Block = data.Block;
+            updateCustomerAddress.DetailAddress = data.DetailAddress;
+            updateCustomerAddress.ZipCode = data.ZipCode;
+            _db.SaveChanges();
+            return Ok("Update Success");
 
         }
 
@@ -90,20 +87,20 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
-            int sellseId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
-            if (sellseId < 0)
+            var sellerId = SellerSession.GetSellerIdFromSession(int.Parse(session.Value));
+            if (sellerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录");
             }
 
             DestinationAddressInfo[] destinationAddressInfos =
-                TransactAddress.SellerGetAllTransactsDestinationAddressInfos(sellseId);
+                TransactAddress.SellerGetAllTransactsDestinationAddressInfos(sellerId);
             if (destinationAddressInfos.Length == 0)
             {
-                return BadRequest("No Address Found");
+                return BadRequest("找不到对应地址！");
             }
 
             return Ok(destinationAddressInfos);
@@ -112,7 +109,12 @@ namespace EBook.Controllers
 
         public class GetRequest
         {
-            public int AddressIndex;
+            public readonly int AddressIndex;
+
+            public GetRequest(int addressIndex)
+            {
+                AddressIndex = addressIndex;
+            }
         }
 
         [HttpPost]
@@ -124,7 +126,7 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
             
-            var address = db.CustomerAddresses.Find(data.AddressIndex);
+            var address = _db.CustomerAddresses.Find(data.AddressIndex);
             if (address == null)
             {
                 return NotFound();

@@ -16,7 +16,7 @@ namespace EBook.Controllers
 {
     public class CollectController : ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
 
         //insert update
@@ -31,39 +31,39 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
             
             int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
-            if (db.Collects.Find(customerId,data.MerchandiseId) == null)
+            if (_db.Collects.Find(customerId,data.MerchandiseId) == null)
             {
                 Collect collect = new Collect
                 {
                     CustomerId = customerId,
                     MerchandiseId = data.MerchandiseId,
-                    CollectTime = data.CollectTime,
+                    CollectTime = DateTime.Now,
                 };
                 
-                db.Collects.Add(collect);
-                db.SaveChanges();
+                _db.Collects.Add(collect);
+                _db.SaveChanges();
 
-                return Ok("Insert Success");
+                return Ok("收藏成功！");
             }
 
-            var updatecollect = db.Collects.FirstOrDefault(c => c.CustomerId == customerId && c.MerchandiseId == data.MerchandiseId);
-            if (updatecollect != null)
+            var updateCollect = _db.Collects.FirstOrDefault(c => c.CustomerId == customerId && c.MerchandiseId == data.MerchandiseId);
+            if (updateCollect != null)
             {
-                updatecollect.CollectTime = data.CollectTime;
-                updatecollect.IsValid = data.IsValid;
-                db.SaveChanges();
-                return Ok("Update Success");
+                updateCollect.CollectTime = DateTime.Now;
+                updateCollect.IsValid = data.IsValid;
+                _db.SaveChanges();
+                return Ok("更新收藏成功！");
             }
 
-            return BadRequest("Unable to Insert and Update");
+            return BadRequest("请重新收藏！");
 
         }
 

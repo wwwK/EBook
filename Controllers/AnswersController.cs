@@ -15,7 +15,7 @@ namespace EBook.Controllers
 {
     public class AnswerController : ApiController
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
 
         //insert update
@@ -30,50 +30,53 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
-            int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
+            var customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录");
             }
 
-            if (db.Answers.Find(data.AnswerId) == null)
+            if (_db.Answers.Find(data.AnswerId) == null)
             {
                 Answer answer = new Answer    
                 {
-                    AnswerId = data.AnswerId,
                     CustomerId = customerId,
                     QuestionAnsweredId = data.QuestionAnsweredId,
-                    SubmitTime = data.SubmitTime,
+                    SubmitTime = DateTime.Now,
                     Content = data.Content,
                 };
 
 
-                db.Answers.Add(answer);
-                db.SaveChanges();
+                _db.Answers.Add(answer);
+                _db.SaveChanges();
 
-                return Ok("Insert Success");
+                return Ok("添加回答成功");
             }
 
-            var updateanswer = db.Answers.FirstOrDefault(a => a.AnswerId == data.AnswerId);
-            if (updateanswer != null)
-            {
-                updateanswer.SubmitTime = data.SubmitTime;
-                updateanswer.Content = data.Content;
-                updateanswer.IsValid = data.IsValid;
-                db.SaveChanges();
-                return Ok("Update Success");
-            }
+            var updateAnswer = _db.Answers.FirstOrDefault(a => a.AnswerId == data.AnswerId);
 
-            return BadRequest("Unable to Insert and Update");
+
+            if (updateAnswer == null) return BadRequest("Unable to Insert and Update");
+            updateAnswer.SubmitTime = DateTime.Now;
+            updateAnswer.Content = data.Content;
+            updateAnswer.IsValid = data.IsValid;
+            _db.SaveChanges();
+            return Ok("更新回答成功！");
+
         }
 
 
         public class GetRequest
         {
-            public int AnswerId;
+            public readonly int AnswerId;
+
+            public GetRequest(int answerId)
+            {
+                AnswerId = answerId;
+            }
         }
 
         //get ok
@@ -85,7 +88,7 @@ namespace EBook.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var answer = db.Answers.Find(data.AnswerId);
+            var answer = _db.Answers.Find(data.AnswerId);
             if (answer == null)
             {
                 return NotFound();

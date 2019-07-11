@@ -1,9 +1,7 @@
 
 using System;
-using System.Collections.Specialized;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -19,7 +17,7 @@ namespace EBook.Controllers
 {
     public class AuthSellerController:ApiController
     {
-        private static OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
         public class LoginData
         {
@@ -28,19 +26,23 @@ namespace EBook.Controllers
             public readonly string Password;
             //注册=0，修改资料=1
             public readonly int EmailStatus;
-            
-            
-            public string ValidateCode;
 
-            public LoginData(string email, string password, int emailStatus)
+            public readonly string Phone;
+            public readonly string ValidateCode;
+
+            public LoginData(string email, string password, int emailStatus, string phone, string validateCode)
             {
                 Email = email;
                 Password = password;
                 EmailStatus = emailStatus;
+                Phone = phone;
+                ValidateCode = validateCode;
             }
         }
         
 
+        
+        
         
         [HttpPost]
         [Route("api/SellerSendMail")]
@@ -48,17 +50,17 @@ namespace EBook.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest("Email Invalid.");
+                return BadRequest("请输入正确的邮件格式！");
             }
 
-            var result = from seller in db.Sellers
+            var result = from seller in _db.Sellers
                 where seller.SellerEmail == data.Email
                 select seller;
 
             // 邮箱已存在
             if (result.Any() && data.EmailStatus == 0)
             {
-                return BadRequest("Email exist");
+                return BadRequest("邮箱已经被注册了");
             }
 
             EBook.Service.SellerEmailSend.SendVerifyCode(data.Email);
@@ -82,21 +84,21 @@ namespace EBook.Controllers
                 switch (tmpResult)
                 {
                     case -1:
-                        return BadRequest("Validate code not sent.");
+                        return BadRequest("请先点击发送验证码！");
                     case -2:
-                        return BadRequest("Wrong validate code.");
+                        return BadRequest("请输入正确的验证码！");
                     case -3:
-                        return BadRequest("Validate code expired.");
+                        return BadRequest("请重新发送验证码！");
                 }
             }
 
       
-            var updatedSeller = db.Sellers.FirstOrDefault(b => b.SellerEmail == data.Email);
+            var updatedSeller = _db.Sellers.FirstOrDefault(b => b.SellerEmail == data.Email);
             if (updatedSeller != null)
             {
                 updatedSeller.Password = EncryptProvider.Md5(data.Password);
-                db.SaveChanges();
-                return Ok("Update Success");
+                _db.SaveChanges();
+                return Ok("密码更改成功！");
             }
             else
             {
@@ -114,18 +116,26 @@ namespace EBook.Controllers
                 return BadRequest(ModelState);
             }
             
-            var result = (from seller in db.Sellers
+            var result = from seller in _db.Sellers
                 where seller.SellerEmail == data.Email
-                select seller).ToArray();
+                select seller;
 
-            if (result.Length == 0)
+            if (!result.Any())
             {
-                return BadRequest("Fuck you");
+
+                 result = from seller in _db.Sellers
+                    where seller.SellerPhone == data.Phone
+                    select seller;
+                 if (!result.Any())
+                 {
+                     return NotFound(); 
+                 }
+                 
             }
             var hashed = EncryptProvider.Md5(data.Password);
             if (result.First().Password != hashed)
             {
-                return BadRequest("Password incorrect.");
+                return BadRequest("密码不正确！");
             }
             
             var cookie = new HttpCookie("sessionId")
@@ -133,6 +143,7 @@ namespace EBook.Controllers
                 Value = SellerSession.SetSessionId(result.First().SellerId).ToString(),
                 Expires = DateTime.Now.AddHours(1)
             };
+            
             
             HttpContext.Current.Response.Cookies.Add(cookie);
             
@@ -159,7 +170,7 @@ namespace EBook.Controllers
            
             HttpContext.Current.Response.Cookies.Remove("sessionId");
             
-            return Ok(HttpContext.Current.Request.Cookies);
+            return Ok();
         }
 
 

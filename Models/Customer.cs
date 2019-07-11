@@ -41,7 +41,6 @@ namespace EBook.Models
 
         [Index]
         [Index(IsUnique = true)]
-        [Required]
         [MaxLength(20)]
         [EmailAddress]
         public string Email { get; set; }
@@ -49,21 +48,17 @@ namespace EBook.Models
         
  
         [Index(IsUnique = true)]
-        [Required]
         [Phone]
         [MaxLength(11)]
         public string PhoneNum{ get; set; }
         
+        
         [NotMapped]
-        public string BirthDayDate
-        {
-            get
-            {
-                return DateOfBirth.Date.ToString("dd/MM/yyyy");
-            }
+        public int Age {
+            get { return (int)((int)(DateTime.Now - this.DateOfBirth).TotalDays / 365); }  
         }
         
-        [JsonIgnore]
+        
         public DateTime DateOfBirth{ get; set; }
         
         
@@ -78,23 +73,16 @@ namespace EBook.Models
         public string AvatarPath { set; get; }
 
         
+        [MaxLength(10)]
+        public string Gender { set; get; }
         
-        [JsonIgnore]
-        public ICollection<CustomerAddress> CustomerAddresses { get; set; }
-        
-                        
-        
-        [JsonIgnore]
-        public ICollection<Answer> Answers { get; set; }
-
-        
-        [JsonIgnore]
-        public ICollection<Question> Questions { get; set; }
-
 
         public Customer()
         {
             IsValid = 1;
+//            DefaultAddressIndex = 0;
+//            Point = 0;
+//            AvatarPath = "customer_avatar";
         }
         
         

@@ -3,6 +3,8 @@ using System.Web;
 using System.Web.Http;
 using EBook.Models;
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -16,13 +18,19 @@ namespace EBook.Controllers
 {
     public class CustomerController : ApiController, IRequiresSessionState
     {
-        private OracleDbContext db = new OracleDbContext();
+        private readonly OracleDbContext _db = new OracleDbContext();
 
 
         public class RegisterData
         {
-            public Customer CustomerData;
-            public string ValidateCode;
+            public readonly Customer CustomerData;
+            public readonly string ValidateCode;
+
+            public RegisterData(Customer customerData, string validateCode)
+            {
+                CustomerData = customerData;
+                ValidateCode = validateCode;
+            }
         }
 
         [HttpPost]
@@ -35,35 +43,52 @@ namespace EBook.Controllers
             }
 
             var tmpResult = Service.EmailSend.CheckVerifyCode(data.CustomerData.Email, data.ValidateCode);
+            
+            
             if (tmpResult != 0)
             {
                 switch (tmpResult)
                 {
                     case -1:
-                        return BadRequest("Validate code not sent.");
+                        tmpResult = Service.SmsSend.CheckVerifyCode(data.CustomerData.PhoneNum, data.ValidateCode);
+                        if (tmpResult != 0)
+                        {
+                            switch (tmpResult)
+                            {
+                                case -1:
+                                    return BadRequest("请先点击发送验证码！");
+                                case -2:
+                                    return BadRequest("验证码错误，请输入正确的验证码！");
+                                case -3:
+                                    return BadRequest("请重新发送验证码！");
+                            }
+                        }
+
+                        break;
                     case -2:
-                        return BadRequest("Wrong validate code.");
+                        return BadRequest("验证码错误，请输入正确的验证码！");
                     case -3:
-                        return BadRequest("Validate code expired.");
+                        return BadRequest("请重新发送验证码！");
                 }
             }
 
-            Customer customer = new Customer()
+            var customer = new Customer()
             {
                 RealName = data.CustomerData.RealName,
                 NickName = data.CustomerData.NickName,
-                DefaultAddressIndex = data.CustomerData.DefaultAddressIndex,
                 IdCardNum = data.CustomerData.IdCardNum,
                 Email = data.CustomerData.Email,
-                PhoneNum = data.CustomerData.PhoneNum,
                 DateOfBirth = data.CustomerData.DateOfBirth,
-                Point = data.CustomerData.Point,
-                Password = EncryptProvider.Md5(data.CustomerData.Password)
+                PhoneNum = data.CustomerData.PhoneNum,
+                Password = EncryptProvider.Md5(data.CustomerData.Password),
+                Gender = data.CustomerData.Gender,
             };
 
-            var inserted = db.Customers.Add(customer);
+            var inserted = _db.Customers.Add(customer);
 
-            db.SaveChanges();
+           
+                _db.SaveChanges();
+           
 
             var cookie = new HttpCookie("sessionId")
             {
@@ -80,7 +105,7 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/GetCustomer")]
-        public IHttpActionResult GetCustomer()
+        public IHttpActionResult GetCustomer(Customer data)
         {
             if (!ModelState.IsValid)
             {
@@ -90,16 +115,18 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
-            int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
+            var customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
-            var customer = db.Customers.Find(customerId);
+            var customer = _db.Customers.Find(data.CustomerId);
+
+
             if (customer == null)
             {
                 return NotFound();
@@ -110,13 +137,19 @@ namespace EBook.Controllers
 
         public class UpdateInfo
         {
-            public string RealName;
-            public string NickName;
-            public int DefaultAddressIndex;
-            public string IdCardNum;
+            public readonly string NickName;
+            public readonly int DefaultAddressIndex;
             public DateTime DateOfBirth;
-            public int Point;
-            public string AvatarPath;
+            public readonly int Point;
+            public const int IsValid = 1;
+
+            public UpdateInfo(string nickName, int defaultAddressIndex, DateTime dateOfBirth, int point)
+            {
+                NickName = nickName;
+                DefaultAddressIndex = defaultAddressIndex;
+                DateOfBirth = dateOfBirth;
+                Point = point;
+            }
         }
 
         [HttpPost]
@@ -131,29 +164,25 @@ namespace EBook.Controllers
             var session = HttpContext.Current.Request.Cookies.Get("sessionId");
             if (session == null)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
             int customerId = CustomerSession.GetCustomerIdFromSession(int.Parse(session.Value));
             if (customerId < 0)
             {
-                return BadRequest("Not Login");
+                return BadRequest("请先登录！");
             }
 
-            var updatecustomer = db.Customers.FirstOrDefault(c => c.CustomerId == customerId);
-            if (updatecustomer != null)
-            {
-                updatecustomer.NickName = data.NickName;
-                updatecustomer.DefaultAddressIndex = data.DefaultAddressIndex;
-                updatecustomer.IdCardNum = data.IdCardNum;
-                updatecustomer.DateOfBirth = data.DateOfBirth;
-                updatecustomer.Point = data.Point;
-                updatecustomer.AvatarPath = data.AvatarPath;
-                db.SaveChanges();
-                return Ok("Update Success");
-            }
+            var updateCustomer = _db.Customers.FirstOrDefault(c => c.CustomerId == customerId);
+            if (updateCustomer == null) return BadRequest("请重新更新用户！");
+            updateCustomer.NickName = data.NickName;
+            updateCustomer.DefaultAddressIndex = data.DefaultAddressIndex;
+            updateCustomer.DateOfBirth = data.DateOfBirth;
+            updateCustomer.Point = data.Point;
+            updateCustomer.IsValid = UpdateInfo.IsValid;
+            _db.SaveChanges();
+            return Ok("用户数据更新成功！");
 
-            return BadRequest("Unable to Insert and Update");
         }
     }
 }
