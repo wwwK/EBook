@@ -52,7 +52,7 @@ namespace EBook.Controllers
             Question updatedQuestion = db.Questions.FirstOrDefault(q => q.QuestionId == question.QuestionId);
             if (updatedQuestion != null)
             {
-                updatedQuestion = question;
+                updatedQuestion.IsValid = 0;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }

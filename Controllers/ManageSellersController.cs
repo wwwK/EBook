@@ -54,7 +54,7 @@ namespace EBook.Controllers
             Seller updatedSeller = db.Sellers.FirstOrDefault(s => s.SellerId == seller.SellerId);
             if (updatedSeller != null)
             {
-                updatedSeller = seller;
+                updatedSeller.IsValid = 0;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }

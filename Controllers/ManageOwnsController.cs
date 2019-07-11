@@ -52,7 +52,7 @@ namespace EBook.Controllers
             Own updatedOwn = db.Owns.FirstOrDefault(o => o.CustomerId == own.CustomerId && o.CouponId == own.CouponId);
             if (updatedOwn != null)
             {
-                updatedOwn = own;
+                updatedOwn.IsValid = 0;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }

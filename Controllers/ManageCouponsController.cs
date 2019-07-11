@@ -52,7 +52,7 @@ namespace EBook.Controllers
             Coupon updatedCoupon = db.Coupons.FirstOrDefault(c => c.CouponId == coupon.CouponId);
             if (updatedCoupon != null)
             {
-                updatedCoupon = coupon;
+                updatedCoupon.IsValid = 0;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }

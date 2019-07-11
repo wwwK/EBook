@@ -54,7 +54,7 @@ namespace EBook.Controllers
             Customer updatedCustomer = db.Customers.FirstOrDefault(c => c.CustomerId == customer.CustomerId);
             if (updatedCustomer != null)
             {
-                updatedCustomer = customer;
+                updatedCustomer.IsValid = 0;
                 db.SaveChanges();
                 return Ok("更新成功！");
             }
