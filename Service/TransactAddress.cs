@@ -48,7 +48,7 @@ namespace EBook.Service
                 join transact in transactsArray on customerAddress.AddressIndex equals transact.DestinationAddressIndex
                 join sellerAddress in sellerAddressesArray on transact.SourceAddressIndex equals sellerAddress
                     .AddressIndex 
-                where transact.TransactId == transactId // && transactAdd.Status > 0        //todo
+                where transact.TransactId == transactId 
                 select new TransactAddressInfo
                 {
                     ReceiverName = customerAddress.ReceiverName,

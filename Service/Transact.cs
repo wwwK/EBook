@@ -39,7 +39,7 @@ namespace EBook.Service
             Transact[] transactsArray = db.Transacts.ToArray();
             IEnumerable<Transact> selectedTransacts =
                 from transact in transactsArray
-                where transact.CustomerId == customerId // && transact.Status 
+                where transact.CustomerId == customerId 
                 select transact;
             return selectedTransacts.ToArray();
         }
