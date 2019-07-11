@@ -151,25 +151,7 @@ namespace EBook.Controllers
             return Ok();
         }
 
-
-        [HttpPost]
-        [Route("api/Logout")]
-        public IHttpActionResult Logout()
-        {
-            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
-            if (session == null)
-            {
-                return Ok();
-            }
-
-            CustomerSession.RemoveCustomerIdFromSession(int.Parse(session.Value));
-            HttpContext.Current.Response.Cookies.Remove("sessionId");
-
-            return Ok();
-        }
-        
-        
-        public class WeChatRequest
+        public class WechatRequest
         {
             public string id;
             public string password;
@@ -179,6 +161,7 @@ namespace EBook.Controllers
         {
             public string title;
             public string key;
+            public string picPath;
         }
         
         public class WechatResponse
@@ -187,11 +170,43 @@ namespace EBook.Controllers
             public WechatEbookInfo[] result;
             public string error;
         }
-        
+
+        private IHttpActionResult WechatDataCollect(int customerId)
+        {
+            var result =
+                (from transact in _db.Transacts
+                    where transact.CustomerId == customerId
+                    join merchandise in _db.Merchandises on transact.MerchandiseId equals merchandise.MerchandiseId
+                    join book in _db.Books on merchandise.ISBN equals book.ISBN
+                    where book.Publisher != null
+                    select new WechatEbookInfo()
+                    {
+                        title = book.Title,
+                        key = book.Publisher,
+                        picPath = book.ImagePath
+                    });
+
+            if (result.Any())
+            {
+                return Ok(new WechatResponse()
+                {
+                    ok = true,
+                    result = result.ToArray()
+                });
+            }
+            else
+            {
+                return Ok(new WechatResponse()
+                {
+                    ok = false,
+                    error = "Not Found."
+                });
+            }
+        }
         
         [HttpPost]
         [Route("api/WechatMiniPhoneLogin")]
-        public IHttpActionResult WechatMiniPhoneLogin(WeChatRequest data)
+        public IHttpActionResult WechatMiniPhoneLogin(WechatRequest data)
         {
             if (!ModelState.IsValid)
             {
@@ -217,28 +232,12 @@ namespace EBook.Controllers
                 });
             }
 
-            var result =
-                (from transact in _db.Transacts
-                where transact.CustomerId == user.CustomerId
-                join merchandise in _db.Merchandises on transact.MerchandiseId equals merchandise.MerchandiseId
-                join book in _db.Books on merchandise.ISBN equals book.ISBN
-                where book.EBookKey != null
-                select new WechatEbookInfo()
-                {
-                    title = book.Title,
-                    key = book.EBookKey
-                }).ToArray();
-
-            return Ok(new WechatResponse()
-            {
-                ok = true,
-                result = result
-            });
+            return WechatDataCollect(user.CustomerId);
         }
-       
+        
         [HttpPost]
         [Route("api/WechatMiniEmailLogin")]
-        public IHttpActionResult WechatMiniEmailLogin(WeChatRequest data)
+        public IHttpActionResult WechatMiniEmailLogin(WechatRequest data)
         {
             if (!ModelState.IsValid)
             {
@@ -263,24 +262,24 @@ namespace EBook.Controllers
                     error = "Wrong password."
                 });
             }
+            
+            return WechatDataCollect(user.CustomerId);
+        }
 
-            var result =
-                (from transact in _db.Transacts
-                    where transact.CustomerId == user.CustomerId
-                    join merchandise in _db.Merchandises on transact.MerchandiseId equals merchandise.MerchandiseId
-                    join book in _db.Books on merchandise.ISBN equals book.ISBN
-                    where book.EBookKey != null
-                    select new WechatEbookInfo()
-                    {
-                        title = book.Title,
-                        key = book.EBookKey
-                    }).ToArray();
-
-            return Ok(new WechatResponse()
+        [HttpPost]
+        [Route("api/Logout")]
+        public IHttpActionResult Logout()
+        {
+            var session = HttpContext.Current.Request.Cookies.Get("sessionId");
+            if (session == null)
             {
-                ok = true,
-                result = result
-            });
+                return Ok();
+            }
+
+            CustomerSession.RemoveCustomerIdFromSession(int.Parse(session.Value));
+            HttpContext.Current.Response.Cookies.Remove("sessionId");
+
+            return Ok();
         }
     }
 }

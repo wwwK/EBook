@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EBook</RootNamespace>
     <AssemblyName>EBook</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -42,6 +42,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="aliyun-net-sdk-core, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>packages\aliyun-net-sdk-core.1.5.1\lib\net45\aliyun-net-sdk-core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Aqua, Version=4.0.0.0, Culture=neutral, PublicKeyToken=82d6c51b67e8b655">
       <HintPath>packages\aqua-core.4.5.1\lib\net451\Aqua.dll</HintPath>
       <Private>True</Private>
@@ -128,14 +132,23 @@
       <HintPath>packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
       <Private>True</Private>
@@ -246,13 +259,20 @@
     <Compile Include="Controllers\CustomerAddressesController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\CustomerSmsController.cs" />
+    <Compile Include="Controllers\DataProcessingController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogisticController.cs" />
+    <Compile Include="Controllers\ManageAnswersController.cs" />
+    <Compile Include="Controllers\ManageBooksController.cs" />
+    <Compile Include="Controllers\ManageCustomersController.cs" />
+    <Compile Include="Controllers\ManageSellersController.cs" />
     <Compile Include="Controllers\MerchandisesController.cs" />
+    <Compile Include="Controllers\NewController.cs" />
     <Compile Include="Controllers\OwnsController.cs" />
     <Compile Include="Controllers\QuestionAnswerController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
+    <Compile Include="Controllers\SellerAddressesController.cs" />
     <Compile Include="Controllers\SellersController.cs" />
     <Compile Include="Controllers\SellerSmsController.cs" />
     <Compile Include="Controllers\ShoppingCartsController.cs" />
@@ -279,8 +299,10 @@
     <Compile Include="Models\Transact.cs" />
     <Compile Include="Models\VipMember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Address.cs" />
     <Compile Include="Service\BookSearch.cs" />
     <Compile Include="Service\CouponSearch.cs" />
+    <Compile Include="Service\DataProcessing.cs" />
     <Compile Include="Service\EmailSend.cs" />
     <Compile Include="Service\FileUploadAuthorize.cs" />
     <Compile Include="Service\MD5Helper.cs" />
@@ -291,6 +313,7 @@
     <Compile Include="Service\SellerSmsSend.cs" />
     <Compile Include="Service\ShopName.cs" />
     <Compile Include="Service\ShoppingCart.cs" />
+    <Compile Include="Service\Sms.cs" />
     <Compile Include="Service\SmsSend.cs" />
     <Compile Include="Service\Transact.cs" />
     <Compile Include="Service\TransactAddress.cs" />
@@ -382,7 +405,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
   </Target>
+  <Import Project="packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
          Other similar extension points exist, see Microsoft.Common.targets.
     <Target Name="BeforeBuild">

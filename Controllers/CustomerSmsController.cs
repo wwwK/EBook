@@ -46,9 +46,7 @@ namespace EBook.Controllers
         [Route("api/Sms")]
         public IHttpActionResult Sms(SmsData data)
         {
-            EBook.Service.SmsSend.SendVerifyCode(data.Phone);
-
-
+            
             var result = from customer in _db.Customers
                 where customer.PhoneNum == data.Phone
                 select customer;

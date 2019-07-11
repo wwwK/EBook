@@ -28,7 +28,6 @@ namespace EBook.Service
                 ValidThrough = validThrough;
             }
         }
-
         
         private static Dictionary<string, VerifyRecord> _records = new Dictionary<string, VerifyRecord>();
 
@@ -55,13 +54,12 @@ namespace EBook.Service
             }
             
             
-            
-            
             try
             {
                 SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
 
 
+                SmsService.Sms(phoneNum,verifyCode);
                 var results = ssender.sendWithParam("86", phoneNum,
                     templateId, new[]{verifyCode, "5"}, smsSign, "", "");// 签名参数未提供或者为空时，会使用默认签名发送短信
                 Console.WriteLine(results);
