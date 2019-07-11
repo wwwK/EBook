@@ -55,6 +55,8 @@ namespace EBook.Controllers
                     Amount = data.Amount,
                     LogisticTrackNum = null,
                     Comment = null,
+                    SourceAddressIndex = data.SourceAddressIndex,
+                    DestinationAddressIndex = data.DestinationAddressIndex,
                     CommentTime = new DateTime(1970,1,1),
                 };
 
