@@ -108,36 +108,7 @@ namespace EBook.Controllers
 
             return Ok();
         }
-        /*
-        [HttpPost]
-        [Route("api/Seller/1")]
-        public IHttpActionResult InsertSeller(Seller data)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            
-            Seller seller = new Seller
-            {
-                SellerId = data.SellerId,
-                Password = data.Password,
-                ShopName = data.ShopName,
-                CreditLevel = data.CreditLevel,
-                ShopDescription = data.ShopDescription,
-                SellerPhone = data.SellerPhone,
 
-            };
-
-            db.Sellers.Add(seller);
-            
-
-            db.SaveChanges();
-            
-
-            return Ok();
-        }
-*/
         public class GetRequest
         {
             public int SellerId;

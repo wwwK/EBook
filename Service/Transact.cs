@@ -58,17 +58,16 @@ namespace EBook.Service
             Transact[] transactsArray = db.Transacts.ToArray();
             IEnumerable<CommentInfo> selectedTransacts =
                 from merchandise in merchandisesArray
-                join transact in transactsArray on merchandise.MerchandiseId equals transact.MerchandiseId into
-                    merchanTransactsArray
-                from merchanTransact in merchanTransactsArray join customer in customersArray on merchanTransact.CustomerId equals customer.CustomerId into merchanCusArray
-                from customer in customersArray
-                where merchanTransact.MerchandiseId == merchandiseId && merchanTransact.Status > 0 
+                join transact in transactsArray on merchandise.MerchandiseId equals transact.MerchandiseId 
+                 join customer in customersArray on transact.CustomerId equals customer.CustomerId 
+                
+                where merchandise.MerchandiseId == merchandiseId && transact.Status > 0 
                 select new CommentInfo
                 {
                     NickName = customer.NickName,
                     MerchandiseId = merchandise.MerchandiseId,
-                    Comment = merchanTransact.Comment,
-                    CommentTime = merchanTransact.CommentTime,
+                    Comment = transact.Comment,
+                    CommentTime = transact.CommentTime,
                 };
             return selectedTransacts.ToArray();
         }

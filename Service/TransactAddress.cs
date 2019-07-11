@@ -46,12 +46,9 @@ namespace EBook.Service
             IEnumerable<TransactAddressInfo> selectedAddressInfos =
                 from customerAddress in customerAddressesArray
                 join transact in transactsArray on customerAddress.AddressIndex equals transact.DestinationAddressIndex
-                    into transactAddArray
-                from transactAdd in transactAddArray
-                join sellerAddress in sellerAddressesArray on transactAdd.SourceAddressIndex equals sellerAddress
-                    .AddressIndex into sellerAddressArray
-                from sellerAddress in sellerAddressesArray
-                where transactAdd.TransactId == transactId // && transactAdd.Status > 0        //todo
+                join sellerAddress in sellerAddressesArray on transact.SourceAddressIndex equals sellerAddress
+                    .AddressIndex 
+                where transact.TransactId == transactId // && transactAdd.Status > 0        //todo
                 select new TransactAddressInfo
                 {
                     ReceiverName = customerAddress.ReceiverName,
@@ -65,7 +62,7 @@ namespace EBook.Service
                     DestinationProvince = sellerAddress.Province,
                     DestinationCity = sellerAddress.City,
                     DestinationBlock = sellerAddress.Block,
-                    LogisticTrackNum = transactAdd.LogisticTrackNum,
+                    LogisticTrackNum = transact.LogisticTrackNum,
 
                 };
             

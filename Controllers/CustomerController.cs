@@ -105,7 +105,7 @@ namespace EBook.Controllers
 
         [HttpPost]
         [Route("api/GetCustomer")]
-        public IHttpActionResult GetCustomer(Customer data)
+        public IHttpActionResult GetCustomer()
         {
             if (!ModelState.IsValid)
             {
@@ -124,7 +124,7 @@ namespace EBook.Controllers
                 return BadRequest("请先登录！");
             }
 
-            var customer = _db.Customers.Find(data.CustomerId);
+            var customer = _db.Customers.Find(customerId);
 
 
             if (customer == null)

@@ -22,18 +22,10 @@ using System.Threading.Tasks;
          public class SearchDate
          {
              public readonly string Title;
-             public readonly string Author;
-             public readonly string Publisher;
-             public readonly string ISBN;
-             public readonly string ShopName;
 
-             public SearchDate(string title, string author, string publisher, string isbn, string shopName)
+             public SearchDate(string title)
              {
                  Title = title;
-                 Author = author;
-                 Publisher = publisher;
-                 ISBN = isbn;
-                 ShopName = shopName;
              }
          }
 
@@ -51,35 +43,10 @@ using System.Threading.Tasks;
                  return BadRequest(ModelState);
              }
 
-             int changed = 0;
-             BookInfo[] books = BookSearch.BookSearchWithTitle("");
-             if (data.Title != null)
-             {
-                 changed = 1;
-                 books = books.Intersect(BookSearch.BookSearchWithTitle(data.Title)).ToArray();
-             }
-             if (data.Author != null)
-             {
-                 changed = 1;
-                 books = books.Intersect(BookSearch.BookSearchWithAuther(data.Author)).ToArray();
-             }
-             if (data.Publisher != null)
-             {
-                 changed = 1;
-                 books = books.Intersect(BookSearch.BookSearchWithPublisher(data.Publisher)).ToArray();
-             }
-             if (data.ISBN != null)
-             {
-                 changed = 1;
-                 books = books.Intersect(BookSearch.BookSearchWithIsnb(data.ISBN)).ToArray();
-             }
-             if (data.Title != null)
-             {
-                 changed = 1;
-                 books = books.Intersect(BookSearch.BookSearchWithShopName(data.ShopName)).ToArray();
-             }
              
-             if (books.Length == 0 || changed == 0)
+             BookInfo[] books = BookSearch.BookSearchWithTitle(data.Title);
+             
+             if (books.Length == 0 )
              {
                  return BadRequest("没有找到书籍！");
              }
